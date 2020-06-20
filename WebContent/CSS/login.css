@@ -33,3 +33,13 @@
 		margin-top: 20px;
 		margin-left: 50px;
 	}
+	
+	h1 {
+		top: 20%;
+		position: absolute;
+		font-size: 50px;
+		width: 100%;
+		text-align: center;
+		color: white;
+		text-shadow: 2px 2px #000000;
+	}
