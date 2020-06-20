@@ -39,13 +39,13 @@
 						<s:form action="arrived.action?productIn.id=<s:property value="#prodIn.id"/>" method="post" theme="simple" class="anchored" target="_parent" >
 							<s:submit value="On shipping" class="btn btn-success"/>
 						</s:form> --%>
-						<td><a href="arrived.action?productIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success">On shipping</a></td>
+						<td><a href="productInUpdate.action?prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td>
 						</td>
 						
 						<%-- <td align="center"><s:property value="#prodIn.status" /></td> --%>
 						<td align="center"><s:property value="#prodIn.buying_price" /></td>
 						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
-						<td><a href="#" class="btn btn-primary">Edit</a></td>
+						<td><a href="productInEdit.action?prodIn.id=<s:property value="#prodIn.id" />" class="btn btn-primary">Edit</a></td>
 						<td align="center"><s:property value="#prodIn.date" /></td>
 					</tr>
 				</s:iterator>

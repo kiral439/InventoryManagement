@@ -9,5 +9,5 @@ public interface ProductInDao {
 	public List getAll();
   
 //	public void update(ProductIn prodIn);
-	public void update(String status, Integer productIn_id);
+	public void update(ProductIn productIn);
 }

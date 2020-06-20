@@ -32,6 +32,11 @@
 			<result name="success">productInList.jsp</result>
 		</action>
 		
+		<action name="productInUpdate" class="org.action.ProductInAction" method="update">
+			<result name="success">productInList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
 		<action name="getAllProductOut" class="org.action.ProductOutAction">
 			<result name="success">productOutList.jsp</result>
 		</action>
