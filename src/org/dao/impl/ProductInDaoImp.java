@@ -32,6 +32,7 @@ public class ProductInDaoImp implements ProductInDao{
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();	
+			List list=Hsession.createQuery("from ProductIn").list();	
 			ts.commit();
 			return list;
 		}catch(Exception e){
@@ -39,6 +40,7 @@ public class ProductInDaoImp implements ProductInDao{
 			return null;
 		}
 	}
+
 	public void update(String status, Integer prodIn_id) {
 		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFactory= cfg.buildSessionFactory();
@@ -62,5 +64,5 @@ public class ProductInDaoImp implements ProductInDao{
 //		query.executeUpdate();
 //		ts.commit();
 	}
-	
+
 }

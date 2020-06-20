@@ -22,9 +22,12 @@
         <property name="status" type="java.lang.String">
             <column name="status" length="50"/>
         </property>
-		<property name="date" type="java.sql.Date">
+		    <property name="date" type="java.sql.Date">
             <column name="date"/>
         </property>
+            <column name="status" />
+        </property>
+
         <!-- <set name="category_set" table="stu_cour" lazy="true" inverse="true">
         	<key column="prod_id"></key>
         	<many-to-many class="org.model.Product" column="SID"></many-to-many>

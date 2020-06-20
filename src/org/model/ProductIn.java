@@ -11,8 +11,8 @@ public class ProductIn{
 	private Integer quantity;
 	private Double buying_price;
 	private String status;
+
 	private Date date;
-	
 //	private Set course_set = new HashSet();	
 	//Constructors
 	/** default constructor */
@@ -20,6 +20,7 @@ public class ProductIn{
 	}
 	/** full constructor */
 	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status, Date date) {
+	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status) {
 		super();
 		this.prod_id = prod_id;
 		this.supplier = supplier;
@@ -66,12 +67,12 @@ public class ProductIn{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+  
 	public Date getDate() {
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
 	
 }
