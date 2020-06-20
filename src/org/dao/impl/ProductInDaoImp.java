@@ -41,28 +41,17 @@ public class ProductInDaoImp implements ProductInDao{
 		}
 	}
 
-	public void update(String status, Integer prodIn_id) {
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFactory= cfg.buildSessionFactory();
-        Session Hsession=sessionFactory.openSession();
-		Transaction ts=Hsession.beginTransaction();
-		Query query = Hsession.createQuery("UPDATE ProductIn p SET p.status = :status WHERE p.id = :prodIn_Id");
-		query.setParameter("status", "Arrived");
-		query.setParameter("prodIn_Id", prodIn_id);
-		query.executeUpdate();
-		
-//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-//        SessionFactory sessionFactory= cfg.buildSessionFactory();
-//        Session Hsession=sessionFactory.openSession();
-//		Transaction ts=Hsession.beginTransaction();
-////		System.out.println(productIn.getProd_id());
-////		Hsession.update(productIn);
-//		ts.commit();
-//		Query query = Hsession.createQuery("UPDATE ProductIn p SET p.status = :status WHERE p.id = :prodIn_Id");
-//		query.setParameter("status", status);
-//		query.setParameter("prodIn_Id", prodIn_id);
-//		query.executeUpdate();
-//		ts.commit();
+	public void update(ProductIn productIn) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Hsession.update(productIn);					
+			ts.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }
