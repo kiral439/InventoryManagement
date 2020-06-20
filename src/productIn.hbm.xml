@@ -22,10 +22,11 @@
         <property name="status" type="java.lang.String">
             <column name="status" length="50"/>
         </property>
-		    <property name="date" type="java.sql.Date">
-            <column name="date"/>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="50"/>
         </property>
-            <column name="status" />
+		<property name="date" type="java.sql.Date">
+            <column name="date"/>
         </property>
 
         <!-- <set name="category_set" table="stu_cour" lazy="true" inverse="true">
