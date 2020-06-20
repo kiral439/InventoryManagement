@@ -9,6 +9,7 @@ public class Category{
 	private String name;
 	private String code;
 
+	
 	public Integer getId() {
 		return this.id;
 	}
@@ -22,9 +23,8 @@ public class Category{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	public String getCode() {
-		return this.code;
+		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;

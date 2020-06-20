@@ -2,32 +2,31 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-	<title>Course Management System</title>
+	<title>Add Product</title>
 </head>
 <body bgcolor="#D9DFAA">
-	<!--上传文件时要加入黑体部分-->
-	<s:form action="updateStudent" method="post" enctype="multipart/form-data">
+	<s:form action="addProduct" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
-			<td>Student ID:</td>
+			<td colspan="2">Add Product:</td>
+		</tr>
+		<tr>
+			<td>Product ID:</td>
 			<td>
-				<input type="text" name="student.sid" value="<s:property value="#student.sid"/>" readOnly/>
+				<input type="text" name="product.sid" value="<s:property value="#product.sid"/>" readOnly/>
 			</td>
 		</tr>
 		<tr>
 			<td>Name:</td>
 			<td>
-				<input type="text" name="student.name" value="<s:property value="#student.name"/>" />
+				<input type="text" name="product.name" value="<s:property value="#product.name"/>" />
 			</td>
 		</tr>
 		<tr>
-			<s:radio list="#{1:'male',0:'female'}" value="#student.gender" label="Gender" name="student.gender"></s:radio>
-		</tr>
-		<tr>
-			<td>Category:</td>
+			<td>category:</td>
 			<td>
 				<select name="category.id">
-					<s:iterator id="category" value="#request.category">
+					<s:iterator id="category" value="#request.categories">
 						<option value="<s:property value="#category.id"/>">
 							<s:property value="#category.name"/>
 						</option>
@@ -36,31 +35,26 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Birthday:</td>
-			<td>
-				<input type="text" name="student.birthday" value="<s:property value="#student.birthday"/>"/>
-			</td>
-		</tr>
-		<tr>
-			<td>Remarks:</td>
-			<td>
-				<input type="text" name="student.remarks" value="<s:property value="#student.remarks"/>" />
-			</td>
-		</tr>
-		<tr>
-			<td>Total Credit:</td>
-			<td>
-				<input type="text" name="student.credit" value="<s:property value="#student.credit"/>" />
-			</td>
-		</tr>
-		<tr>
-			<td>Photo:</td>
+			<td>Product Image:</td>
 			<td>
 				<input type="file" name="photoFile"/>
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Edit"/></td>
+			<td>Stock:</td>
+			<td>
+				<input type="text" name="product.birthday" value="<s:property value="#product.birthday"/>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Description:</td>
+			<td>
+				<textarea name="product.remarks" value="<s:property value="#product.remarks"/>"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td><input type="submit" value="Add"/></td>
 		</tr>
 	</table>
 	</s:form>

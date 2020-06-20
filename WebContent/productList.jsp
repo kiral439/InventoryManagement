@@ -8,8 +8,8 @@
 <body>
 <h1 class="text-center text-uppercase">Product Lists</h1>
 <hr/>
+<div><a href="addProduct.jsp" class="btn btn-primary">Add Product<span class="glyphicon glyphicon-refresh"></span></a></div>
 <div class="p-5">
-<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></a>
     <table class="table table-bordered table-striped">
         <thead class="bg-warning">
             <th>Restore</th>
@@ -22,7 +22,7 @@
 
                 <tr>
                     <td>
-                        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></a>
+                        <a href="#" class="btn btn-primary">Restore<span class="glyphicon glyphicon-refresh"></span></a>
                     </td>
                     <td>title</td>
                     <td>price</td>

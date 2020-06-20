@@ -30,46 +30,18 @@
 	<details>
 		<summary>Product Inventory</summary>
 		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory A</a>
+			<a href="productList.jsp" target="right">Products Inventory A</a>
 		</p>
 		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory B</a>
+			<a href="productList.jsp" target="right">Products Inventory B</a>
 		</p>
 		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory C</a>
+			<a href="productList.jsp" target="right">Products Inventory C</a>
 		</p>
 	</details>
 	
-	<details>
-		<summary>Product Inventory</summary>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory A</a>
-		</p>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory B</a>
-		</p>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory C</a>
-		</p>
-	</details>
-	
-	<details>
-		<summary>Product Inventory</summary>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory A</a>
-		</p>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory B</a>
-		</p>
-		<p class="ml-4">
-			<a href="StudentInfo.action" target="right">Products Inventory C</a>
-		</p>
-	</details>
-	
-	<!-- <a action="logout" target="right" class="anchored">Log Out</a> -->
-	
-	<s:form action="logout" method="post" theme="simple" class="anchored" target="_parent">
-		<s:submit value="Log out"/>
+	<s:form action="logout" method="post" theme="simple" class="anchored" target="_parent" >
+		<s:submit value="Log out" class="btn btn-primary"/>
 	</s:form>
 	
 

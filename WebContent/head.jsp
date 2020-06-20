@@ -14,10 +14,7 @@
 
 <body>
 	<div class="centered">
-		<h1>INVENTORY MANAGEMENT SYSTEM</h1>
-		<s:form action="logout" method="post" theme="simple">
-			<s:submit value="Log out"/>
-		</s:form>
+		<a href="right.jsp" target="right"><h1>INVENTORY MANAGEMENT SYSTEM</h1>
 	</div>
 </body>
 </html>

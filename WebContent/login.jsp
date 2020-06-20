@@ -19,8 +19,9 @@
 				<s:password name="login.password" label="Password" size="22"></s:password>
 			</tr>
 			<tr>
-				<td align="left"><input type="submit" value="Login" /></td>
 				<td><input type="reset" value="reset" /></td>
+				<td align="left"><input type="submit" value="Login" /></td>
+				
 			</tr>
 		</table>
 	</s:form>
