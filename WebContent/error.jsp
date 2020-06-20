@@ -1,12 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+	<title>Inventory Management System</title>
+	
+	<link rel="stylesheet" href="CSS/error.css">
 </head>
 <body>
-	Error asdasdasd
+	<div class="container">
+		<div class="box">
+			<h1>404</h1>
+			<h3>PAGE NOT FOUND</h3>
+			<p class="para-box">
+			The page you are looking for might have been removed had<br>
+			its name changed or is temporarily unavailable<br>
+			</p>
+			<span class="homepage-box">
+			<a href="main.jsp">
+			RETURN</span>		
+			</a>
+		</div>
+	</div>
 </body>
 </html>
