@@ -32,13 +32,14 @@ public class ProductAction extends ActionSupport{
 		this.product = product;
 	}
 	
-//	public String execute()throws Exception{
-//		ProductDao courseDao=new ProductDaoImp();
-//		List prod_list=courseDao.getAll();			
-//		Map request=(Map)ActionContext.getContext().get("request");
-//		request.put("prod_list", prod_list);			
-//		return SUCCESS;
-//	}
+	public String execute()throws Exception{
+		ProductDao courseDao=new ProductDaoImp();
+		List prod_list=courseDao.getAll();			
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);			
+		return SUCCESS;
+	}
+	
 	public String getImage() throws Exception{
 		productDao=new ProductDaoImp();
 		byte[] photo=productDao.getOneProduct(product.getId()).getProd_img();	
@@ -69,8 +70,9 @@ public class ProductAction extends ActionSupport{
 			prod.setStock(product.getStock());
 			prod.setDescription(product.getDescription());
 			
-			Hsession.save(prod);
-			ts.commit();
+//			Hsession.save(prod);
+//			ts.commit();
+			productDao.save(prod);
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -86,30 +88,3 @@ public class ProductAction extends ActionSupport{
 		
 		
 	}
-//	public String updateStudent() throws Exception{
-//		studentDao=new StudentDaoImp();
-//		MajorDao majorDao=new MajorDaoImp();
-//		Student stu=new Student();					
-//		stu.setSid(student.getSid());					
-//		stu.setName(student.getName());					
-//		stu.setGender(student.getGender());					
-//		stu.setBirthday(student.getBirthday());				
-//		stu.setCredit(student.getCredit());					
-//		stu.setRemarks(student.getRemarks());					
-//	
-//		if(this.getPhotoFile()!=null){
-//			FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-//			byte[] buffer=new byte[fis.available()];	
-//			fis.read(buffer);					
-//			stu.setPhoto(buffer);
-//		}
-//		Major mj=majorDao.getOneMajor(major.getMid());
-//		
-//		stu.setMajor(mj);
-//		
-//		Set list=studentDao.getOneStudent(student.getSid()).getCourse_set();
-//		stu.setCourse_set(list);						
-//		studentDao.update(stu);				
-//		return SUCCESS;
-//	}
-}
