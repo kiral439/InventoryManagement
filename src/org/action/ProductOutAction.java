@@ -13,30 +13,28 @@ import org.dao1.*;
 import org.model.*;
 import com.opensymphony.xwork2.*;
 
-public class ProductInAction extends ActionSupport{
-	ProductInDao productInDao;
+public class ProductOutAction extends ActionSupport{
+	ProductOutDao productOutDao;
 	private File photoFile;
-	private ProductIn productIn;
+	private ProductOut productOut;
 	
-	public ProductIn getProductIn() {
-		return productIn;
+	public ProductOut getProductOut() {
+		return productOut;
 	}
-	public void setProductIn(ProductIn productIn) {
-		this.productIn = productIn;
+	public void setProductOut(ProductOut productOut) {
+		this.productOut = productOut;
 	}
 	
 	public String execute()throws Exception{
-		ProductInDao productInDao=new ProductInDaoImp();
-		List prodIn_list=productInDao.getAll();	
-
+		ProductOutDao productOutDao=new ProductOutDaoImp();
+		List prodOut_list=productOutDao.getAll();	
 		Map request=(Map)ActionContext.getContext().get("request");
-		request.put("prodIn_list", prodIn_list);		
+		request.put("prodOut_list", prodOut_list);		
 		return SUCCESS;
 	}
-
 //	public String getImage() throws Exception{
-//		productInDao=new ProductInDaoImp();
-//		ProductIn currProd = productInDao.getOneProductIn(product.getId());
+//		productOutDao=new ProductOutDaoImp();
+//		ProductOut currProd = productOutDao.getOneProductOut(product.getId());
 //		byte[] photo=currProd.getProd_img();	
 //		HttpServletResponse response=ServletActionContext.getResponse();
 //		response.setContentType("image/jpeg");
