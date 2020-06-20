@@ -27,6 +27,18 @@
 			<result name="success">productList.jsp</result>
 		</action>
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
+		
+		<action name="getAllProductIn" class="org.action.ProductInAction">
+			<result name="success">productInList.jsp</result>
+		</action>
+		
+		<action name="getAllProductOut" class="org.action.ProductOutAction">
+			<result name="success">productOutList.jsp</result>
+		</action>
+		
+		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
+			<result name="success">productInList.jsp</result>
+		</action> -->
 	</package>
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 </struts>
