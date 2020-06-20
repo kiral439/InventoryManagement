@@ -39,4 +39,17 @@ public class ProductDaoImp implements ProductDao{
 			return null;
 		}
 	}
+	
+	public void save(Product product) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Hsession.save(product);					
+			ts.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 }
