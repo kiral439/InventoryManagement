@@ -30,13 +30,13 @@
 	<details>
 		<summary>Product Inventory</summary>
 		<p class="ml-4">
-			<a href="productList.jsp" target="right">Products Inventory A</a>
+			<a href="getAllProduct.action" target="right">Product List</a>
 		</p>
 		<p class="ml-4">
-			<a href="productList.jsp" target="right">Products Inventory B</a>
+			<a href="getAllProductIn.action" target="right">Pending Purchased Product</a>
 		</p>
 		<p class="ml-4">
-			<a href="productList.jsp" target="right">Products Inventory C</a>
+			<a href="getAllProductOut.action" target="right">Product Sold</a>
 		</p>
 	</details>
 	
