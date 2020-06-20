@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.model.Login" table="accounts">
+        <id name="username" type="java.lang.String">
+            <column name="username" />
+            <generator class="assigned" />
+        </id>
+
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        
+        <property name="acc_type" type="java.lang.String">
+            <column name="acc_type" />
+        </property>
+    </class>
+</hibernate-mapping>

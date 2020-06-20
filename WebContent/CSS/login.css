@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	
+	body {
+		background-image: url("../image/login-bg.jpg");
+		background-repeat: no-repeat;
+		background-position: center top;
+		background-size: cover;
+	}
+	
+	#login {
+		width: 350px;
+		height: 150px;
+		position:absolute;
+	    top:50%;
+	    left:50%;
+	    transform:translate(-50%, -50%);
+	    background-color: #D9DBF1;
+	}
+	
+	.overlay {
+		height: 100vh;
+		width: 100vw;
+		background-color: #04395E; 
+	    opacity: 0.2;
+	}
+	
+	table{
+		margin-top: 20px;
+		margin-left: 50px;
+	}
+	
+	h1 {
+		top: 20%;
+		position: absolute;
+		font-size: 50px;
+		width: 100%;
+		text-align: center;
+		color: white;
+		text-shadow: 2px 2px #000000;
+	}
