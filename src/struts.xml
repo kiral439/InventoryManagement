@@ -18,8 +18,9 @@
 			<result name="success">addProduct.jsp</result>
 		</action>
 		
-		<action name="addProduct" class="org.action.CategoryAction">
-			<result name="success">addProduct.jsp</result>
+		<action name="addProduct" class="org.action.ProductAction" method="addProduct">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 		
 		<action name="getAllProduct" class="org.action.ProductAction">
