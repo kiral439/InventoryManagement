@@ -20,7 +20,7 @@ public class ProductIn{
 	}
 	/** full constructor */
 	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status, Date date) {
-	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status) {
+	//public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status) {
 		super();
 		this.prod_id = prod_id;
 		this.supplier = supplier;
