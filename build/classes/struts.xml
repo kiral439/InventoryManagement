@@ -14,6 +14,18 @@
 			<result name="success">login.jsp</result>
 		</action>
 		
+		<action name="categoriesList" class="org.action.CategoryAction">
+			<result name="success">addProduct.jsp</result>
+		</action>
+		
+		<action name="addProduct" class="org.action.CategoryAction">
+			<result name="success">addProduct.jsp</result>
+		</action>
+		
+		<action name="getAllProduct" class="org.action.ProductAction">
+			<result name="success">productList.jsp</result>
+		</action>
+		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
 	</package>
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 </struts>
