@@ -26,9 +26,9 @@ public class ProductOutAction extends ActionSupport{
 	}
 	
 	public String execute()throws Exception{
-		ProductOutDao productOutDao=new ProductOutDaoImp();
-		List prodOut_list=productOutDao.getAll();	
-		Map request=(Map)ActionContext.getContext().get("request");
+		ProductOutDao productOutDao = new ProductOutDaoImp();
+		List prodOut_list = productOutDao.getAll();	
+		Map request = (Map)ActionContext.getContext().get("request");
 		request.put("prodOut_list", prodOut_list);		
 		return SUCCESS;
 	}
