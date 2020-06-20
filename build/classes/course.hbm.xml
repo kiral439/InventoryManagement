@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.model.Course" table="course_table">
+        <id name="cid" type="java.lang.String">
+            <column name="CID" length="6" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="20" not-null="true" />
+        </property>
+        <property name="semester" type="java.lang.Integer">
+            <column name="semester" not-null="true" />
+        </property>
+        <property name="stu_num" type="java.lang.Integer">
+            <column name="stu_num" />
+        </property>
+        <property name="credit" type="java.lang.Integer">
+            <column name="credit" />
+        </property>
+        
+        <set name="student_set" table="stu_cour" lazy="true" inverse="true">
+        	<key column="CID"></key>
+        	<many-to-many class="org.model.Student" column="SID"></many-to-many>
+        </set>        
+        
+    </class>
+</hibernate-mapping>

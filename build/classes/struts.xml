@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+    "http://struts.apache.org/dtds/struts-2.0.dtd"> 
+           
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="login" class="org.action.LoginAction">
+			<result name="success">main.jsp</result>
+			<result name="input">login.jsp</result>
+		</action>
+		
+		<action name="logout" class="org.action.LogOutAction">
+			<result name="success">login.jsp</result>
+		</action>
+		
+		<action name="StudentInfo" class="org.action.StudentAction">
+	    	<result name="success">productList.jsp</result>
+		</action>
+		<action name="getImage" class="org.action.StudentAction" method="getImage"></action>
+		
+		<action name="updateStudentInfo" class="org.action.StudentAction" method="updateStudentInfo">
+			<result name="success">updateStudentInfo.jsp</result>
+		</action>
+		<action name="updateStudent" class="org.action.StudentAction" method="updateStudent">
+			<result name="success">updateStudent_success.jsp</result>
+		</action>
+		
+		<action name="getStudentCourseInfo" class="org.action.StudentAction" method="getCourseList">
+			<result name="success">courselist.jsp</result>
+		</action>
+		<action name="deleteCourse" class="org.action.StudentAction" method="deleteCourse">
+			<result name="success">deleteCourse_success.jsp</result>
+		</action>
+		
+		<action name="getAllCourse" class="org.action.CourseAction">
+			<result name="success">allCourse.jsp</result>
+		</action>
+		<action name="selectCourse" class="org.action.StudentAction" method="selectCourse">
+			<result name="success">selectCourse_success.jsp</result>
+			<result name="error">selectCourse_fail.jsp</result>
+		</action>
+		
+	</package>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+</struts>
