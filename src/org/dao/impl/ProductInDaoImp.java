@@ -31,7 +31,7 @@ public class ProductInDaoImp implements ProductInDao{
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();	
+			//List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();	
 			List list=Hsession.createQuery("from ProductIn").list();	
 			ts.commit();
 			return list;
