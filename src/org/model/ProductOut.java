@@ -3,28 +3,28 @@ import java.util.*;
 /**
  * Xsb entity. @author MyEclipse Persistence Tools
  */
-public class ProductIn{
+public class ProductOut{
 	//Fields
 	private Integer id;
 	private String prod_id;
-	private String supplier;
+	private String buyer;
 	private Integer quantity;
-	private Double buying_price;
+	private Double selling_price;
 	private String status;
 	private Date date;
-	
 //	private Set course_set = new HashSet();	
 	//Constructors
 	/** default constructor */
-	public ProductIn() {
+	public ProductOut() {
 	}
 	/** full constructor */
-	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status, Date date) {
+	public ProductOut(Integer id, String prod_id, String buyer, Integer quantity, Double selling_price, String status, Date date) {
 		super();
+		this.id = id;
 		this.prod_id = prod_id;
-		this.supplier = supplier;
+		this.buyer = buyer;
 		this.quantity = quantity;
-		this.buying_price = buying_price;
+		this.selling_price = selling_price;
 		this.status = status;
 		this.date = date;
 	}
@@ -42,11 +42,11 @@ public class ProductIn{
 	public void setProd_id(String prod_id) {
 		this.prod_id = prod_id;
 	}
-	public String getSupplier() {
-		return supplier;
+	public String getBuyer() {
+		return buyer;
 	}
-	public void setSupplier(String supplier) {
-		this.supplier = supplier;
+	public void setBuyer(String buyer) {
+		this.buyer = buyer;
 	}
 	public Integer getQuantity() {
 		return quantity;
@@ -54,11 +54,11 @@ public class ProductIn{
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Double getBuying_price() {
-		return buying_price;
+	public Double getSelling_price() {
+		return selling_price;
 	}
-	public void setBuying_price(Double buying_price) {
-		this.buying_price = buying_price;
+	public void setSelling_price(Double selling_price) {
+		this.selling_price = selling_price;
 	}
 	public String getStatus() {
 		return status;
@@ -72,6 +72,9 @@ public class ProductIn{
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	
+	
 	
 	
 }

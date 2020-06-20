@@ -13,21 +13,21 @@
 		<tr>
 			<td>Product ID:</td>
 			<td>
-				<input type="text" name="product.prod_id" value=""/>
+				<input type="text" name="product.sid" value="<s:property value="#product.sid"/>" readOnly/>
 			</td>
 		</tr>
 		<tr>
 			<td>Name:</td>
 			<td>
-				<input type="text" name="product.name" value="" />
+				<input type="text" name="product.name" value="<s:property value="#product.name"/>" />
 			</td>
 		</tr>
 		<tr>
 			<td>category:</td>
 			<td>
-				<select name="product.category">
+				<select name="category.id">
 					<s:iterator id="category" value="#request.categories">
-						<option value="<s:property value="#category.name"/>">
+						<option value="<s:property value="#category.id"/>">
 							<s:property value="#category.name"/>
 						</option>
 					</s:iterator>
@@ -43,13 +43,13 @@
 		<tr>
 			<td>Stock:</td>
 			<td>
-				<input type="text" name="product.stock" value=""/>
+				<input type="text" name="product.birthday" value="<s:property value="#product.birthday"/>"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Description:</td>
 			<td>
-				<textarea name="product.description" value=""></textarea>
+				<textarea name="product.remarks" value="<s:property value="#product.remarks"/>"></textarea>
 			</td>
 		</tr>
 		

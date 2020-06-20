@@ -28,13 +28,36 @@ public class ProductInAction extends ActionSupport{
 	public String execute()throws Exception{
 		ProductInDao productInDao=new ProductInDaoImp();
 		List prodIn_list=productInDao.getAll();	
-		System.out.println(((ProductIn)prodIn_list.get(0)).getBuying_price());
-		System.out.println(((ProductIn)prodIn_list.get(0)).getBuying_price());
-		System.out.println(((ProductIn)prodIn_list.get(0)).getBuying_price());
 		Map request=(Map)ActionContext.getContext().get("request");
 		request.put("prodIn_list", prodIn_list);		
 		return SUCCESS;
 	}
+	
+	public String changeStatus() throws Exception{
+		productInDao=new ProductInDaoImp();
+		ProductIn currProdIn = new ProductIn();
+//		currProdIn.setProd_id(productIn.getProd_id());
+//		currProdIn.setSupplier(productIn.getSupplier());
+//		currProdIn.setQuantity(productIn.getQuantity());
+//		currProdIn.setBuying_price(productIn.getBuying_price());
+//		currProdIn.setStatus("Arrived");
+//		currProdIn.setDate(productIn.getDate());
+//		System.out.println(currProdIn.getProd_id());
+//		productInDao.update(currProdIn);
+		
+//		productInDao=new ProductInDaoImp();
+//		Integer id = productInDao.getOneProductIn(productIn.getId()).getId();
+//		System.out.println(id);
+//		HttpServletResponse response=ServletActionContext.getResponse();
+//		productInDao.update("Arrived", id);
+		
+		productInDao=new ProductInDaoImp();
+		ProductIn currProd = productInDao.getOneProductIn(productIn.getId());
+		productInDao.update("Arrived", productIn.getId());
+		
+		return SUCCESS;
+	}
+	
 //	public String getImage() throws Exception{
 //		productInDao=new ProductInDaoImp();
 //		ProductIn currProd = productInDao.getOneProductIn(product.getId());

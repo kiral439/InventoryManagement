@@ -38,10 +38,4 @@ public class CategoryDaoImp implements CategoryDao{
 			return null;
 		}
 	}
-
-	@Override
-	public Category validate(String name, String code) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

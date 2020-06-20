@@ -6,6 +6,4 @@ public interface CategoryDao {
 	public Category getOneCategory(Integer ID);
 	
 	public List getAll();
-
-	public Category validate(String name, String code);
 }

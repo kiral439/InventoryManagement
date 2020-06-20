@@ -9,7 +9,7 @@
 <body>
 	<div class="overlay">
 	</div>
-	
+	<h1>INVENTORY MANAGEMENT SYSTEM</h1>
 	<s:form action="login" method="post">
 		<table>
 			<tr>

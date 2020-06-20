@@ -1,41 +1,44 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Product List</title>
+<meta charset="ISO-8859-1">
+<title>Product In List</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Product List</h1>
+	<h1 class="text-center text-uppercase">Product Sold</h1>
 	<hr />
 	<div>
-		<a href="addProduct.jsp" class="btn btn-primary ml-5">Add Product</a>
+		<a href="addProduct.jsp" class="btn btn-primary ml-5">Add Record</a>
 	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">
 			<thead class="bg-warning">
 				<th>Product ID</th>
-				<th>Product Name</th>
-				<th>Category</th>
-				<th>Stock</th>
-				<th>Description</th>
-				<th>Image</th>
+				<th>Buyer</th>
+				<th>Quantity</th>
+				<th>Status</th>
+				<th>Selling Price</th>
 				<th>Edit</th>
+				<th>Date</th>
 			</thead>
 			<tbody>
-				<s:iterator value="#request.prod_list" var="product">
+				<s:iterator value="#request.prodOut_list" var="prodOut">
 					<tr>
-						<td align="center"><s:property value="#product.prod_id" /></td>
-						<td align="center"><s:property value="#product.prod_name" /></td>
-						<td align="center"><s:property value="#product.category" /></td>
-						<td align="center"><s:property value="#product.stock" /></td>
-						<td align="center"><s:property value="#product.description" /></td>
-						<td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td>
-						<td><a href="#" class="btn btn-primary">Edit<span
-								class="glyphicon glyphicon-refresh"></span></a></td>
+						<td align="center"><s:property value="#prodOut.prod_id" /></td>
+						<td align="center"><s:property value="#prodOut.buyer" /></td>
+						<td align="center"><s:property value="#prodOut.quantity" /></td>
+						<td align="center"><s:property value="#prodOut.status" /></td>
+						<td align="center"><s:property value="#prodOut.selling_price" /></td>
+						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
+						<td><a href="#" class="btn btn-primary">Edit</a></td>
+						<td align="center"><s:property value="#prodOut.date" /></td>
 					</tr>
 				</s:iterator>
 			</tbody>
