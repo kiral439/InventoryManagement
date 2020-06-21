@@ -33,7 +33,7 @@
 			<a href="getAllProduct.action" target="right">Product List</a>
 		</p>
 		<p class="ml-4">
-			<a href="getAllProductIn.action" target="right">Pending Purchased Product</a>
+			<a href="getAllProductIn.action" target="right">Purchased Product</a>
 		</p>
 		<p class="ml-4">
 			<a href="getAllProductOut.action" target="right">Product Sold</a>

@@ -79,6 +79,15 @@ public class ProductInAction extends ActionSupport{
 		request.put("prodIn_list", prodIn_list);		
 		return SUCCESS;
 	}
+	
+	public String getAllOnShippingProduct() {
+		ProductInDao productInDao=new ProductInDaoImp();
+		List prodIn_list=productInDao.getOnShipping();	
+
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prodIn_list", prodIn_list);		
+		return SUCCESS;
+	}
 
 //	public String getImage() throws Exception{
 //		productInDao=new ProductInDaoImp();

@@ -40,6 +40,21 @@ public class ProductInDaoImp implements ProductInDao{
 			return null;
 		}
 	}
+	
+	public List getOnShipping() {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();		
+			ts.commit();
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public void update(ProductIn productIn) {
 		try{

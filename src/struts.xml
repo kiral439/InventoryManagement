@@ -33,6 +33,10 @@
 			<result name="success">productInList.jsp</result>
 		</action>
 		
+		<action name="getAllOnShippingProduct" class="org.action.ProductInAction" method="getAllOnShippingProduct">
+			<result name="success">productInList.jsp</result>
+		</action>
+		
 		<action name="productInUpdate" class="org.action.ProductInAction" method="update">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>

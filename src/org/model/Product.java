@@ -11,6 +11,7 @@ public class Product{
 	private String prod_name;
 	private byte[] prod_img;
 	private Integer stock;
+	private Integer pending_stock;
 	private String description;
 
 //	private Set course_set = new HashSet();	
@@ -26,7 +27,7 @@ public class Product{
 		this.stock = stock;
 	}
 	/** full constructor */
-	public Product(Integer id, String prod_id, String category, String prod_name, byte[] prod_img, Integer stock,
+	public Product(Integer id, String prod_id, String category, String prod_name, byte[] prod_img, Integer stock, Integer pending_stock,
 			String description) {
 		super();
 		this.id=id;
@@ -35,6 +36,7 @@ public class Product{
 		this.prod_name = prod_name;
 		this.prod_img = prod_img;
 		this.stock = stock;
+		this.pending_stock = pending_stock;
 		this.description = description;
 	}
 	
@@ -76,6 +78,12 @@ public class Product{
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
+	}
+	public Integer getPending_stock() {
+		return pending_stock;
+	}
+	public void setPending_stock(Integer pending_stock) {
+		this.pending_stock = pending_stock;
 	}
 	public String getDescription() {
 		return description;
