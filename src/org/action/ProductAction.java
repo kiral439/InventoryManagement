@@ -48,6 +48,14 @@ public class ProductAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public static String getAllProduct()throws Exception{
+		ProductDao courseDao=new ProductDaoImp();
+		List prod_list=courseDao.getAll();			
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);			
+		return SUCCESS;
+	}
+	
 	public String getImage() throws Exception{
 		productDao=new ProductDaoImp();
 		byte[] photo=productDao.getOneProduct(productBean.getId()).getProd_img();	
@@ -89,8 +97,7 @@ public class ProductAction extends ActionSupport{
 			productDao.save(product);
 			valid = true;
 		}catch(Exception e){
-			e.printStackTrace();
-							
+			e.printStackTrace();		
 		}
 		if(valid){
 			return SUCCESS;

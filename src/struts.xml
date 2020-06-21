@@ -55,6 +55,11 @@
 			<result name="error">error.jsp</result>
 		</action>
 		
+		<action name="addCategory" class="org.action.CategoryAction" method="addCategory">
+			<result name="success">productList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
 		</action> -->
