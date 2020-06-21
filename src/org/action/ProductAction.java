@@ -1,6 +1,7 @@
 package org.action;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -22,26 +23,34 @@ public class ProductAction extends ActionSupport{
 	
 	ProductDao productDao;
 	private File photoFile;
-	private Product product;
-
-	public Product getProduct(Product product) {
-		return product;
+	private Product productBean;	
+	
+	public File getPhotoFile() {
+		return photoFile;
+	}
+	public void setPhotoFile(File photoFile) {
+		this.photoFile = photoFile;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public Product getProductBean() {
+		return productBean;
+	}
+
+	public void setProductBean(Product productBean) {
+		this.productBean = productBean;
 	}
 	
-//	public String execute()throws Exception{
-//		ProductDao courseDao=new ProductDaoImp();
-//		List prod_list=courseDao.getAll();			
-//		Map request=(Map)ActionContext.getContext().get("request");
-//		request.put("prod_list", prod_list);			
-//		return SUCCESS;
-//	}
+	public String execute()throws Exception{
+		ProductDao courseDao=new ProductDaoImp();
+		List prod_list=courseDao.getAll();			
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);			
+		return SUCCESS;
+	}
+	
 	public String getImage() throws Exception{
 		productDao=new ProductDaoImp();
-		byte[] photo=productDao.getOneProduct(product.getId()).getProd_img();	
+		byte[] photo=productDao.getOneProduct(productBean.getId()).getProd_img();	
 		HttpServletResponse response=ServletActionContext.getResponse();
 		response.setContentType("image/jpeg");
 		ServletOutputStream os=response.getOutputStream();			
@@ -59,18 +68,25 @@ public class ProductAction extends ActionSupport{
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		productDao = new ProductDaoImp();
-		Product prod = new Product();
+		Product product = new Product();
 		try{
-			//prod.setProd_id(product.getProd_id());
-			prod.setProd_name(product.getProd_name());
-			prod.setCategory(product.getCategory());
+			product.setProd_id(productBean.getProd_id());
+			product.setProd_name(productBean.getProd_name());
+			product.setCategory(productBean.getCategory());
 			//prod.setCategory("Furniture");
 			//prod.setImage("text");
-			prod.setStock(product.getStock());
-			prod.setDescription(product.getDescription());
+			if(this.getPhotoFile()!=null){
+				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
+				byte[] buffer=new byte[fis.available()];	
+				fis.read(buffer);					
+				product.setProd_img(buffer);
+			}
+			product.setStock(productBean.getStock());
+			product.setDescription(productBean.getDescription());
 			
-			Hsession.save(prod);
-			ts.commit();
+//			Hsession.save(prod);
+//			ts.commit();
+			productDao.save(product);
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -86,30 +102,4 @@ public class ProductAction extends ActionSupport{
 		
 		
 	}
-//	public String updateStudent() throws Exception{
-//		studentDao=new StudentDaoImp();
-//		MajorDao majorDao=new MajorDaoImp();
-//		Student stu=new Student();					
-//		stu.setSid(student.getSid());					
-//		stu.setName(student.getName());					
-//		stu.setGender(student.getGender());					
-//		stu.setBirthday(student.getBirthday());				
-//		stu.setCredit(student.getCredit());					
-//		stu.setRemarks(student.getRemarks());					
-//	
-//		if(this.getPhotoFile()!=null){
-//			FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-//			byte[] buffer=new byte[fis.available()];	
-//			fis.read(buffer);					
-//			stu.setPhoto(buffer);
-//		}
-//		Major mj=majorDao.getOneMajor(major.getMid());
-//		
-//		stu.setMajor(mj);
-//		
-//		Set list=studentDao.getOneStudent(student.getSid()).getCourse_set();
-//		stu.setCourse_set(list);						
-//		studentDao.update(stu);				
-//		return SUCCESS;
-//	}
 }

@@ -3,23 +3,23 @@ package org.dao.impl;
 import java.util.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
-import org.model.Product;
-import org.dao1.ProductDao;
+import org.model.ProductOut;
+import org.dao1.ProductOutDao;
 
-public class ProductDaoImp implements ProductDao{
-	public Product getOneProduct(Integer id) {
+public class ProductOutDaoImp implements ProductOutDao{
+	public ProductOut getOneProductOut(Integer id) {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			Query query=Hsession.createQuery("from Product where id=?0");
+			Query query=Hsession.createQuery("from ProductOut where id=?0");
 			query.setParameter(0, id);
 			query.setMaxResults(1);
-			Product course=(Product) query.uniqueResult();		
+			ProductOut productOut=(ProductOut) query.uniqueResult();		
 			ts.commit();
 			Hsession.clear();					
-			return course;
+			return productOut;
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
@@ -31,25 +31,12 @@ public class ProductDaoImp implements ProductDao{
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			List list=Hsession.createQuery("from Product order by prod_id").list();	
+			List list=Hsession.createQuery("from ProductOut").list();	
 			ts.commit();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
-		}
-	}
-	
-	public void save(Product product) {
-		try{
-			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-	        SessionFactory sessionFactory= cfg.buildSessionFactory();
-	        Session Hsession=sessionFactory.openSession();
-			Transaction ts=Hsession.beginTransaction();
-			Hsession.save(product);					
-			ts.commit();
-		}catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 }

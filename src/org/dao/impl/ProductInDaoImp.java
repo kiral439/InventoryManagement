@@ -3,23 +3,23 @@ package org.dao.impl;
 import java.util.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
-import org.model.Product;
-import org.dao1.ProductDao;
+import org.model.ProductIn;
+import org.dao1.ProductInDao;
 
-public class ProductDaoImp implements ProductDao{
-	public Product getOneProduct(Integer id) {
+public class ProductInDaoImp implements ProductInDao{
+	public ProductIn getOneProductIn(Integer id) {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			Query query=Hsession.createQuery("from Product where id=?0");
+			Query query=Hsession.createQuery("from ProductIn where id=?0");
 			query.setParameter(0, id);
 			query.setMaxResults(1);
-			Product course=(Product) query.uniqueResult();		
+			ProductIn productIn=(ProductIn) query.uniqueResult();		
 			ts.commit();
 			Hsession.clear();					
-			return course;
+			return productIn;
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
@@ -31,7 +31,8 @@ public class ProductDaoImp implements ProductDao{
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			List list=Hsession.createQuery("from Product order by prod_id").list();	
+			//List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();	
+			List list=Hsession.createQuery("from ProductIn").list();	
 			ts.commit();
 			return list;
 		}catch(Exception e){
@@ -39,17 +40,18 @@ public class ProductDaoImp implements ProductDao{
 			return null;
 		}
 	}
-	
-	public void save(Product product) {
+
+	public void update(ProductIn productIn) {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			Hsession.save(product);					
+			Hsession.update(productIn);					
 			ts.commit();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
+
 }
