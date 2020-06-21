@@ -19,7 +19,7 @@
         <property name="prod_img">
             <column name="prod_img" />
         </property>
-        <property name="stock" type="java.lang.Integer">
+        <property name="in_stock" type="java.lang.Integer">
             <column name="in_stock" not-null="true" />
         </property>
         <property name="pending_stock" type="java.lang.Integer">

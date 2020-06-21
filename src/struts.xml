@@ -16,7 +16,7 @@
 		</action>
 		
 		<action name="categoriesList" class="org.action.CategoryAction">
-			<result name="success">addProduct.jsp</result>
+			<result name="success">addNewPurchase.jsp</result>
 		</action>
 		
 		<action name="addProduct" class="org.action.ProductAction" method="addProduct">
@@ -29,7 +29,7 @@
 		</action>
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
 		
-		<action name="getAllProductIn" class="org.action.ProductInAction">
+		<action name="getAllProductIn" class="org.action.ProductInAction" method="getAllProduct">
 			<result name="success">productInList.jsp</result>
 		</action>
 		
@@ -44,6 +44,11 @@
 		
 		<action name="getAllProductOut" class="org.action.ProductOutAction">
 			<result name="success">productOutList.jsp</result>
+		</action>
+		
+		<action name="addNewPurchase" class="org.action.ProductInAction" method="addNewPurchase">
+			<result name="success">productList.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 		
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
