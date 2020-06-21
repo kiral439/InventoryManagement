@@ -20,7 +20,7 @@
 				<th>Product ID</th>
 				<th>Product Name</th>
 				<th>Category</th>
-				<th>Stock</th>
+				<th>In Stock</th>
 				<th>Description</th>
 				<th>Image</th>
 				<th>Edit</th>

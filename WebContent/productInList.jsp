@@ -12,10 +12,12 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Pending Purchased Product</h1>
+	<h1 class="text-center text-uppercase">Purchased Product</h1>
 	<hr />
 	<div>
 		<a href="addProduct.jsp" class="btn btn-primary ml-5">New Purchase</a>
+		<a href="getAllOnShippingProduct.action" class="btn btn-primary">Show On Shipping Product Only</a>
+		<a href="getAllProductIn.action" class="btn btn-primary">Show All Purchased Product</a>
 	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">
@@ -39,7 +41,16 @@
 						<s:form action="arrived.action?productIn.id=<s:property value="#prodIn.id"/>" method="post" theme="simple" class="anchored" target="_parent" >
 							<s:submit value="On shipping" class="btn btn-success"/>
 						</s:form> --%>
-						<td><a href="productInUpdate.action?prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td>
+						<td>
+						
+						<s:if test="%{#prodIn.status=='On shipping'}">
+							<a href="productInUpdate.action?prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-danger"><s:property value="#prodIn.status"/></a></td>
+						</s:if>
+						<s:else>
+						    <a href="productInUpdate.action?prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td>
+						</s:else>
+						
+						<%-- <a href="productInUpdate.action?prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td> --%>
 						</td>
 						
 						<%-- <td align="center"><s:property value="#prodIn.status" /></td> --%>
