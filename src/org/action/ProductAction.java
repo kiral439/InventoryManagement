@@ -70,7 +70,7 @@ public class ProductAction extends ActionSupport{
 		return NONE;									
 	}
 	
-	public String addProduct() throws Exception{
+	/*public String addProduct() throws Exception{
 		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
@@ -105,8 +105,6 @@ public class ProductAction extends ActionSupport{
 		else{
 			return ERROR;
 		}
-		
-		
-		
-	}
+				
+	}*/
 }
