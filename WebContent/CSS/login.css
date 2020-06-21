@@ -17,7 +17,7 @@
 	    top:50%;
 	    left:50%;
 	    transform:translate(-50%, -50%);
-	    background-color: #D9DBF1;
+	    background-color: #FFFFFF;
 	}
 	
 	.overlay {
@@ -41,4 +41,21 @@
 		text-align: center;
 		color: white;
 		text-shadow: 2px 2px #000000;
+	}
+	
+	tr {
+		display: block;
+		justify-content: space-around;
+		padding-top: 25px;
+	}
+	
+	.tdBtn {
+		display: flex;
+		justify
+	}
+	
+	.tdLabel {
+		width: 100px;
+		text-align: center;
+		padding: 5px 0px;
 	}

@@ -7,7 +7,7 @@
 	<package name="default" extends="struts-default">
 		<action name="login" class="org.action.LoginAction">
 			<result name="success">main.jsp</result>
-			<result name="error">error.jsp</result>
+			<result name="error">loginError.jsp</result>
 			<result name="input">login.jsp</result>
 		</action>
 		
