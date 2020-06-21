@@ -74,12 +74,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Date:</td>
-			<td>
-				<textarea name="productInBean.date" value=""></textarea>
-			</td>
-		</tr>
-		<tr>
 			<td><input type="submit" value="Add"/></td>
 		</tr>
 	</table>
