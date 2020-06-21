@@ -41,11 +41,11 @@ public class ProductDaoImp implements ProductDao{
 			Query query=Hsession.createQuery("from Product where id=?0");
 			query.setParameter(0, id);
 			query.setMaxResults(1);
-			Product course=(Product) query.uniqueResult();		
+			Product product=(Product) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();
-			if(course!=null){					
-				return course;
+			//Hsession.clear();
+			if(product!=null){					
+				return product;
 			}else{						
 				return null;
 			}

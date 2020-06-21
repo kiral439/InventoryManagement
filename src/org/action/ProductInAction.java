@@ -138,7 +138,8 @@ public class ProductInAction extends ActionSupport{
 		try{
 			productDao = new ProductDaoImp();
 			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
-			Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
+			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
+			Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
 			if(product!=null){
 				prod.setIn_stock(product.getIn_stock());
 				prod.setPending_stock(product.getPending_stock()+productInBean.getQuantity());
