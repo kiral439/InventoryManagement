@@ -96,9 +96,6 @@ public class ProductInAction extends ActionSupport{
 		else{
 			return ERROR;
 		}
-		
-		
-		
 	}
 	
 	public String getAllProduct() {

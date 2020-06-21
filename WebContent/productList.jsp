@@ -9,11 +9,8 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Product Lists</h1>
+	<h1 class="text-center text-uppercase">Product List</h1>
 	<hr />
-	<div>
-		<a href="categoriesList.action" class="btn btn-primary ml-5">Add Product</a>
-	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">
 			<thead class="bg-warning">

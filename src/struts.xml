@@ -66,6 +66,16 @@
 			<result name="error">categoryCheckError.jsp</result>
 		</action>
 		
+		<action name="UpdateProductInfo" class="org.action.ProductEditAction" method="update">
+			<result name="success">productInList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="ProductInEdit" class="org.action.ProductEditAction" >
+			<result name="success">editProduct.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
 		</action> -->
