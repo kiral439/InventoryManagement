@@ -7,7 +7,7 @@
 	<package name="default" extends="struts-default">
 		<action name="login" class="org.action.LoginAction">
 			<result name="success">main.jsp</result>
-			<result name="error">loginError.jsp</result>
+			<result name="error">error.jsp</result>
 			<result name="input">login.jsp</result>
 		</action>
 		
@@ -30,6 +30,10 @@
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
 		
 		<action name="getAllProductIn" class="org.action.ProductInAction">
+			<result name="success">productInList.jsp</result>
+		</action>
+		
+		<action name="getAllOnShippingProduct" class="org.action.ProductInAction" method="getAllOnShippingProduct">
 			<result name="success">productInList.jsp</result>
 		</action>
 		
