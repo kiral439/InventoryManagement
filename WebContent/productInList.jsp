@@ -14,10 +14,12 @@
 <body>
 	<h1 class="text-center text-uppercase py-3 mb-0">Purchased Product</h1>
 	<hr />
+
 	<div class="d-flex mx-5">
-		<a href="addProduct.jsp" class="btn btn-primary mr-auto">New Purchase</a>
+		<a href="categoriesList.action" class="btn btn-primary mr-auto">New Purchase</a>
 		<a href="getAllOnShippingProductIn.action" class="btn btn-primary">Show On Shipping Product Only</a>
 		<a href="getAllProductIn.action" class="btn btn-primary ml-3">Show All Purchased Product</a>
+
 	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">

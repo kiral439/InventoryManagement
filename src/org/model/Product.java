@@ -10,7 +10,7 @@ public class Product{
 	private String category;
 	private String prod_name;
 	private byte[] prod_img;
-	private Integer stock;
+	private Integer in_stock;
 	private Integer pending_stock;
 	private String description;
 
@@ -20,32 +20,26 @@ public class Product{
 	public Product() {
 	}
 	/** minimal constructor */
-	public Product(String prod_id,String category, String prod_name, Integer stock) {
-		this.prod_id = prod_id;
-		this.category = category;
-		this.prod_name = prod_name;
-		this.stock = stock;
-	}
-	/** full constructor */
-	public Product(Integer id, String prod_id, String category, String prod_name, byte[] prod_img, Integer stock, Integer pending_stock,
-			String description) {
+	
+	public Product(Integer id, String prod_id, String category, String prod_name, byte[] prod_img, Integer inStock,
+			Integer pendingStock, String description) {
 		super();
-		this.id=id;
+		this.id = id;
 		this.prod_id = prod_id;
 		this.category = category;
 		this.prod_name = prod_name;
 		this.prod_img = prod_img;
-		this.stock = stock;
+		this.in_stock = in_stock;
 		this.pending_stock = pending_stock;
 		this.description = description;
 	}
 	
 	
 	
-	
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -73,11 +67,12 @@ public class Product{
 	public void setProd_img(byte[] prod_img) {
 		this.prod_img = prod_img;
 	}
-	public Integer getStock() {
-		return stock;
+	
+	public Integer getIn_stock() {
+		return in_stock;
 	}
-	public void setStock(Integer stock) {
-		this.stock = stock;
+	public void setIn_stock(Integer in_stock) {
+		this.in_stock = in_stock;
 	}
 	public Integer getPending_stock() {
 		return pending_stock;
