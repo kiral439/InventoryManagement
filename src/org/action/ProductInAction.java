@@ -74,8 +74,8 @@ public class ProductInAction extends ActionSupport{
 		try{
 			productInDao=new ProductInDaoImp();
 			
-			product.setIn_stock(product.getPending_stock());
-			product.setPending_stock(0);
+			product.setIn_stock(product.getIn_stock()+product.getPending_stock());
+			product.setPending_stock(product.getPending_stock()-productIn.getQuantity());
 			productIn.setStatus("Arrived");
 			
 			Hsession2.update(product);					
@@ -136,6 +136,36 @@ public class ProductInAction extends ActionSupport{
 		Product prod = new Product();
 		
 		try{
+			productDao = new ProductDaoImp();
+			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
+			Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
+			if(product!=null){
+				prod.setIn_stock(product.getIn_stock());
+				prod.setPending_stock(product.getPending_stock()+productInBean.getQuantity());
+				Hsession2.update(prod);
+				ts2.commit();
+			}
+			else{
+				
+				prod.setProd_id(productInBean.getProd_id());
+				prod.setProd_name(productBean.getProd_name());
+				prod.setCategory(productBean.getCategory());
+				//prod.setCategory("Furniture");
+				//prod.setImage("text");
+				if(this.getPhotoFile()!=null){
+					FileInputStream fis=new FileInputStream(this.getPhotoFile());	
+					byte[] buffer=new byte[fis.available()];	
+					fis.read(buffer);					
+					prod.setProd_img(buffer);
+				}
+				prod.setIn_stock(0);
+				prod.setPending_stock(productInBean.getQuantity());
+				prod.setDescription(productBean.getDescription());
+				
+				Hsession2.save(prod);
+				ts2.commit();
+			}
+			
 			productIn.setProd_id(productInBean.getProd_id());
 			productIn.setSupplier(productInBean.getSupplier());
 			productIn.setQuantity(productInBean.getQuantity());
@@ -146,23 +176,7 @@ public class ProductInAction extends ActionSupport{
 			Hsession.save(productIn);
 			ts.commit();
 			
-			prod.setProd_id(productInBean.getProd_id());
-			prod.setProd_name(productBean.getProd_name());
-			prod.setCategory(productBean.getCategory());
-			//prod.setCategory("Furniture");
-			//prod.setImage("text");
-			if(this.getPhotoFile()!=null){
-				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-				byte[] buffer=new byte[fis.available()];	
-				fis.read(buffer);					
-				prod.setProd_img(buffer);
-			}
-			prod.setIn_stock(0);
-			prod.setPending_stock(productInBean.getQuantity());
-			prod.setDescription(productBean.getDescription());
 			
-			Hsession2.save(prod);
-			ts2.commit();
 			
 			//productDao.save(prod);
 			valid = true;
