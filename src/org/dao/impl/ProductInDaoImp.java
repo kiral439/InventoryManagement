@@ -18,7 +18,7 @@ public class ProductInDaoImp implements ProductInDao{
 			query.setMaxResults(1);
 			ProductIn productIn=(ProductIn) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			//Hsession.clear();					
 			return productIn;
 		}catch(Exception e){
 			e.printStackTrace();
