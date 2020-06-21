@@ -24,14 +24,6 @@ public class ProductAction extends ActionSupport{
 	ProductDao productDao;
 	private File photoFile;
 	private Product productBean;	
-	private Product product;
-	
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
 	
 	public File getPhotoFile() {
 		return photoFile;
@@ -58,7 +50,7 @@ public class ProductAction extends ActionSupport{
 	
 	public String getImage() throws Exception{
 		productDao=new ProductDaoImp();
-		byte[] photo=productDao.getOneProduct(product.getId()).getProd_img();	
+		byte[] photo=productDao.getOneProduct(productBean.getId()).getProd_img();	
 		HttpServletResponse response=ServletActionContext.getResponse();
 		response.setContentType("image/jpeg");
 		ServletOutputStream os=response.getOutputStream();			
