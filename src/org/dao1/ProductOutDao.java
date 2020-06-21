@@ -7,4 +7,5 @@ import org.model.ProductOut;
 public interface ProductOutDao {
 	public ProductOut getOneProductOut(Integer id);
 	public List getAll();
+	public List getOnShipping();
 }

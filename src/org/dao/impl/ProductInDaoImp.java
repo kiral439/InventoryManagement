@@ -32,7 +32,7 @@ public class ProductInDaoImp implements ProductInDao{
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
 			//List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();	
-			List list=Hsession.createQuery("from ProductIn").list();	
+			List list=Hsession.createQuery("from ProductIn ").list();	
 			ts.commit();
 			return list;
 		}catch(Exception e){
@@ -47,7 +47,8 @@ public class ProductInDaoImp implements ProductInDao{
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();		
+//			List list=Hsession.createQuery("from ProductIn where status='On shipping' order by prod_id").list();
+			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();
 			ts.commit();
 			return list;
 		}catch(Exception e){
