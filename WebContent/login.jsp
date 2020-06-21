@@ -11,8 +11,8 @@
 	<div class="overlay">
 	</div>
 	<h1>INVENTORY MANAGEMENT SYSTEM</h1>
-	<s:form action="login" method="post">
-		<table class="p-5">
+	<s:form action="login" method="post" class="p-5">
+		<table>
 			<tr>
 				<s:textfield name="login.username" label="Username" size="22"></s:textfield>
 			</tr>

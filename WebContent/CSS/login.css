@@ -42,20 +42,19 @@
 		color: white;
 		text-shadow: 2px 2px #000000;
 	}
-	
+
 	tr {
 		display: block;
-		justify-content: space-around;
-		padding-top: 25px;
 	}
 	
 	.tdBtn {
 		display: flex;
-		justify
+		justify-content: space-around;
+		padding-top: 25px;
 	}
 	
 	.tdLabel {
 		width: 100px;
-		text-align: center;
+		text-align: left;
 		padding: 5px 0px;
 	}
