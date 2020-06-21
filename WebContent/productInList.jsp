@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Purchased Product</h1>
+	<h1 class="text-center text-uppercase py-3 mb-0">Purchased Product</h1>
 	<hr />
 	<div class="d-flex mx-5">
 		<a href="addProduct.jsp" class="btn btn-primary mr-auto">New Purchase</a>
