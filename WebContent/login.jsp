@@ -11,8 +11,8 @@
 	<div class="overlay">
 	</div>
 	<h1>INVENTORY MANAGEMENT SYSTEM</h1>
-	<s:form action="login" method="post">
-		<table class="p-4">
+	<s:form action="login" method="post" class="p-5">
+		<table>
 			<tr>
 				<s:textfield name="login.username" label="Username" size="22"></s:textfield>
 			</tr>
@@ -20,8 +20,10 @@
 				<s:password name="login.password" label="Password" size="22"></s:password>
 			</tr>
 			<tr>
-				<td><input type="reset" value="reset" class="btn btn-danger"/></td>
-				<td><input type="submit" value="Login" class="btn btn-success"/></td>
+				<td class="tdBtn">
+					<input type="reset" value="Reset" class="btn btn-danger"/>
+					<input type="submit" value="Login" class="btn btn-success"/>
+				</td>
 			</tr>
 		</table>
 	</s:form>
