@@ -21,6 +21,7 @@
 				<th>Product Name</th>
 				<th>Category</th>
 				<th>In Stock</th>
+				<th>Pending Stock</th>
 				<th>Description</th>
 				<th>Image</th>
 				<th>Edit</th>
@@ -32,6 +33,7 @@
 						<td align="center"><s:property value="#product.prod_name" /></td>
 						<td align="center"><s:property value="#product.category" /></td>
 						<td align="center"><s:property value="#product.stock" /></td>
+						<td align="center"><s:property value="#product.pending_stock" /></td>
 						<td align="center"><s:property value="#product.description" /></td>
 						<td align="center"><img src="getImage.action?productBean.id=<s:property value="#product.id"/>" width="150"></td>
 						<td><a href="#" class="btn btn-primary">Edit</a></td>
