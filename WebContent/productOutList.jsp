@@ -16,6 +16,8 @@
 	<hr />
 	<div>
 		<a href="addProduct.jsp" class="btn btn-primary ml-5">Add Record</a>
+		<a href="getAllOnShippingProductOut.action" class="btn btn-primary">Show On Shipping Product Only</a>
+		<a href="getAllProductOut.action" class="btn btn-primary">Show All Product Sold</a>
 	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">
@@ -34,7 +36,14 @@
 						<td align="center"><s:property value="#prodOut.prod_id" /></td>
 						<td align="center"><s:property value="#prodOut.buyer" /></td>
 						<td align="center"><s:property value="#prodOut.quantity" /></td>
-						<td align="center"><s:property value="#prodOut.status" /></td>
+						<td align="center">
+							<s:if test="%{#prodOut.status=='On shipping'}">
+								<a href="productOutUpdate.action?productOut.id=<s:property value="#prodOut.id"/>" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
+							</s:if>
+							<s:else>
+							    <a href="productOutUpdate.action?productOut.id=<s:property value="#prodOut.id"/>" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
+							</s:else>
+						</td>
 						<td align="center"><s:property value="#prodOut.selling_price" /></td>
 						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
 						<td><a href="#" class="btn btn-primary">Edit</a></td>
