@@ -2,6 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<title>Add Product</title>
 </head>
 <body bgcolor="#D9DFAA">
@@ -23,7 +24,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>category:</td>
+			<td>Category:</td>
 			<td>
 				<select name="productBean.category">
 					<s:iterator id="category" value="#request.categories">
@@ -32,6 +33,11 @@
 						</option>
 					</s:iterator>
 				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
 			</td>
 		</tr>
 		<tr>

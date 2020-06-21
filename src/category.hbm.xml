@@ -10,10 +10,10 @@
         </id>
 
         <property name="name" type="java.lang.String">
-            <column name="cat_name"/>
+            <column name="cat_name" not-null="true"/>
         </property>
         <property name="code" type="java.lang.String">
-            <column name="cat_code"/>
+            <column name="cat_code" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

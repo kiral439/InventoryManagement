@@ -2,6 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<title>Add Product</title>
 </head>
 <body bgcolor="#D9DFAA">
@@ -13,17 +14,22 @@
 		<tr>
 			<td>Category Code:</td>
 			<td>
-				<input type="text" name="categoryBean.code" value=""/>
+				<input required type="text" name="categoryBean.code" value=""/>
 			</td>
 		</tr>
 		<tr>
 			<td>Category Name:</td>
 			<td>
-				<input type="text" name="categoryBean.name" value="" />
+				<input required type="text" name="categoryBean.name" value="" />
 			</td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="Add"/></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="categoriesList.action" class="btn btn-primary">Return</a>
+			</td>
 		</tr>
 	</table>
 	</s:form>
