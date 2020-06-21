@@ -8,4 +8,6 @@ public interface CategoryDao {
 	public List getAll();
 
 	public Category validate(String name, String code);
+	
+	public void save(Category category);
 }

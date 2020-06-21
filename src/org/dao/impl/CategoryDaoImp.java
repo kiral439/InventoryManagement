@@ -4,6 +4,7 @@ import org.dao1.CategoryDao;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.model.Category;
+import org.model.Product;
 public class CategoryDaoImp implements CategoryDao{
 
 	public Category getOneCategory(Integer id) {
@@ -43,5 +44,18 @@ public class CategoryDaoImp implements CategoryDao{
 	public Category validate(String name, String code) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void save(Category category) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Hsession.save(category);					
+			ts.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

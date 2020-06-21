@@ -24,7 +24,7 @@
 			<result name="error">error.jsp</result>
 		</action>
 		
-		<action name="getAllProduct" class="org.action.ProductAction">
+		<action name="getAllProduct" class="org.action.ProductAction" method="getAllProduct">
 			<result name="success">productList.jsp</result>
 		</action>
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
@@ -52,6 +52,11 @@
 		</action>
 		<action name="getAllOnShippingProductOut" class="org.action.ProductOutAction" method="getAllOnShippingProduct">
 			<result name="success">productOutList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="addCategory" class="org.action.CategoryAction" method="addCategory">
+			<result name="success">productList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
 		

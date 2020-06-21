@@ -40,7 +40,7 @@ public class ProductAction extends ActionSupport{
 		this.productBean = productBean;
 	}
 	
-	public String execute()throws Exception{
+	public static String getAllProduct()throws Exception{
 		ProductDao courseDao=new ProductDaoImp();
 		List prod_list=courseDao.getAll();			
 		Map request=(Map)ActionContext.getContext().get("request");
@@ -89,8 +89,7 @@ public class ProductAction extends ActionSupport{
 			productDao.save(product);
 			valid = true;
 		}catch(Exception e){
-			e.printStackTrace();
-							
+			e.printStackTrace();		
 		}
 		if(valid){
 			return SUCCESS;
