@@ -44,7 +44,8 @@ public class ProductDaoImp implements ProductDao{
 			Product product=(Product) query.uniqueResult();		
 			ts.commit();
 			//Hsession.clear();
-			if(product!=null){					
+			if(product!=null){	
+				System.out.println(product.getProd_id()+" "+product.getId()+" "+product.getIn_stock()+" " +product.getPending_stock());
 				return product;
 			}else{						
 				return null;

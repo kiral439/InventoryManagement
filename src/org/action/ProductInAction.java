@@ -139,10 +139,18 @@ public class ProductInAction extends ActionSupport{
 			productDao = new ProductDaoImp();
 			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
 			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
-			Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
-			if(product!=null){
-				prod.setIn_stock(product.getIn_stock());
-				prod.setPending_stock(product.getPending_stock()+productInBean.getQuantity());
+			Product productInTheDatabase=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
+			if(productInTheDatabase!=null){
+				
+				prod.setId(productInTheDatabase.getId());
+				prod.setProd_id(productInTheDatabase.getProd_id());
+				prod.setCategory(productInTheDatabase.getCategory());
+				prod.setProd_name((productInTheDatabase.getProd_name()));
+				prod.setProd_img(productInTheDatabase.getProd_img());
+				prod.setIn_stock(productInTheDatabase.getIn_stock());
+				prod.setPending_stock(productInTheDatabase.getPending_stock()+productInBean.getQuantity());
+				prod.setDescription(productInTheDatabase.getDescription());
+				
 				Hsession2.update(prod);
 				ts2.commit();
 			}
