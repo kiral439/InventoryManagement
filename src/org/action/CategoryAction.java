@@ -44,6 +44,19 @@ public class CategoryAction extends ActionSupport{
 		}
 	}
 	
+	public static String getCategories() throws Exception {
+		CategoryDao categoryDao=new CategoryDaoImp();				
+		List categories=categoryDao.getAll();
+		if(categories!=null){					
+			Map request=(Map)ActionContext.getContext().get("request");
+			request.put("categories", categories);
+			return SUCCESS;
+		}
+		else{
+			return ERROR;
+		}
+	}
+	
 	public String addCategory() throws Exception{
 		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -54,13 +67,17 @@ public class CategoryAction extends ActionSupport{
 		try{
 			category.setCode(categoryBean.getCode());
 			category.setName(categoryBean.getName());
-			categoryDao.save(category);
-			valid = true;
+			
+//			categoryDao.save(category);
+			
+			if(categoryDao.save(category).equals("Success")) {
+				valid = true;
+			}
 		}catch(Exception e){
 			e.printStackTrace();		
 		}
 		if(valid){
-			return ProductAction.getAllProduct();
+			return CategoryAction.getCategories();
 		}
 		else{
 			return ERROR;

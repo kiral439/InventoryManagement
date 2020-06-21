@@ -46,16 +46,47 @@ public class CategoryDaoImp implements CategoryDao{
 		return null;
 	}
 	
-	public void save(Category category) {
+	public String save(Category category) {
+		Category cat=check(category);
+		if(cat==null) {
+			try{
+				Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+		        SessionFactory sessionFactory= cfg.buildSessionFactory();
+		        Session Hsession=sessionFactory.openSession();
+				Transaction ts=Hsession.beginTransaction();
+				Hsession.save(category);					
+				ts.commit();
+				System.out.println("Category has been added");
+				return "Success";
+			}catch(Exception e){
+				e.printStackTrace();
+				return "Failed";
+			}
+		}else {
+			System.out.println("Category already exists");
+			return "Failed";
+		}
+		
+		
+	}
+	
+	public Category check(Category category) {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
-			Hsession.save(category);					
+			Query query=Hsession.createQuery("from Category where code=?0 or name=?1");	
+			query.setParameter(0, category.getCode());
+			query.setParameter(1, category.getName());
+			query.setMaxResults(1);
+			Category cat=(Category) query.uniqueResult();
 			ts.commit();
+			return cat;
 		}catch(Exception e){
 			e.printStackTrace();
+			return null;
 		}
 	}
+	
 }
