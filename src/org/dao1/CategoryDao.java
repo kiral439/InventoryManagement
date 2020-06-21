@@ -9,5 +9,5 @@ public interface CategoryDao {
 
 	public Category validate(String name, String code);
 	
-	public void save(Category category);
+	public String save(Category category);
 }
