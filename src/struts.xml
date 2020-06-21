@@ -24,7 +24,7 @@
 			<result name="error">error.jsp</result>
 		</action>
 		
-		<action name="getAllProduct" class="org.action.ProductAction" method="getAllProduct">
+		<action name="getAllProduct" class="org.action.ProductAction">
 			<result name="success">productList.jsp</result>
 		</action>
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>

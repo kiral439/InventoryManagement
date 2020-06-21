@@ -40,6 +40,14 @@ public class ProductAction extends ActionSupport{
 		this.productBean = productBean;
 	}
 	
+	public String execute()throws Exception{
+		ProductDao courseDao=new ProductDaoImp();
+		List prod_list=courseDao.getAll();			
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);			
+		return SUCCESS;
+	}
+	
 	public static String getAllProduct()throws Exception{
 		ProductDao courseDao=new ProductDaoImp();
 		List prod_list=courseDao.getAll();			
