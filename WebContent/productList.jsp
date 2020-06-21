@@ -34,7 +34,7 @@
 						<td align="center"><s:property value="#product.stock" /></td>
 						<td align="center"><s:property value="#product.description" /></td>
 						<td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td>
-						<td><a href="#" class="btn btn-primary">Add</a></td>
+						<td><a href="#" class="btn btn-primary">Edit</a></td>
 					</tr>
 				</s:iterator>
 			</tbody>
