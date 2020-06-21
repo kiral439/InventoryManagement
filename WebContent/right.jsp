@@ -23,7 +23,10 @@
 %> 
 
 <%=usr%>
+
 <p>
+<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
+
 <s:iterator value="#request.prod_list" var="product">
 <div class="card" style="width: 18rem;">
 	<img src="getImage.action?productBean.id=<s:property value="#product.id"/>" width="150">
