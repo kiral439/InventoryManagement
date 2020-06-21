@@ -17,8 +17,6 @@
 	<div>
 		<a href="categoriesList.action" class="btn btn-primary ml-5">New Purchase</a>
 		<a href="getAllOnShippingProduct.action" class="btn btn-primary">Show On Shipping Product Only</a>
-		<a href="addProduct.jsp" class="btn btn-primary ml-5">New Purchase</a>
-		<a href="getAllOnShippingProductIn.action" class="btn btn-primary">Show On Shipping Product Only</a>
 		<a href="getAllProductIn.action" class="btn btn-primary">Show All Purchased Product</a>
 	</div>
 	<div class="p-5">

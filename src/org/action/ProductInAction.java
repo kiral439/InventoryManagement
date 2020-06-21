@@ -2,6 +2,7 @@ package org.action;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -62,12 +63,23 @@ public class ProductInAction extends ActionSupport{
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
+		
+		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession2=sessionFactory2.openSession();		
+		Transaction ts2 = Hsession2.beginTransaction();
+		
         ProductIn productIn = (ProductIn) Hsession.load(ProductIn.class, prodIn.getId());
+        Product product = (Product) Hsession2.load(Product.class, prodIn.getId());
 		
 		try{
 			productInDao=new ProductInDaoImp();
 			
+			product.setIn_stock(product.getPending_stock());
+			product.setPending_stock(0);
 			productIn.setStatus("Arrived");
+			
+			Hsession2.update(product);					
+			ts2.commit();
 			
 			Hsession.update(productIn);					
 			ts.commit();
@@ -113,6 +125,10 @@ public class ProductInAction extends ActionSupport{
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		
+		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession2=sessionFactory2.openSession();		
+		Transaction ts2 = Hsession2.beginTransaction();
+		
 //		productInDao = new ProductInDaoImp();
 //		productDao = new ProductDaoImp();
 		
@@ -120,33 +136,33 @@ public class ProductInAction extends ActionSupport{
 		Product prod = new Product();
 		
 		try{
-			productIn.setId(3);
 			productIn.setProd_id(productInBean.getProd_id());
 			productIn.setSupplier(productInBean.getSupplier());
 			productIn.setQuantity(productInBean.getQuantity());
 			productIn.setBuying_price(productInBean.getBuying_price());
 			productIn.setStatus(productInBean.getStatus());
+			productIn.setDate(new Date(System.currentTimeMillis()));
 			
 			Hsession.save(productIn);
 			ts.commit();
 			
-//			prod.setProd_id(prodIn.getProd_id());
-//			prod.setProd_name(productBean.getProd_name());
-//			prod.setCategory(productBean.getCategory());
-//			//prod.setCategory("Furniture");
-//			//prod.setImage("text");
-//			if(this.getPhotoFile()!=null){
-//				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-//				byte[] buffer=new byte[fis.available()];	
-//				fis.read(buffer);					
-//				prod.setProd_img(buffer);
-//			}
-//			prod.setIn_stock(0);
-//			prod.setPending_stock(productBean.getPending_stock());
-//			prod.setDescription(productBean.getDescription());
-//			
-//			Hsession.save(prod);
-//			ts.commit();
+			prod.setProd_id(productInBean.getProd_id());
+			prod.setProd_name(productBean.getProd_name());
+			prod.setCategory(productBean.getCategory());
+			//prod.setCategory("Furniture");
+			//prod.setImage("text");
+			if(this.getPhotoFile()!=null){
+				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
+				byte[] buffer=new byte[fis.available()];	
+				fis.read(buffer);					
+				prod.setProd_img(buffer);
+			}
+			prod.setIn_stock(0);
+			prod.setPending_stock(productInBean.getQuantity());
+			prod.setDescription(productBean.getDescription());
+			
+			Hsession2.save(prod);
+			ts2.commit();
 			
 			//productDao.save(prod);
 			valid = true;
@@ -155,7 +171,7 @@ public class ProductInAction extends ActionSupport{
 							
 		}
 		if(valid){
-			return SUCCESS;
+			return getAllProduct();
 		}
 		else{
 			return ERROR;

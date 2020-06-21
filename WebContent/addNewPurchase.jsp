@@ -55,13 +55,13 @@
 		<tr>
 			<td>Quantity:</td>
 			<td>
-				<textarea name="productInBean.pending_stock" value=""></textarea>
+				<textarea name="productInBean.quantity" value=""></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td>Buying Price:</td>
 			<td>
-				<textarea name="productInBean.supplier" value=""></textarea>
+				<textarea name="productInBean.buying_price" value=""></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -71,6 +71,12 @@
 					<option value="On shipping">On shipping</option>
 					<option value="Arrived">Arrived</option>
 				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Date:</td>
+			<td>
+				<textarea name="productInBean.date" value=""></textarea>
 			</td>
 		</tr>
 		<tr>
