@@ -133,15 +133,52 @@ public class ProductEditAction {
 			
 			
 			System.out.println("Buying price: "+ productInBean.getBuying_price());
-			product.setIn_stock(prod_list.getIn_stock());
 			
-			if(productInBean.getStatus().equals("Arrived")) {
-				product.setPending_stock(prod_list.getPending_stock());
-				productIn.setQuantity(prodIn_list.getQuantity());
-			}
-			else {
-				product.setPending_stock(productInBean.getQuantity());
-				productIn.setQuantity(productInBean.getQuantity());
+			// status from the database 
+			// prodIn_list.getStatus()
+			// status from form
+			// productInBean.getStatus()
+			//Won't change means takes the data from database!
+			// 1. We doesn't change the status
+			/* 	   - Still Arrived
+			 * 			quantity : Won't change 
+			 * 			in stock : Won't change 
+			 * 		    pending stock : Won't change 
+			 * 	   - Still On shipping
+			 * 			quantity : Takes the value From form
+			 * 			in stock : Won't change
+			 * 		    pending stock : Change (pending stock in database-quantity before + quantity after)
+			 * 2. We change the status
+			 * 	   - From arrived to on shipping
+			 * 			quantity : Won't change 
+			 * 			in stock : in stock in database - quantity in database
+			 * 		    pending stock : pending stock in db + quantity in database
+			 * 	   -from on shipping to arrived
+			 *          quantity : Change(Takes value from form) 
+			 * 			in stock : in stock from database + quantity from form
+			 * 		    pending stock : pending stock from db - quantity from form 
+			 * */
+			
+			if(prodIn_list.getStatus().equals(productInBean.getStatus())){
+				if(productInBean.getStatus().equals("Arrived")) {
+					product.setIn_stock(prod_list.getIn_stock());
+					product.setPending_stock(prod_list.getPending_stock());
+					productIn.setQuantity(prodIn_list.getQuantity());
+				}else {
+					product.setIn_stock(prod_list.getIn_stock());
+					product.setPending_stock(prod_list.getPending_stock()-prodIn_list.getQuantity()+productInBean.getQuantity());
+					productIn.setQuantity(productInBean.getQuantity());
+				}
+			}else {
+				if(prodIn_list.getStatus().equals("Arrived") && productInBean.getStatus().equals("On shipping")) {
+					product.setIn_stock(prod_list.getIn_stock()-prodIn_list.getQuantity());
+					product.setPending_stock(prod_list.getPending_stock()+prodIn_list.getQuantity());
+					productIn.setQuantity(prodIn_list.getQuantity());
+				}else {
+					product.setIn_stock(prod_list.getIn_stock()+productInBean.getQuantity());
+					product.setPending_stock(prod_list.getPending_stock()-productInBean.getQuantity());
+					productIn.setQuantity(productInBean.getQuantity());
+				}
 			}
 			
 			product.setDescription(productBean.getDescription());
