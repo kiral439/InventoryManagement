@@ -2,6 +2,7 @@ package org.action;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -114,7 +115,8 @@ public class ProductEditAction {
         
 		try{
 			productDao=new ProductDaoImp();
-			Product prod_list=productDao.getOneProduct(prodIn.getProd_id());
+			Product prod_list=productDao.getOneProduct(productBean.getProd_id());
+			product.setId(prod_list.getId());
 			product.setProd_id(productBean.getProd_id());
 			product.setProd_name(productBean.getProd_name());
 			product.setCategory(productBean.getCategory());
@@ -128,22 +130,26 @@ public class ProductEditAction {
 			}
 			
 			
-			
+			System.out.println("Buying price: "+ productInBean.getBuying_price());
 			product.setIn_stock(prod_list.getIn_stock());
 			product.setPending_stock(productInBean.getQuantity());
 			product.setDescription(productBean.getDescription());
 			
+			productIn.setId(productInBean.getId());
+			productIn.setProd_id(productBean.getProd_id());
 			productIn.setSupplier(productInBean.getSupplier());
 			productIn.setQuantity(productInBean.getQuantity());
 			productIn.setBuying_price(productInBean.getBuying_price());
 			productIn.setStatus(productInBean.getStatus());
+			productIn.setDate(new Date(System.currentTimeMillis()));
 			
 			System.out.println("prod_id: "+ productBean.getProd_id());
 			System.out.println("prod_name: "+ productBean.getProd_name());
 			System.out.println("Category: "+ productBean.getCategory());
 			System.out.println("Photo: "+ product.getProd_img());
-			System.out.println("In stock: "+ productBean.getIn_stock());
+			System.out.println("In stock: "+ prod_list.getIn_stock());
 			System.out.println("Pending stock: "+ productInBean.getQuantity());
+			
 			System.out.println("DESC: "+ productBean.getDescription());
 			
 			Hsession2.update(product);					
