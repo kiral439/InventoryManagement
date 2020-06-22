@@ -73,13 +73,23 @@
 		<tr>
 			<td>Quantity:</td>
 			<td>
-				<textarea name="productInBean.quantity"><s:property value="#productInBean.quantity"/></textarea>
+				<s:if test="%{#productInBean.status=='Arrived'}">
+					<textarea name="productInBean.quantity" readonly><s:property value="#productInBean.quantity"/></textarea>
+				</s:if>
+				<s:else>
+					<textarea name="productInBean.quantity"><s:property value="#productInBean.quantity"/></textarea>
+				</s:else>
 			</td>
 		</tr>
 		<tr>
 			<td>Buying Price:</td>
 			<td>
-				<textarea name="productInBean.buying_price"><s:property value="#productInBean.buying_price"/></textarea>
+				<s:if test="%{#productInBean.status=='Arrived'}">
+					<textarea name="productInBean.buying_price" readonly><s:property value="#productInBean.buying_price"/></textarea>
+				</s:if>
+				<s:else>
+					<textarea name="productInBean.buying_price"><s:property value="#productInBean.buying_price"/></textarea>
+				</s:else>
 			</td>
 		</tr>
 		<tr>

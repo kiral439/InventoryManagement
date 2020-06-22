@@ -17,6 +17,7 @@
 	
 </head>
 <body>
+
 <p>Hi, 
 <%  Login user = (Login) session.getAttribute("user");
 	String usr = user.getUsername();
@@ -27,9 +28,9 @@
 <p>
 <a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
 
-<s:iterator value="#request.prod_list" var="product">
+<s:iterator id="product" value="#request.prod_list" var="product">
 <div class="card" style="width: 18rem;">
-	<img src="getImage.action?productBean.id=<s:property value="#product.id"/>" width="150">
+	<img src="getImage.action?prod_list.id=<s:property value="#product.id"/>" width="150">
   <div class="card-body">
     <h5 class="card-title"><s:property value="#product.prod_name" /></h5>
     <p class="card-text"><s:property value="#product.description" /></p>
