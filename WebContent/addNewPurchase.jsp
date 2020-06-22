@@ -2,15 +2,14 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<title>Add Product</title>
+	<link rel="stylesheet" href="CSS/addNewPurchase.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body bgcolor="#D9DFAA">
-	<s:form action="addNewPurchase" method="post" enctype="multipart/form-data">
-	<table>
-		<tr>
-			<td colspan="2">Add Product:</td>
-		</tr>
+	<h3 class="addNewH3">New Purchase:</h3>
+	<s:form class="d-flex p-5 wwFormTable w-100" action="addNewPurchase" method="post" enctype="multipart/form-data">
+	<table class="table-left">
 		<tr>
 			<td>Product ID:</td>
 			<td>
@@ -36,8 +35,9 @@
 			</td>
 		</tr>
 		<tr>
+			<td></td>
 			<td>
-				<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
+				<a href="addCategory.jsp" class="btn btn-primary addCategoryBtn">Add Category</a>
 			</td>
 		</tr>
 		<tr>
@@ -52,6 +52,8 @@
 				<textarea name="productBean.description" value=""></textarea>
 			</td>
 		</tr>
+	</table>
+	<table class="table-right">
 		<tr>
 			<td>Supplier:</td>
 			<td>
@@ -80,7 +82,8 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Add"/></td>
+			<td></td>
+			<td><input type="submit" value="CONFIRM"/ class="btn btn-primary addBtn"></td>
 		</tr>
 	</table>
 	</s:form>

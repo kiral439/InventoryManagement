@@ -1,0 +1,44 @@
+body{
+	overflow: hidden;
+}
+
+table {
+	margin: 0px 40px;
+}
+
+table{
+	padding: 10px 0px;
+}
+
+.table-left tr{
+	width: 50%;
+}
+
+td {
+	padding: 14px 0px;
+	width: 80px;
+}
+
+.addNewH3 {
+	text-align: center;
+	padding: 20px 0px;	
+}
+
+.wwFormTable{
+	position: absolute;
+	z-index: -1000;
+}
+
+.table-left {
+	width: 100%;
+	margin: 0;
+}
+
+.table-right {
+	width: 100%;
+	margin: 0;
+}
+
+.addBtn, .addCategoryBtn {
+	width: 224px;
+}
