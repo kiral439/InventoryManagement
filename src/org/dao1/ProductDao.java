@@ -7,7 +7,7 @@ import org.model.ProductIn;
 
 public interface ProductDao {
 	public Product getOneProduct(Integer id);
-	public Product getOneProductByProd_id(String prod_id);
+	public Product getOneProduct(String prod_id);
 	public List getAll();
 	public void save(Product product);
 }

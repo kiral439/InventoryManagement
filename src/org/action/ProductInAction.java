@@ -69,7 +69,7 @@ public class ProductInAction extends ActionSupport{
 		Transaction ts2 = Hsession2.beginTransaction();
 		
 		ProductDao productDaoForId = new ProductDaoImp();
-		Product prodById = productDaoForId.getOneProductByProd_id(prodIn.getProd_id());
+		Product prodById = productDaoForId.getOneProduct(prodIn.getProd_id());
 		
 		ProductInDao productInDaoForId = new ProductInDaoImp();
 		ProductIn prodInById = productInDaoForId.getOneProductInByProd_id(prodIn.getProd_id(), prodIn.getId());
@@ -142,7 +142,7 @@ public class ProductInAction extends ActionSupport{
 			productDao = new ProductDaoImp();
 			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
 			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
-			Product productInTheDatabase=productDao.getOneProductByProd_id(productInBean.getProd_id());
+			Product productInTheDatabase=productDao.getOneProduct(productInBean.getProd_id());
 			if(productInTheDatabase!=null){
 				
 				prod.setId(productInTheDatabase.getId());
@@ -156,6 +156,7 @@ public class ProductInAction extends ActionSupport{
 				
 				Hsession2.update(prod);
 				ts2.commit();
+				
 			}
 			else{
 				
@@ -188,7 +189,7 @@ public class ProductInAction extends ActionSupport{
 			Hsession.save(productIn);
 			ts.commit();
 			
-			prod.setProd_id(productInBean.getProd_id());
+			/*prod.setProd_id(productInBean.getProd_id());
 			prod.setProd_name(productBean.getProd_name());
 			prod.setCategory(productBean.getCategory());
 			//prod.setCategory("Furniture");
@@ -204,7 +205,7 @@ public class ProductInAction extends ActionSupport{
 			prod.setDescription(productBean.getDescription());
 			
 			Hsession2.save(prod);
-			ts2.commit();
+			ts2.commit();*/
 			
 			//productDao.save(prod);
 			valid = true;
