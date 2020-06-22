@@ -11,6 +11,11 @@
 			<result name="input">login.jsp</result>
 		</action>
 		
+		<action name="register" class="org.action.Register">
+    		<result name="success">thankyou.jsp</result>
+    		<result name="input">register.jsp</result>
+		</action>
+		
 		<action name="logout" class="org.action.LogOutAction">
 			<result name="success">login.jsp</result>
 		</action>
