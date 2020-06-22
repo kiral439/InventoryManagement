@@ -4,6 +4,7 @@ import java.util.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.model.Product;
+import org.model.ProductIn;
 import org.dao1.ProductDao;
 
 public class ProductDaoImp implements ProductDao{
