@@ -18,6 +18,26 @@ public class ProductInDaoImp implements ProductInDao{
 			query.setMaxResults(1);
 			ProductIn productIn=(ProductIn) query.uniqueResult();		
 			ts.commit();
+			Hsession.clear();					
+			return productIn;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public ProductIn getOneProductInByProd_id(String prod_id, Integer id) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Query query=Hsession.createQuery("from ProductIn where prod_id=?0 and id=?1");
+			query.setParameter(0, prod_id);
+			query.setParameter(1, id);
+			query.setMaxResults(1);
+			ProductIn productIn=(ProductIn) query.uniqueResult();		
+			ts.commit();
 			//Hsession.clear();					
 			return productIn;
 		}catch(Exception e){
@@ -25,6 +45,7 @@ public class ProductInDaoImp implements ProductInDao{
 			return null;
 		}
 	}
+	
 	public List getAll() {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
