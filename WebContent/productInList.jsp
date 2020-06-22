@@ -56,7 +56,7 @@
 						<%-- <td align="center"><s:property value="#prodIn.status" /></td> --%>
 						<td align="center"><s:property value="#prodIn.buying_price" /></td>
 						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
-						<td><a href="productInEdit.action?prodIn.id=<s:property value="#prodIn.id" />" class="btn btn-primary">Edit</a></td>
+						<td><a href="ProductInEdit.action?prodIn.id=<s:property value="#prodIn.id" />&prodIn.prod_id=<s:property value="#prodIn.prod_id" />" class="btn btn-primary">Edit</a></td>
 						<td align="center"><s:property value="#prodIn.date" /></td>
 					</tr>
 				</s:iterator>

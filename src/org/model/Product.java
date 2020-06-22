@@ -22,7 +22,7 @@ public class Product{
 	/** minimal constructor */
 	
 	public Product(Integer id, String prod_id, String category, String prod_name, byte[] prod_img, Integer in_stock,
-			Integer pending_stock, String description) {
+			Integer pendingStock, String description) {
 		super();
 		this.id = id;
 		this.prod_id = prod_id;
