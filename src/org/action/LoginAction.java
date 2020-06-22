@@ -22,7 +22,7 @@ public class LoginAction extends ActionSupport{
 		if(user!=null){
 			Map session=(Map)ActionContext.getContext().getSession();
 			session.put("user", user);
-			return SUCCESS;
+			return ProductAction.getAllProduct();
 		}
 		else{
 			
