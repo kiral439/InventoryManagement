@@ -6,8 +6,8 @@
 	<title>Add Product</title>
 </head>
 <body bgcolor="#D9DFAA">
-<s:set value="#request.prod_list" var="productBean"/>
-<s:set value="#request.prodIn_list" var="productInBean"/>
+<%-- <s:set value="#request.prod_list" var="productBean"/>
+<s:set value="#request.prodIn_list" var="productInBean"/> --%>
 	<s:form action="UpdateProductInInfo" method="post" enctype="multipart/form-data">
 	
 	<table>

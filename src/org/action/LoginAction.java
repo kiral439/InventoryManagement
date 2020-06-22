@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.*;
 public class LoginAction extends ActionSupport{
 	
 	private Login login;
+	private ProductAction productAction = new ProductAction();
 	
 	public Login getLogin() {
 		return login;
@@ -22,7 +23,7 @@ public class LoginAction extends ActionSupport{
 		if(user!=null){
 			Map session=(Map)ActionContext.getContext().getSession();
 			session.put("user", user);
-			return ProductAction.getAllProduct();
+			return productAction.getAllProduct();
 		}
 		else{
 			

@@ -24,6 +24,7 @@ public class ProductAction extends ActionSupport{
 	ProductDao productDao;
 	private File photoFile;
 	private Product productBean;	
+	private Product productOutBean;	
 	
 	public File getPhotoFile() {
 		return photoFile;
@@ -31,7 +32,13 @@ public class ProductAction extends ActionSupport{
 	public void setPhotoFile(File photoFile) {
 		this.photoFile = photoFile;
 	}
-
+	
+	public Product getProductOutBean() {
+		return productOutBean;
+	}
+	public void setProductOutBean(Product productOutBean) {
+		this.productOutBean = productOutBean;
+	}
 	public Product getProductBean() {
 		return productBean;
 	}
@@ -48,12 +55,17 @@ public class ProductAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public static String getAllProduct()throws Exception{
+	public String getAllProduct() throws Exception{
 		ProductDao productDao2=new ProductDaoImp();
-		List prod_list=productDao2.getAll();			
-		Map request=(Map)ActionContext.getContext().get("request");
-		request.put("prod_list", prod_list);			
-		return SUCCESS;
+		List prod_list=productDao2.getAll();
+		if(prod_list!=null){
+			Map request=(Map)ActionContext.getContext().get("request");
+			request.put("prod_list", prod_list);			
+			return SUCCESS;
+		}
+		else {
+			return ERROR;
+		}
 	}
 	
 	public String getImage() throws Exception{
@@ -68,6 +80,22 @@ public class ProductAction extends ActionSupport{
 			}
 		}
 		return NONE;									
+	}
+	
+	public String checkQuantity() throws Exception {
+		ProductDao productDao=new ProductDaoImp();
+		ProductDao productDao2=new ProductDaoImp();
+		List prod_list=productDao2.getAll();
+		Product prod = productDao.getOneProduct(productOutBean.getProd_id());
+		if(prod != null) {
+			Map request=(Map)ActionContext.getContext().get("request");
+			request.put("prod_list", prod_list);	
+			request.put("currentProd", prod);
+			return SUCCESS;
+		}
+		else {
+			return ERROR;
+		}
 	}
 	
 	/*public String addProduct() throws Exception{
