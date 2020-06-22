@@ -10,35 +10,32 @@ table{
 	padding: 10px 0px;
 }
 
+#addNewPurchase {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
 .table-left tr{
 	width: 50%;
 }
 
 td {
-	padding: 14px 0px;
+	padding: 14px 30px;
 	width: 80px;
 }
 
 .addNewH3 {
 	text-align: center;
 	padding: 20px 0px;	
-}
-
-.wwFormTable{
-	position: absolute;
-	z-index: -1000;
-}
-
-.table-left {
-	width: 100%;
 	margin: 0;
 }
 
-.table-right {
-	width: 100%;
-	margin: 0;
-}
 
 .addBtn, .addCategoryBtn {
 	width: 224px;
+}
+
+.wwFormTable {
+	margin-top: 20px;
 }

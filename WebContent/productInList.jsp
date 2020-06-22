@@ -6,13 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Product In List</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Purchased Product</h1>
+	<h1 class="pt-3 m-0 text-center text-uppercase">Purchased Product</h1>
 	<hr />
 	<div class="d-flex mx-5">
 		<a href="categoriesList.action" class="btn btn-primary mr-auto">New Purchase</a>
@@ -64,17 +61,8 @@
 		</table>
 	</div>
 
-	<!-- SCRIPTS -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-		crossorigin="anonymous"></script>
+<!-- SCRIPTS HERE -->
+<script src="dist/jquery.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
 </body>
 </html>

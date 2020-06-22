@@ -4,12 +4,12 @@
 <head>
 	<title>Add Product</title>
 	<link rel="stylesheet" href="CSS/addNewPurchase.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 </head>
 <body bgcolor="#D9DFAA">
-	<h3 class="addNewH3">New Purchase:</h3>
-	<s:form class="d-flex p-5 wwFormTable w-100" action="addNewPurchase" method="post" enctype="multipart/form-data">
-	<table class="table-left">
+	<h1 class="addNewH3 text-uppercase">New Purchase:</h1>
+	<s:form action="addNewPurchase" method="post" enctype="multipart/form-data">
+	
 		<tr>
 			<td>Product ID:</td>
 			<td>
@@ -49,11 +49,11 @@
 		<tr>
 			<td>Description:</td>
 			<td>
-				<textarea name="productBean.description" value=""></textarea>
+				<textarea rows="4" cols="30" name="productBean.description" value=""></textarea>
 			</td>
 		</tr>
-	</table>
-	<table class="table-right">
+
+	<table class="wwFormTable">
 		<tr>
 			<td>Supplier:</td>
 			<td>

@@ -2,8 +2,8 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<title>Add Product</title>
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 </head>
 <body bgcolor="#D9DFAA">
 <s:set value="#request.prod_list" var="productBean"/>
