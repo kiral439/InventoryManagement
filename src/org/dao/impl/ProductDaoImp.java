@@ -5,6 +5,7 @@ import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.model.Login;
 import org.model.Product;
+import org.model.ProductIn;
 import org.dao1.ProductDao;
 
 public class ProductDaoImp implements ProductDao{
@@ -56,6 +57,26 @@ public class ProductDaoImp implements ProductDao{
 			return null;
 		}
 	}
+	
+	public Product getOneProductByProd_id(String prod_id) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Query query=Hsession.createQuery("from Product where prod_id=?0");
+			query.setParameter(0, prod_id);
+			query.setMaxResults(1);
+			Product product=(Product) query.uniqueResult();		
+			ts.commit();
+			//Hsession.clear();					
+			return product;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List getAll() {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");

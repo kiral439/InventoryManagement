@@ -68,13 +68,19 @@ public class ProductInAction extends ActionSupport{
 		Session Hsession2=sessionFactory2.openSession();		
 		Transaction ts2 = Hsession2.beginTransaction();
 		
-        ProductIn productIn = (ProductIn) Hsession.load(ProductIn.class, prodIn.getId());
-        Product product = (Product) Hsession2.load(Product.class, prodIn.getId());
+		ProductDao productDaoForId = new ProductDaoImp();
+		Product prodById = productDaoForId.getOneProductByProd_id(prodIn.getProd_id());
+		
+		ProductInDao productInDaoForId = new ProductInDaoImp();
+		ProductIn prodInById = productInDaoForId.getOneProductInByProd_id(prodIn.getProd_id(), prodIn.getId());
+		
+        ProductIn productIn = (ProductIn) Hsession.load(ProductIn.class, prodInById.getId());
+        Product product = (Product) Hsession2.load(Product.class, prodById.getId());
 		
 		try{
 			productInDao=new ProductInDaoImp();
 			
-			product.setIn_stock(product.getIn_stock()+product.getPending_stock());
+			product.setIn_stock(product.getIn_stock()+productIn.getQuantity());
 			product.setPending_stock(product.getPending_stock()-productIn.getQuantity());
 			productIn.setStatus("Arrived");
 			
@@ -139,7 +145,7 @@ public class ProductInAction extends ActionSupport{
 			productDao = new ProductDaoImp();
 			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
 			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
-			Product productInTheDatabase=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
+			Product productInTheDatabase=productDao.getOneProductByProd_id(productInBean.getProd_id());
 			if(productInTheDatabase!=null){
 				
 				prod.setId(productInTheDatabase.getId());
