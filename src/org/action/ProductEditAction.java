@@ -9,15 +9,18 @@ import java.util.Map;
 import org.dao.impl.CategoryDaoImp;
 import org.dao.impl.ProductDaoImp;
 import org.dao.impl.ProductInDaoImp;
+import org.dao.impl.ProductOutDaoImp;
 import org.dao1.CategoryDao;
 import org.dao1.ProductDao;
 import org.dao1.ProductInDao;
+import org.dao1.ProductOutDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.model.Product;
 import org.model.ProductIn;
+import org.model.ProductOut;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -26,6 +29,11 @@ public class ProductEditAction {
 	private ProductDao productDao2;
 	private ProductInDao prodInDao;
 	private ProductIn prodIn;
+	
+	private ProductOutDao prodOutDao;
+	private ProductOut prodOut;
+	
+	private ProductOut productOutBean;
 	
 	private ProductIn productInBean;
 	private Product productBean;
@@ -67,6 +75,27 @@ public class ProductEditAction {
 		this.prodIn = prodIn;
 	}
 	
+	
+	public ProductOutDao getProdOutDao() {
+		return prodOutDao;
+	}
+	public void setProdOutDao(ProductOutDao prodOutDao) {
+		this.prodOutDao = prodOutDao;
+	}
+	public ProductOut getProdOut() {
+		return prodOut;
+	}
+	public void setProdOut(ProductOut prodOut) {
+		this.prodOut = prodOut;
+	}
+	
+	
+	public ProductOut getProductOutBean() {
+		return productOutBean;
+	}
+	public void setProductOutBean(ProductOut productOutBean) {
+		this.productOutBean = productOutBean;
+	}
 	public ProductIn getProductInBean() {
 		return productInBean;
 	}
@@ -86,7 +115,6 @@ public class ProductEditAction {
 		Product prod_list=productDao.getOneProduct(prodIn.getProd_id());			
 		Map request=(Map)ActionContext.getContext().get("request");
 		request.put("prod_list", prod_list);		
-		System.out.println("AAAAAAAAAAAAAAAAA"+prod_list.getIn_stock());
 		
 		prodInDao=new ProductInDaoImp();
 		ProductIn prodIn_list=prodInDao.getOneProductIn(prodIn.getId());	
@@ -100,6 +128,19 @@ public class ProductEditAction {
 		return "success";
 	}
 	
+	public String getProductOutInfo() throws Exception{
+		productDao=new ProductDaoImp();
+		Product prod_list=productDao.getOneProduct(prodOut.getProd_id());			
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);
+		
+		prodOutDao=new ProductOutDaoImp();
+		ProductOut prodOut_list=prodOutDao.getOneProductOut(prodOut.getId());	
+		request.put("prodOut_list", prodOut_list);
+		
+		return "success";
+	}
+		
 	public String updateIn() throws Exception{
 		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -291,6 +332,85 @@ public class ProductEditAction {
 
 		Map request=(Map)ActionContext.getContext().get("request");
 		request.put("prod_list", prod_list);		
+		return "success";
+	}
+	
+	public String updateOut() throws Exception{
+		boolean valid = false;
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession=sessionFactory.openSession();		
+		Transaction ts = Hsession.beginTransaction();
+		
+		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession2=sessionFactory2.openSession();		
+		Transaction ts2 = Hsession2.beginTransaction();
+		
+        ProductOut productOut = new ProductOut();
+        Product product = new Product();
+        
+		try{
+			productDao=new ProductDaoImp();
+			prodOutDao = new ProductOutDaoImp();
+			Product prod_list=productDao.getOneProduct(productBean.getProd_id());
+			ProductOut prodOut_list=prodOutDao.getOneProductOut(productOutBean.getId());
+			
+			product.setId(prod_list.getId());
+			product.setProd_id(prod_list.getProd_id());
+			product.setProd_name(prod_list.getProd_name());
+			product.setCategory(prod_list.getCategory());
+			product.setProd_img(prod_list.getProd_img());
+			
+			System.out.println("Product id: "+productBean.getProd_id());
+			System.out.println("ID: "+productOutBean.getId());
+			System.out.println("In stock (database): "+ prod_list.getIn_stock());
+			System.out.println("Quantity (database): "+ prodOut_list.getQuantity());
+			System.out.println("Quantity from form:"+productOutBean.getQuantity());
+			
+			product.setIn_stock(prod_list.getIn_stock()+prodOut_list.getQuantity()-productOutBean.getQuantity());
+			product.setPending_stock(prod_list.getPending_stock());
+			product.setDescription(prod_list.getDescription());
+			
+
+			productOut.setId(productOutBean.getId());
+			productOut.setProd_id(productBean.getProd_id());
+			productOut.setBuyer(productOutBean.getBuyer());
+			productOut.setQuantity(productOutBean.getQuantity());
+			productOut.setSelling_price(productOutBean.getSelling_price());
+			productOut.setStatus(productOutBean.getStatus());
+			productOut.setDate(new Date(System.currentTimeMillis()));
+			
+			System.out.println("prod_id: "+ productBean.getProd_id());
+			System.out.println("prod_name: "+ productBean.getProd_name());
+			System.out.println("Category: "+ productBean.getCategory());
+			System.out.println("Description: "+ productBean.getDescription());
+			System.out.println("Buyer: "+ productOutBean.getBuyer());
+			System.out.println("Quantity: "+ productOutBean.getQuantity());
+			System.out.println("Selling price: "+ productOutBean.getSelling_price());
+			System.out.println("Status: "+ productOutBean.getStatus());
+			Hsession.update(productOut);	
+			Hsession.update(product);
+			ts.commit();
+
+			valid = true;
+		}catch(Exception e){
+			e.printStackTrace();
+							
+		}
+		if(valid){
+			return getAllProductOut();
+		}
+		else{
+			return "error";
+		}
+		
+	}
+	
+	public String getAllProductOut() {
+		ProductOutDao productOutDao=new ProductOutDaoImp();
+		List prodOut_list=productOutDao.getAll();	
+
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prodOut_list", prodOut_list);		
 		return "success";
 	}
 	

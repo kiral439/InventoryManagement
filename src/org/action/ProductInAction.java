@@ -193,26 +193,7 @@ public class ProductInAction extends ActionSupport{
 			
 			Hsession.save(productIn);
 			ts.commit();
-			
-			/*prod.setProd_id(productInBean.getProd_id());
-			prod.setProd_name(productBean.getProd_name());
-			prod.setCategory(productBean.getCategory());
-			//prod.setCategory("Furniture");
-			//prod.setImage("text");
-			if(this.getPhotoFile()!=null){
-				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-				byte[] buffer=new byte[fis.available()];	
-				fis.read(buffer);					
-				prod.setProd_img(buffer);
-			}
-			prod.setIn_stock(0);
-			prod.setPending_stock(productInBean.getQuantity());
-			prod.setDescription(productBean.getDescription());
-			
-			Hsession2.save(prod);
-			ts2.commit();*/
-			
-			//productDao.save(prod);
+
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();

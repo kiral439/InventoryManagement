@@ -46,6 +46,10 @@
 			<result name="success">productOutList.jsp</result>
 		</action>
 		
+		<action name="getProductOutInfo" class="org.action.ProductOutAction" method="getProductOutInfo">
+			<result name="success">productOutList.jsp</result>
+		</action>
+		
 		
 		<action name="addNewPurchase" class="org.action.ProductInAction" method="addNewPurchase">
 			<result name="success">productInList.jsp</result>
@@ -76,6 +80,11 @@
 			<result name="error">error.jsp</result>
 		</action>
 		
+		<action name="UpdateProductOutInfo" class="org.action.ProductEditAction" method="updateOut">
+			<result name="success">productOutList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
 		<action name="ProductInEdit" class="org.action.ProductEditAction" >
 			<result name="success">editProductIn.jsp</result>
 			<result name="error">error.jsp</result>
@@ -85,6 +94,12 @@
 			<result name="success">editProduct.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
+		
+		<action name="ProductOutEdit" class="org.action.ProductEditAction" method="getProductOutInfo">
+			<result name="success">editProductOut.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
 		</action> -->

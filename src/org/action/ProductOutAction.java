@@ -21,7 +21,14 @@ public class ProductOutAction extends ActionSupport{
 	ProductOutDao productOutDao;
 	private File photoFile;
 	private ProductOut productOut;
+	private ProductOut prodOut;
 	
+	public ProductOut getProdOut() {
+		return prodOut;
+	}
+	public void setProdOut(ProductOut prodOut) {
+		this.prodOut = prodOut;
+	}
 	public ProductOut getProductOut() {
 		return productOut;
 	}
@@ -38,32 +45,41 @@ public class ProductOutAction extends ActionSupport{
 	}
 	
 	public String update() throws Exception{
-		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
-        ProductOut prodOut = (ProductOut) Hsession.load(ProductOut.class, productOut.getId());
 		
-		try{
-			productOutDao=new ProductOutDaoImp();
-			
-			prodOut.setStatus("Delivered");
-			
-			Hsession.update(prodOut);					
-			ts.commit();
-			
-			//productOutDao.update(prod);
-			valid = true;
-		}catch(Exception e){
-			e.printStackTrace();
-							
-		}
-		if(valid){
-			return getAllProduct();
-		}
-		else{
-			return ERROR;
-		}
+		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession2=sessionFactory2.openSession();		
+		Transaction ts2 = Hsession2.beginTransaction();
+		
+		ProductDao productDaoForId = new ProductDaoImp();
+		Product prodById = productDaoForId.getOneProduct(prodOut.getProd_id());
+		
+		ProductOutDao productOutDaoForId = new ProductOutDaoImp();
+		ProductOut prodOutByOut = productOutDaoForId.getOneProductOutByProd_id(prodOut.getProd_id(), prodOut.getId());
+		
+        ProductOut productOut = (ProductOut) Hsession.load(ProductOut.class, prodOut.getId());
+//        Product product = (Product) Hsession2.load(Product.class, prodById.getId());
+		
+        if((productOut.getStatus()).equals("On shipping")) {
+			try{
+				productOutDao=new ProductOutDaoImp();
+
+				productOut.setStatus("Delivered");
+				
+				Hsession.update(productOut);					
+				ts2.commit();
+
+				return getAllProduct();
+			}catch(Exception e){
+				e.printStackTrace();
+				return ERROR;				
+			}
+		
+        }else {
+        	return getAllProduct();
+        }
 	}
 	
 	public String getAllProduct() {

@@ -35,15 +35,15 @@
 						<td align="center"><s:property value="#prodOut.quantity" /></td>
 						<td align="center">
 							<s:if test="%{#prodOut.status=='On shipping'}">
-								<a href="productOutUpdate.action?productOut.id=<s:property value="#prodOut.id"/>" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
+								<a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
 							</s:if>
 							<s:else>
-							    <a href="productOutUpdate.action?productOut.id=<s:property value="#prodOut.id"/>" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
+							    <a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
 							</s:else>
 						</td>
 						<td align="center"><s:property value="#prodOut.selling_price" /></td>
 						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
-						<td><a href="#" class="btn btn-primary">Edit</a></td>
+						<td><a href="ProductOutEdit.action?prodOut.id=<s:property value="#prodOut.id" />&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-primary">Edit</a></td>
 						<td align="center"><s:property value="#prodOut.date" /></td>
 					</tr>
 				</s:iterator>
