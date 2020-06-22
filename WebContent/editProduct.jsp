@@ -86,8 +86,14 @@
 			<td>Status:</td>
 			<td>
 				<select name="productInBean.status">
-					<option value="On shipping">On shipping</option>
-					<option value="Arrived">Arrived</option>
+					<s:if test="%{#productInBean.status=='Arrived'}">
+						<option value="On shipping">On shipping</option>
+						<option selected value="Arrived">Arrived</option>
+					</s:if>
+					<s:else>
+						<option selected value="On shipping">On shipping</option>
+						<option value="Arrived">Arrived</option>
+					</s:else>
 				</select>
 			</td>
 		</tr>
