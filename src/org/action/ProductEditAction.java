@@ -115,7 +115,9 @@ public class ProductEditAction {
         
 		try{
 			productDao=new ProductDaoImp();
+			prodInDao = new ProductInDaoImp();
 			Product prod_list=productDao.getOneProduct(productBean.getProd_id());
+			ProductIn prodIn_list=prodInDao.getOneProductInByProd_id(productBean.getProd_id(), productInBean.getId());
 			product.setId(prod_list.getId());
 			product.setProd_id(productBean.getProd_id());
 			product.setProd_name(productBean.getProd_name());
@@ -132,13 +134,22 @@ public class ProductEditAction {
 			
 			System.out.println("Buying price: "+ productInBean.getBuying_price());
 			product.setIn_stock(prod_list.getIn_stock());
-			product.setPending_stock(productInBean.getQuantity());
+			
+			if(productInBean.getStatus().equals("Arrived")) {
+				product.setPending_stock(prod_list.getPending_stock());
+				productIn.setQuantity(prodIn_list.getQuantity());
+			}
+			else {
+				product.setPending_stock(productInBean.getQuantity());
+				productIn.setQuantity(productInBean.getQuantity());
+			}
+			
 			product.setDescription(productBean.getDescription());
 			
 			productIn.setId(productInBean.getId());
 			productIn.setProd_id(productBean.getProd_id());
 			productIn.setSupplier(productInBean.getSupplier());
-			productIn.setQuantity(productInBean.getQuantity());
+			
 			productIn.setBuying_price(productInBean.getBuying_price());
 			productIn.setStatus(productInBean.getStatus());
 			productIn.setDate(new Date(System.currentTimeMillis()));
