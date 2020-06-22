@@ -3,8 +3,8 @@
 <html>
 <head>
 	<title>Add Product</title>
-	<link rel="stylesheet" href="CSS/addNewPurchase.css">
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/addNewPurchase.css">
 </head>
 <body bgcolor="#D9DFAA">
 	<h1 class="addNewH3 text-uppercase">New Purchase:</h1>
@@ -87,5 +87,9 @@
 		</tr>
 	</table>
 	</s:form>
+	
+	<!-- SCRIPTS HERE -->
+<script src="dist/jquery.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
 </body>
 </html>
