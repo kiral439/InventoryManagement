@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="dist/css/bootstrap.min.css">
 </head>
 <body>
+	
 	<h1 class="pt-3 m-0 text-center text-uppercase">Product Sold</h1>
 	<hr />
 	<div class="d-flex mx-5">
-		<a href="addProduct.jsp" class="btn btn-primary mr-auto">Add Record</a>
+		<a href="getAllProd_id.action" class="btn btn-primary mr-auto">Add Record</a>
 		<a href="getAllOnShippingProductOut.action" class="btn btn-primary">Show On Shipping Product Only</a>
 		<a href="getAllProductOut.action" class="btn btn-primary ml-3">Show All Product Sold</a>
 	</div>
