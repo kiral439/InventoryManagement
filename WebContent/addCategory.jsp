@@ -4,12 +4,13 @@
 <head>
 	<title>Add Product</title>
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/addCategory.css">
 </head>
-<body bgcolor="#D9DFAA">
+<body>
+	<div class="overlay"></div>
 	<s:form action="addCategory" method="post" enctype="multipart/form-data">
-	<table>
 		<tr>
-			<td colspan="2">Add Category:</td>
+			<td colspan="2"><h1>Add Category:</h1></td>
 		</tr>
 		<tr>
 			<td>Category Code:</td>
@@ -24,14 +25,12 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Add"/></td>
-		</tr>
-		<tr>
-			<td>
-				<a href="categoriesList.action" class="btn btn-primary">Return</a>
+			<td></td>
+			<td class="addCategory-btn">
+				<a href="categoriesList.action" class="btn btn-secondary">Return</a>
+				<input type="submit" value="Add" class="btn btn-primary"/>
 			</td>
 		</tr>
-	</table>
 	</s:form>
 </body>
 </html>
