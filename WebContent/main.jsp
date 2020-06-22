@@ -18,13 +18,11 @@
 	</style>
 	
 </head>
-<frameset rows="15%,*" border="0">
-	<frame src="head.jsp">
+<frameset rows="100%,*" border="0">
 	<frameset cols="15%,*" border="0">
 		<frame src="left.jsp">
 		<frame src="right.jsp" name="right">
 	</frameset>
-	
 </frameset>
 
 

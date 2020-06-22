@@ -9,9 +9,9 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Product List</h1>
+	<h1 class="pt-3 m-0 text-center text-uppercase">Product List</h1>
 	<hr />
-	<div class="p-5">
+	<div class="px-5 py-3">
 		<table class="table table-bordered table-striped">
 			<thead class="bg-warning">
 				<th>Product ID</th>

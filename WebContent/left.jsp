@@ -41,7 +41,7 @@
 	</details>
 	
 	<s:form action="logout" method="post" theme="simple" class="anchored" target="_parent" >
-		<s:submit value="Log out" class="btn btn-primary"/>
+		<s:submit value="Log out" class="btn btn-danger"/>
 	</s:form>
 	
 

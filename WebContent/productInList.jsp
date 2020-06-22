@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center text-uppercase">Purchased Product</h1>
+	<h1 class="pt-3 m-0 text-center text-uppercase">Purchased Product</h1>
 	<hr />
 	<div class="d-flex mx-5">
 		<a href="categoriesList.action" class="btn btn-primary mr-auto">New Purchase</a>
