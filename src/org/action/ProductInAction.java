@@ -77,31 +77,36 @@ public class ProductInAction extends ActionSupport{
         ProductIn productIn = (ProductIn) Hsession.load(ProductIn.class, prodInById.getId());
         Product product = (Product) Hsession2.load(Product.class, prodById.getId());
 		
-		try{
-			productInDao=new ProductInDaoImp();
-			
-			product.setIn_stock(product.getIn_stock()+productIn.getQuantity());
-			product.setPending_stock(product.getPending_stock()-productIn.getQuantity());
-			productIn.setStatus("Arrived");
-			
-			Hsession2.update(product);					
-			ts2.commit();
-			
-			Hsession.update(productIn);					
-			ts.commit();
-			
-			//productInDao.update(prod);
-			valid = true;
-		}catch(Exception e){
-			e.printStackTrace();
-							
-		}
-		if(valid){
-			return getAllProduct();
-		}
-		else{
-			return ERROR;
-		}
+        if((productIn.getStatus()).equals("On shipping")) {
+			try{
+				productInDao=new ProductInDaoImp();
+				
+				product.setIn_stock(product.getIn_stock()+productIn.getQuantity());
+				product.setPending_stock(product.getPending_stock()-productIn.getQuantity());
+				productIn.setStatus("Arrived");
+				
+				Hsession2.update(product);					
+				ts2.commit();
+				
+				Hsession.update(productIn);					
+				ts.commit();
+				
+				//productInDao.update(prod);
+				valid = true;
+			}catch(Exception e){
+				e.printStackTrace();
+								
+			}
+		
+			if(valid){
+				return getAllProduct();
+			}
+			else{
+				return ERROR;
+			}
+        }else {
+        	return getAllProduct();
+        }
 	}
 	
 	public String getAllProduct() {

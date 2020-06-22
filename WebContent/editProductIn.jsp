@@ -8,7 +8,7 @@
 <body bgcolor="#D9DFAA">
 <s:set value="#request.prod_list" var="productBean"/>
 <s:set value="#request.prodIn_list" var="productInBean"/>
-	<s:form action="UpdateProductInfo" method="post" enctype="multipart/form-data">
+	<s:form action="UpdateProductInInfo" method="post" enctype="multipart/form-data">
 	
 	<table>
 		<tr>
@@ -65,15 +65,36 @@
 			</td>
 		</tr>
 		<tr>
-			<td>In stock:</td>
+			<td>Supplier:</td>
 			<td>
-				<input type="text" name="productBean.in_stock" value="<s:property value="#productBean.in_stock"/>" readonly/>
+				<textarea name="productInBean.supplier"><s:property value="#productInBean.supplier"/></textarea>
 			</td>
 		</tr>
 		<tr>
-			<td>Pending stock:</td>
+			<td>Quantity:</td>
 			<td>
-				<input type="text" name="productBean.pending_stock" value="<s:property value="#productBean.pending_stock"/>" readonly/>
+				<textarea name="productInBean.quantity"><s:property value="#productInBean.quantity"/></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>Buying Price:</td>
+			<td>
+				<textarea name="productInBean.buying_price"><s:property value="#productInBean.buying_price"/></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>Status:</td>
+			<td>
+				<select name="productInBean.status">
+					<s:if test="%{#productInBean.status=='Arrived'}">
+						<option value="On shipping">On shipping</option>
+						<option selected value="Arrived">Arrived</option>
+					</s:if>
+					<s:else>
+						<option selected value="On shipping">On shipping</option>
+						<option value="Arrived">Arrived</option>
+					</s:else>
+				</select>
 			</td>
 		</tr>
 		<tr>

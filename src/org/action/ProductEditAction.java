@@ -100,7 +100,7 @@ public class ProductEditAction {
 		return "success";
 	}
 	
-	public String update() throws Exception{
+	public String updateIn() throws Exception{
 		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
@@ -143,6 +143,10 @@ public class ProductEditAction {
 			productIn.setStatus(productInBean.getStatus());
 			productIn.setDate(new Date(System.currentTimeMillis()));
 			
+//			if((productInBean.getStatus()).equals("Arrived")) {
+//				updateStockInfo();
+//			}
+			
 			System.out.println("prod_id: "+ productBean.getProd_id());
 			System.out.println("prod_name: "+ productBean.getProd_name());
 			System.out.println("Category: "+ productBean.getCategory());
@@ -165,7 +169,7 @@ public class ProductEditAction {
 							
 		}
 		if(valid){
-			return getAllProduct();
+			return getAllProductIn();
 		}
 		else{
 			return "error";
@@ -173,7 +177,7 @@ public class ProductEditAction {
 		
 	}
 	
-	public String getAllProduct() {
+	public String getAllProductIn() {
 		ProductInDao productInDao=new ProductInDaoImp();
 		List prodIn_list=productInDao.getAll();	
 
@@ -181,4 +185,65 @@ public class ProductEditAction {
 		request.put("prodIn_list", prodIn_list);		
 		return "success";
 	}
+	
+	public void updateStockInfo() {
+		
+	}
+	
+	public String update() throws Exception{
+		
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession=sessionFactory.openSession();		
+		Transaction ts = Hsession.beginTransaction();
+
+        Product product = new Product();
+        
+		try{
+			productDao=new ProductDaoImp();
+			Product prod_list=productDao.getOneProduct(productBean.getProd_id());
+			product.setId(prod_list.getId());
+			product.setProd_id(productBean.getProd_id());
+			product.setProd_name(productBean.getProd_name());
+			product.setCategory(productBean.getCategory());
+			if(this.getPhotoFile()!=null){
+				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
+				byte[] buffer=new byte[fis.available()];	
+				fis.read(buffer);					
+				product.setProd_img(buffer);
+			}else {
+				product.setProd_img(prod_list.getProd_img());
+			}
+
+			product.setIn_stock(prod_list.getIn_stock());
+			product.setPending_stock(productBean.getPending_stock());
+			product.setDescription(productBean.getDescription());
+			
+			System.out.println("prod_id: "+ productBean.getProd_id());
+			System.out.println("prod_name: "+ productBean.getProd_name());
+			System.out.println("Category: "+ productBean.getCategory());
+			System.out.println("Photo: "+ product.getProd_img());
+			System.out.println("In stock: "+ prod_list.getIn_stock());
+			System.out.println("Pending stock: "+ productBean.getPending_stock());
+			
+			System.out.println("DESC: "+ productBean.getDescription());
+			
+			Hsession.update(product);					
+			ts.commit();
+			return getAllProduct();
+		}catch(Exception e){
+			e.printStackTrace();
+			return "error";				
+		}
+		
+	}
+	
+	public String getAllProduct() {
+		ProductDao productDao=new ProductDaoImp();
+		List prod_list=productDao.getAll();	
+
+		Map request=(Map)ActionContext.getContext().get("request");
+		request.put("prod_list", prod_list);		
+		return "success";
+	}
+	
 }
