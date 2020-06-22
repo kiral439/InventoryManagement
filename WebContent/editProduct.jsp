@@ -17,6 +17,7 @@
 		<tr>
 			<td>Product ID:</td>
 			<td>
+				<input type="hidden" name="productInBean.id" value="<s:property value="#productInBean.id"/>" readonly/>
 				<input type="text" name="productBean.prod_id" value="<s:property value="#productBean.prod_id"/>" readonly/>
 			</td>
 		</tr>
@@ -30,10 +31,17 @@
 			<td>Category:</td>
 			<td>
 				<select name="productBean.category">
-					<s:iterator id="category" value="#request.categories">
-						<option value="<s:property value="#category.name"/>">
-							<s:property value="#category.name"/>
-						</option>
+					<s:iterator id="category" value="#request.categories" var="category">
+						<s:if test="%{#category.name==#productBean.category}">
+							<option selected value="<s:property value="#category.name"/>">
+								<s:property value="#category.name"/>
+							</option>
+						</s:if>
+						<s:else>
+							<option value="<s:property value="#category.name"/>">
+								<s:property value="#category.name"/>
+							</option>
+						</s:else>
 					</s:iterator>
 				</select>
 			</td>
