@@ -14,10 +14,10 @@
 <body>
 	<h1 class="text-center text-uppercase">Product Sold</h1>
 	<hr />
-	<div>
-		<a href="addProduct.jsp" class="btn btn-primary ml-5">Add Record</a>
+	<div class="d-flex mx-5">
+		<a href="addProduct.jsp" class="btn btn-primary mr-auto">Add Record</a>
 		<a href="getAllOnShippingProductOut.action" class="btn btn-primary">Show On Shipping Product Only</a>
-		<a href="getAllProductOut.action" class="btn btn-primary">Show All Product Sold</a>
+		<a href="getAllProductOut.action" class="btn btn-primary ml-3">Show All Product Sold</a>
 	</div>
 	<div class="p-5">
 		<table class="table table-bordered table-striped">
