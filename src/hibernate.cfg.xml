@@ -17,5 +17,6 @@
         <mapping resource="product.hbm.xml" />
         <mapping resource="productIn.hbm.xml" />
         <mapping resource="productOut.hbm.xml" />
+        <mapping resource="register.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
