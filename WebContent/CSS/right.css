@@ -1,8 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .card{
-	margin: 20px;
+	margin: 22px;
+	width: 240px;
+	position: relative;
 }
+
+.card-body {
+    min-height: 200px;
+}
+
+.card-title {
+    max-height: 80px;
+}
+
+.card-text {
+    max-height: 120px;
+}
+
+.editBtn {
+    min-width: 200px;
+    position: absolute;
+	bottom: 15;
+}
+
+.editImage {
+	max-width: 237px;
+
+}
+
