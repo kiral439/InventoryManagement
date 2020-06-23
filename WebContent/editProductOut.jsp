@@ -61,6 +61,9 @@
 					<textarea name="productOutBean.quantity"><s:property value="#productOutBean.quantity"/></textarea>
 				</s:else>
 			</td>
+			<td>Maximum quantity: 
+					<s:property value="%{(#productBean.in_stock)+(#productOutBean.quantity)}"/>
+			</td>
 		</tr>
 		<tr>
 			<td>Selling Price:</td>
