@@ -1,0 +1,41 @@
+body{
+	overflow: hidden;
+}
+
+table {
+	margin: 0px 40px;
+}
+
+table{
+	padding: 10px 0px;
+}
+
+#UpdateProductOutInfo {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+td {
+	padding: 14px 30px;
+	width: 80px;
+}
+
+.addNewH3 {
+	text-align: center;
+	padding: 20px 0px;	
+	margin: 0;
+}
+
+
+.addBtn, .addCategoryBtn {
+	width: 224px;
+}
+
+.wwFormTable {
+	margin: 20px 0px;
+}
+
+input[type=text]{
+	width: 224px;
+}
