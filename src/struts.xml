@@ -95,12 +95,10 @@
 			<result name="error">error.jsp</result>
 		</action>
 
-
 		<action name="ProductOutEdit" class="org.action.ProductEditAction" method="getProductOutInfo">
 			<result name="success">editProductOut.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-
 
 		<action name="getAllProd_id" class="org.action.ProductAction" method="getAllProduct">
 			<result name="success">addNewProductSold.jsp</result>
@@ -117,7 +115,6 @@
 			<result name="error">error.jsp</result>
 			<result name="input">error.jsp</result>
 		</action>
-
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
 		</action> -->
