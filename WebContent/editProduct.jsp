@@ -44,12 +44,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
+<!-- 		<tr>
 			<td></td>
 			<td>
 				<a href="addCategory.jsp" class="btn btn-primary addCategoryBtn">Add Category</a>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td>Product Image:</td>
 			<td>

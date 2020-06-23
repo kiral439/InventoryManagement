@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="CSS/editProductIn.css">
 </head>
 <body>
-<h1 class="addNewH3 text-uppercase">Edit Product:</h1>
+<h1 class="addNewH3 text-uppercase">Edit Product Purchased:</h1>
 <s:set value="#request.prod_list" var="productBean"/>
 <s:set value="#request.prodIn_list" var="productInBean"/>
 	<s:form action="UpdateProductInInfo" method="post" enctype="multipart/form-data">
@@ -44,12 +44,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
+<!-- 		<tr>
 			<td></td>
 			<td>
 				<a href="addCategory.jsp" class="btn btn-primary addCategoryBtn">Add Category</a>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td>Product Image:</td>
 			<td>

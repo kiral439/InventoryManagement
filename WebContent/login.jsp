@@ -6,6 +6,7 @@
 	
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="CSS/login.css">
+	<s:head/>
 </head>
 <body>
 	<div class="overlay">
