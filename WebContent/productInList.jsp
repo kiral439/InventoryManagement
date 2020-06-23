@@ -41,7 +41,7 @@
 						<td>
 						
 						<s:if test="%{#prodIn.status=='On shipping'}">
-							<a href="productInUpdate.action?prodIn.prod_id=<s:property value="#prodIn.prod_id"/>&prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-danger"><s:property value="#prodIn.status"/></a></td>
+							<a href="productInUpdate.action?prodIn.prod_id=<s:property value="#prodIn.prod_id"/>&prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-warning"><s:property value="#prodIn.status"/></a></td>
 						</s:if>
 						<s:else>
 						    <a href="productInUpdate.action?prodIn.prod_id=<s:property value="#prodIn.prod_id"/>&prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td>
