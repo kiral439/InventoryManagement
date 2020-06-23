@@ -30,6 +30,27 @@ public class ProductOutDaoImp implements ProductOutDao{
 			return null;
 		}
 	}
+	
+	public ProductOut getOneProductOutByProd_id(String prod_id, Integer id) {
+		try{
+			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	        SessionFactory sessionFactory= cfg.buildSessionFactory();
+	        Session Hsession=sessionFactory.openSession();
+			Transaction ts=Hsession.beginTransaction();
+			Query query=Hsession.createQuery("from ProductOut prod_id=?0 and id=?1");
+			query.setParameter(0, prod_id);
+			query.setParameter(1, id);
+			query.setMaxResults(1);
+			ProductOut productOut=(ProductOut) query.uniqueResult();		
+			ts.commit();
+			Hsession.clear();					
+			return productOut;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List getAll() {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
