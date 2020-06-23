@@ -7,31 +7,57 @@
 	<link rel="stylesheet" href="CSS/addNewPurchase.css">
 </head>
 <body bgcolor="#D9DFAA">
+	<s:set value="#request.currentProd" var="current" />
+	<s:set value="#request.originalProdId" var="orgProdId" />
 	<h1 class="addNewH3 text-uppercase">New Purchase:</h1>
 	<s:form action="addNewPurchase" method="post" enctype="multipart/form-data">
 	
 		<tr>
 			<td>Product ID:</td>
 			<td>
-				<input type="text" name="productInBean.prod_id" value=""/>
+				<s:if test="%{#current!=null}">
+					<input type="text" name="productInBean.prod_id" value="<s:property value="#current.prod_id" />"/>
+				</s:if>
+				<s:else>
+					<input type="text" name="productInBean.prod_id" value="<s:property value="#orgProdId.prod_id" />"/>
+				</s:else>
+				<button type="submit" formaction="checkExistingProductId.action" class="btn btn-warning">Check</button>
 			</td>
 		</tr>
 		<tr>
 			<td>Name:</td>
 			<td>
-				<input type="text" name="productBean.prod_name" value="" />
+				<s:if test="%{#current!=null}">
+					<input type="text" name="productBean.prod_name" value="<s:property value="#current.prod_name" />" readonly/>
+				</s:if>
+				<s:else>
+					<input type="text" name="productBean.prod_name" value="" />
+				</s:else>
 			</td>
 		</tr>
 		<tr>
 			<td>Category:</td>
 			<td>
-				<select name="productBean.category">
+				<s:if test="%{#current!=null}">
+					<select name="productBean.category" disabled>
+				</s:if>
+				<s:else>
+					<select name="productBean.category" >
+				</s:else>
 					<s:iterator id="category" value="#request.categories">
-						<option value="<s:property value="#category.name"/>">
-							<s:property value="#category.name"/>
-						</option>
+						<s:if test="%{#current.category==#category.name}">
+							<option selected value="<s:property value="#category.name"/>">
+								<s:property value="#category.name"/>
+							</option>
+						</s:if>
+						<s:else>
+							<option value="<s:property value="#category.name"/>">
+								<s:property value="#category.name"/>
+							</option>
+						</s:else>
 					</s:iterator>
 				</select>
+
 			</td>
 		</tr>
 		<tr>
@@ -43,13 +69,23 @@
 		<tr>
 			<td>Product Image:</td>
 			<td>
-				<input type="file" name="photoFile"/>
+				<s:if test="%{#current!=null}">
+					<img src="getImage.action?productBean.id=<s:property value="#current.id"/>" width="150">
+				</s:if>
+				<s:else>
+					<input type="file" name="photoFile"/>
+				</s:else>
 			</td>
 		</tr>
 		<tr>
 			<td>Description:</td>
 			<td>
-				<textarea rows="4" cols="30" name="productBean.description" value=""></textarea>
+				<s:if test="%{#current!=null}">
+					<textarea rows="4" cols="30" name="productBean.description" readonly><s:property value="#current.description" /></textarea>
+				</s:if>
+				<s:else>
+					<textarea rows="4" cols="30" name="productBean.description" value=""><s:property value="" /></textarea>
+				</s:else>
 			</td>
 		</tr>
 
