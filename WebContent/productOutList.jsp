@@ -26,6 +26,7 @@
 				<th>Status</th>
 				<th>Selling Price</th>
 				<th>Edit</th>
+				<th>Return</th>
 				<th>Date</th>
 			</thead>
 			<tbody>
@@ -36,7 +37,7 @@
 						<td align="center"><s:property value="#prodOut.quantity" /></td>
 						<td align="center">
 							<s:if test="%{#prodOut.status=='On shipping'}">
-								<a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
+								<a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-warning"><s:property value="#prodOut.status"/></a></td>
 							</s:if>
 							<s:else>
 							    <a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
@@ -45,6 +46,7 @@
 						<td align="center"><s:property value="#prodOut.selling_price" /></td>
 						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
 						<td><a href="ProductOutEdit.action?prodOut.id=<s:property value="#prodOut.id" />&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-primary">Edit</a></td>
+						<td><a href="ProductOutReturn.action?productOutBean.id=<s:property value="#prodOut.id" />&productBean.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-danger">Return</a></td>
 						<td align="center"><s:property value="#prodOut.date" /></td>
 					</tr>
 				</s:iterator>

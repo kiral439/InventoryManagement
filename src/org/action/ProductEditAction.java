@@ -414,4 +414,61 @@ public class ProductEditAction {
 		return "success";
 	}
 	
+	public String returnProductOut() {
+		boolean valid = false;
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession=sessionFactory.openSession();		
+		Transaction ts = Hsession.beginTransaction();
+		
+		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session Hsession2=sessionFactory2.openSession();		
+		Transaction ts2 = Hsession2.beginTransaction();
+		
+        ProductOut productOut = new ProductOut();
+        Product product = new Product();
+        
+		try{
+			productDao=new ProductDaoImp();
+			prodOutDao = new ProductOutDaoImp();
+			
+			Product prod_list=productDao.getOneProduct(productBean.getProd_id());
+			ProductOut prodOut_list=prodOutDao.getOneProductOut(productOutBean.getId());
+			
+			product.setId(prod_list.getId());
+			product.setProd_id(prod_list.getProd_id());
+			product.setProd_name(prod_list.getProd_name());
+			product.setCategory(prod_list.getCategory());
+			product.setProd_img(prod_list.getProd_img());
+			
+			
+			product.setIn_stock(prod_list.getIn_stock()+prodOut_list.getQuantity());
+			product.setPending_stock(prod_list.getPending_stock());
+			product.setDescription(prod_list.getDescription());
+			
+			productOut.setId(productOutBean.getId());
+			productOut.setProd_id(productBean.getProd_id());
+			productOut.setBuyer(prodOut_list.getBuyer());
+			productOut.setQuantity(prodOut_list.getQuantity());
+			productOut.setSelling_price(prodOut_list.getSelling_price());
+			productOut.setStatus(prodOut_list.getStatus());
+			productOut.setDate(new Date(System.currentTimeMillis()));
+			
+			Hsession.delete(productOut);
+				
+			Hsession.update(product);
+			ts.commit();
+
+			valid = true;
+		}catch(Exception e){
+			e.printStackTrace();
+							
+		}
+		if(valid){
+			return getAllProductOut();
+		}
+		else{
+			return "error";
+		}
+	}
+	
 }
