@@ -53,8 +53,10 @@
 		padding-top: 25px;
 	}
 	
-	.tdLabel {
-		width: 100px;
-		text-align: left;
-		padding: 5px 0px;
+	#login_login_username{
+		margin-left: 20px;
+	}
+	
+	#login_login_password{
+		margin-left: 25px;
 	}

@@ -2,18 +2,16 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<title>Add Product</title>
+	<title>Edit Product</title>
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/editProductIn.css">
 </head>
-<body bgcolor="#D9DFAA">
+<body>
+<h1 class="addNewH3 text-uppercase">Edit Product Purchased:</h1>
 <s:set value="#request.prod_list" var="productBean"/>
 <s:set value="#request.prodIn_list" var="productInBean"/>
 	<s:form action="UpdateProductInInfo" method="post" enctype="multipart/form-data">
 	
-	<table>
-		<tr>
-			<td colspan="2">Edit Product:</td>
-		</tr>
 		<tr>
 			<td>Product ID:</td>
 			<td>
@@ -46,11 +44,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
+<!-- 		<tr>
+			<td></td>
 			<td>
-				<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
+				<a href="addCategory.jsp" class="btn btn-primary addCategoryBtn">Add Category</a>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td>Product Image:</td>
 			<td>
@@ -58,6 +57,7 @@
 				<input type="file" name="photoFile"/>
 			</td>
 		</tr>
+		<table class="wwFormTable">
 		<tr>
 			<td>Description:</td>
 			<td>
@@ -108,7 +108,8 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Save Changes"/></td>
+			<td></td>
+			<td><input type="submit" value="Save Changes" class="btn btn-primary addBtn"/></td>
 		</tr>
 	</table>
 	</s:form>

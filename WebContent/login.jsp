@@ -6,13 +6,14 @@
 	
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="CSS/login.css">
+	<s:head/>
 </head>
 <body>
 	<div class="overlay">
 	</div>
 	<h1>INVENTORY MANAGEMENT SYSTEM</h1>
 	<s:form action="login" method="post" class="p-5">
-		<table>
+
 			<tr>
 				<s:textfield name="login.username" label="Username" size="22"></s:textfield>
 			</tr>
@@ -25,7 +26,7 @@
 					<input type="submit" value="Login" class="btn btn-success"/>
 				</td>
 			</tr>
-		</table>
+
 	</s:form>
 </body>
 </html>
