@@ -11,6 +11,8 @@
 <%-- <p>Hi, 
 <%  Login user = (Login) session.getAttribute("user");
 	String usr = user.getUsername();
+	
+	//Product products = (Product) session.getAttribute("products");
 %> 
 
 <%=usr%>
