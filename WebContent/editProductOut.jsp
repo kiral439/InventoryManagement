@@ -60,6 +60,7 @@
 				</s:else>
 			</td>
 			<td>Maximum quantity: 
+				<s:set value="%{(#productBean.in_stock)+(#productOutBean.quantity)}" var="maxQuantity"/>
 					<s:property value="%{(#productBean.in_stock)+(#productOutBean.quantity)}"/>
 			</td>
 		</tr>
