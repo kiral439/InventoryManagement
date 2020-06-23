@@ -142,7 +142,22 @@ public class ProductInAction extends ActionSupport{
 		
 		ProductIn productIn = new ProductIn();
 		Product prod = new Product();
-		
+		/*
+		 * Arrived
+		 *  Product exists in the database
+		 * 		- In_stock = In_stock+Quantity
+		 * 		- Pending_stock = Pending_stock
+		 *  Product doesn't exist in the database
+		 *  	- In_stock = Quantity
+		 * 		- Pending_stock = 0
+		 * On Shipping
+		 *  Product exists in the database
+		 * 		- In_stock = In_stock
+		 * 		- Pending_stock = Pending_stock + Quantity
+		 *  Product doesn't exist in the database
+		 *  	- In_stock = 0
+		 *  	- Pending_stock = Quantity
+		 * */
 		try{
 			productDao = new ProductDaoImp();
 			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
@@ -155,9 +170,16 @@ public class ProductInAction extends ActionSupport{
 				prod.setCategory(productInTheDatabase.getCategory());
 				prod.setProd_name((productInTheDatabase.getProd_name()));
 				prod.setProd_img(productInTheDatabase.getProd_img());
-				prod.setIn_stock(productInTheDatabase.getIn_stock());
-				prod.setPending_stock(productInTheDatabase.getPending_stock()+productInBean.getQuantity());
 				prod.setDescription(productInTheDatabase.getDescription());
+				
+				if(productInBean.getStatus().equals("Arrived")) {
+					prod.setIn_stock(productInTheDatabase.getIn_stock()+productInBean.getQuantity());
+					prod.setPending_stock(productInTheDatabase.getPending_stock());
+				}
+				else {
+					prod.setIn_stock(productInTheDatabase.getIn_stock());
+					prod.setPending_stock(productInTheDatabase.getPending_stock()+productInBean.getQuantity());
+				}
 				
 				Hsession2.update(prod);
 				ts2.commit();
@@ -176,9 +198,16 @@ public class ProductInAction extends ActionSupport{
 					fis.read(buffer);					
 					prod.setProd_img(buffer);
 				}
-				prod.setIn_stock(0);
-				prod.setPending_stock(productInBean.getQuantity());
 				prod.setDescription(productBean.getDescription());
+				
+				if(productInBean.getStatus().equals("Arrived")) {
+					prod.setIn_stock(productInBean.getQuantity());
+					prod.setPending_stock(0);
+				}
+				else {
+					prod.setIn_stock(0);
+					prod.setPending_stock(productInBean.getQuantity());
+				}
 				
 				Hsession2.save(prod);
 				ts2.commit();
