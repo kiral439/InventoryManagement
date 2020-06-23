@@ -58,6 +58,7 @@
 
 		<action name="productOutUpdate" class="org.action.ProductOutAction" method="update">
 			<result name="success">productOutList.jsp</result>
+			<!-- <result name="input">editProductOut.jsp</result> -->
 			<result name="error">error.jsp</result>
 			<!-- <result name = "success" type = "redirect">
 		      <param name = "location">
