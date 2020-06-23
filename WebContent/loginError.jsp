@@ -16,8 +16,9 @@
 			</p>
 			<span class="homepage-box">
 			<a href="login.jsp">
-			RETURN</span>		
+			RETURN		
 			</a>
+			</span>
 		</div>
 	</div>
 </body>

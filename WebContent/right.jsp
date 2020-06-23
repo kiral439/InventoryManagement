@@ -2,31 +2,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
+	<title>Inventory Management System</title>
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
-	
-	<style>
-		body {
-			display: flex;
-			flex-wrap: wrap;
-		}
-		
-		.card{
-			margin: 20px;
-		}
-	</style>
+	<link rel="stylesheet" href="CSS/right.css">
 	
 </head>
 <body>
-
-<p>Hi, 
-<%  Login user = (Login) session.getAttribute("user");
-	String usr = user.getUsername();
-%> 
-
-<%=usr%>
-
-<p>
-<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
 
 <s:iterator id="product" value="#request.prod_list" var="product">
 <div class="card" style="width: 18rem;">

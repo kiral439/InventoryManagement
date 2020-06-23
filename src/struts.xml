@@ -12,7 +12,8 @@
 		</action>
 		
 		<action name="register" class="org.action.Register">
-    		<result name="success">thankyou.jsp</result>
+    		<result name="success">success.jsp</result>
+    		<result name="error">registerError.jsp</result>
     		<result name="input">register.jsp</result>
 		</action>
 		

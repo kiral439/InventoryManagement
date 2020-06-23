@@ -64,6 +64,7 @@ public class CategoryAction extends ActionSupport{
 		Transaction ts = Hsession.beginTransaction();
 		categoryDao = new CategoryDaoImp();
 		Category category = new Category();
+		
 		try{
 			category.setCode(categoryBean.getCode());
 			category.setName(categoryBean.getName());

@@ -19,12 +19,12 @@
 			<tr>
 				<s:password name="login.password" label="Password" size="22"></s:password>
 			</tr>
-			<tr>
+<!-- 			<tr>
 				<p><a href="register.jsp">Please register</a> for our prize drawing.</p>
-			</tr>
+			</tr> -->
 			<tr>
 				<td class="tdBtn">
-					<input type="reset" value="Reset" class="btn btn-danger"/>
+					<a href="register.jsp" class="btn btn-primary">Register</a>
 					<input type="submit" value="Login" class="btn btn-success"/>
 				</td>
 			</tr>

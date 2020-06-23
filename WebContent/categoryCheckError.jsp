@@ -1,13 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<title>Inventory Management System</title>
+	
+	<link rel="stylesheet" href="CSS/error.css">
 </head>
 <body>
-	Category Name or Code already exists!
-	<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
+	<div class="container">
+		<div class="box">
+			<h1>Oops..!</h1>
+<!-- 			<h3>Oops..</h3> -->
+			<p class="para-box">
+			Category Name or Code already exists!<br>
+			</p>
+			<span class="homepage-box">
+			<a href="addCategory.jsp">
+				RETURN	
+			</a>
+			</span>	
+		</div>
+	</div>
 </body>
 </html>
