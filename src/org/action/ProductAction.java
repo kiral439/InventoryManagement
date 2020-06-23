@@ -24,7 +24,7 @@ public class ProductAction extends ActionSupport{
 	ProductDao productDao;
 	private File photoFile;
 	private Product productBean;	
-	private Product productOutBean;	
+	private Product productOutBean; 
 	
 	public File getPhotoFile() {
 		return photoFile;
@@ -32,17 +32,15 @@ public class ProductAction extends ActionSupport{
 	public void setPhotoFile(File photoFile) {
 		this.photoFile = photoFile;
 	}
-	
-	public Product getProductOutBean() {
-		return productOutBean;
-	}
-	public void setProductOutBean(Product productOutBean) {
-		this.productOutBean = productOutBean;
+	public Product getProductOutBean() { 
+	  return productOutBean; 
+	} 
+	public void setProductOutBean(Product productOutBean) { 
+	  this.productOutBean = productOutBean; 
 	}
 	public Product getProductBean() {
 		return productBean;
 	}
-
 	public void setProductBean(Product productBean) {
 		this.productBean = productBean;
 	}

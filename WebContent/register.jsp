@@ -14,15 +14,15 @@
     <s:form action="register" method="post" class="p-5">
 		<table>
 			<tr>
-				<s:textfield name="personBean.username" label="Username" size="22"></s:textfield>
+				<s:textfield name="register.username" label="Username" size="22"></s:textfield>
 			</tr>
 			<tr>
-				<s:password name="personBean.password" label="Password" size="22"></s:password>
+				<s:password name="register.password" label="Password" size="22"></s:password>
 			</tr>
 			<tr>
 				<td class="tdBtn">
 					<input type="reset" value="Reset" class="btn btn-danger"/>
-					<input type="submit" value="Login" class="btn btn-success"/>
+					<input type="submit" value="Register" class="btn btn-success"/>
 				</td>
 			</tr>
 		</table>

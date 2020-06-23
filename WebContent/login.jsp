@@ -6,29 +6,25 @@
 	
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="CSS/login.css">
+<s:head />
 </head>
 <body>
 	<div class="overlay">
 	</div>
 	<h1>INVENTORY MANAGEMENT SYSTEM</h1>
 	<s:form action="login" method="post" class="p-5">
-		<table>
-			<tr>
-				<s:textfield name="login.username" label="Username" size="22"></s:textfield>
-			</tr>
-			<tr>
-				<s:password name="login.password" label="Password" size="22"></s:password>
-			</tr>
-<!-- 			<tr>
-				<p><a href="register.jsp">Please register</a> for our prize drawing.</p>
-			</tr> -->
-			<tr>
-				<td class="tdBtn">
-					<a href="register.jsp" class="btn btn-primary">Register</a>
-					<input type="submit" value="Login" class="btn btn-success"/>
-				</td>
-			</tr>
-		</table>
+		<tr>
+			<s:textfield name="login.username" label="Username" size="22"></s:textfield>
+		</tr>
+		<tr>
+			<s:password name="login.password" label="Password" size="22"></s:password>
+		</tr>
+		<tr>
+			<td class="tdBtn">
+				<a href="register.jsp" class="btn btn-primary">Register</a>
+				<input type="submit" value="Login" class="btn btn-success"/>
+			</td>
+		</tr>
 	</s:form>
 </body>
 </html>

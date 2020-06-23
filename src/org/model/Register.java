@@ -7,6 +7,7 @@ public class Register{
 	//Fields
 	private String username;
 	private String password;
+	private String acc_type;
 	
 	public String getUsername() {
 		return this.username;
@@ -21,6 +22,11 @@ public class Register{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	public String getAcc_type() {
+		return acc_type;
+	}
+	public void setAcc_type(String acc_type) {
+		this.acc_type = acc_type;
+	}
 	
 }

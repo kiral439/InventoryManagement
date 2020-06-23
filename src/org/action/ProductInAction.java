@@ -193,7 +193,7 @@ public class ProductInAction extends ActionSupport{
 			
 			Hsession.save(productIn);
 			ts.commit();
-
+			
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();

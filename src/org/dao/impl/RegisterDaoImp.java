@@ -3,12 +3,13 @@ import org.dao1.LoginDao;
 import org.dao1.RegisterDao;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.*;
-import org.model.Login;
-import org.model.Register;
+import org.model.*;
 
 public class RegisterDaoImp implements RegisterDao {
 	
-	public Login validate(String username) {
+	private Register register;
+	
+	public Register validate(String username) {
 		try{
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
@@ -18,10 +19,10 @@ public class RegisterDaoImp implements RegisterDao {
 			Query query=Hsession.createQuery("from Login where username=?0");
 			query.setParameter(0, username);
 			query.setMaxResults(1);
-			Login login=(Login)query.uniqueResult();		
+			Register register=(Register)query.uniqueResult();		
 			ts.commit();
-			if(login!=null){					
-				return login;
+			if(register!=null){					
+				return register;
 			}else{						
 				return null;
 			}

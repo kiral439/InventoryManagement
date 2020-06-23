@@ -1,46 +1,42 @@
 package org.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+
+import org.dao1.LoginDao;
+import org.dao1.RegisterDao;
+import org.dao.impl.LoginDaoImp;
+import org.dao.impl.RegisterDaoImp;
 import org.model.Login;
+import org.model.Register;
+import com.opensymphony.xwork2.*;
 
 public class RegisterAction extends ActionSupport {
 	
-	private static final long serialVersionUID = 1L;
+	private Register register;
 	
-	private Login personBean;
-	
+	public Register getRegister() {
+		return register;
+	}
+
+	public void setRegister(Register register) {
+		this.register = register;
+	}
+
 	public String execute() throws Exception {
 		
-		//call Service class to store personBean's state in database
-		return SUCCESS;
-		
-	}
-	
-	public void validate(){
-		
-		if ( personBean.getUsername().length() == 0 ){	
-
-			addFieldError( "personBean.firstName", "First name is required." );
+		RegisterDao registerDao = new RegisterDaoImp();				
+		Register user = registerDao.validate(register.getUsername());
+		if(user!=null){
+			Map session=(Map)ActionContext.getContext().getSession();
+			session.put("user", user);
+			return SUCCESS;
+		}
+		else{
 			
+			return ERROR;
 		}
-		
-				
-		if ( personBean.getPassword().length() == 0 ){	
-
-			addFieldError( "personBean.email", "Email is required." );
-		}
-	}
-		
-	public Login getPersonBean() {
-		
-		return personBean;
 		
 	}
 	
-	public void setPersonBean(Login person) {
-		
-		personBean = person;
-		
-	}
-
 }
+

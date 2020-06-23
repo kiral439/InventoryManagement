@@ -10,11 +10,11 @@
 	
 </script>
 <body bgcolor="#D9DFAA">
-	<%-- <s:set value="#request.prod_list" var="productBean"/> --%>
+	<s:set value="#request.prod_list" var="productBean"/>
 	<s:set value="#request.currentProd" var="current" />
 	<h1 class="addNewH3 text-uppercase">New Record:</h1>
 	<s:form action="addNewProductSold" method="post" enctype="multipart/form-data">
-		<%-- <input type="hidden" value="<s:property value="#current.id"/> " /> --%>
+		<input type="hidden" value="<s:property value="#current.id"/> " />
 		<tr>
 			<td>Product ID:</td>
 			<td>
