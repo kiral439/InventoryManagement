@@ -36,10 +36,10 @@
 						<td align="center"><s:property value="#prodOut.quantity" /></td>
 						<td align="center">
 							<s:if test="%{#prodOut.status=='On shipping'}">
-								<a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
+								<a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-danger"><s:property value="#prodOut.status"/></a></td>
 							</s:if>
 							<s:else>
-							    <a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
+							    <a href="productOutUpdate.action?prodOut.id=<s:property value="#prodOut.id"/>&prodOut.prod_id=<s:property value="#prodOut.prod_id" />" class="btn btn-success"><s:property value="#prodOut.status"/></a></td>
 							</s:else>
 						</td>
 						<td align="center"><s:property value="#prodOut.selling_price" /></td>

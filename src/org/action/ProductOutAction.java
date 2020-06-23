@@ -59,18 +59,9 @@ public class ProductOutAction extends ActionSupport{
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
-		
-		ProductDao productDaoForId = new ProductDaoImp();
-		Product prodById = productDaoForId.getOneProduct(prodOut.getProd_id());
-		
 		ProductOutDao productOutDaoForId = new ProductOutDaoImp();
-		ProductOut prodOutByOut = productOutDaoForId.getOneProductOutByProd_id(prodOut.getProd_id(), prodOut.getId());
-		
-        ProductOut productOut = (ProductOut) Hsession.load(ProductOut.class, prodOut.getId());
-//        Product product = (Product) Hsession2.load(Product.class, prodById.getId());
+		ProductOut prodOutById = productOutDaoForId.getOneProductOut(prodOut.getId());
+        ProductOut productOut = (ProductOut) Hsession.load(ProductOut.class, prodOutById.getId());
 		
         if((productOut.getStatus()).equals("On shipping")) {
 			try{
@@ -79,7 +70,7 @@ public class ProductOutAction extends ActionSupport{
 				productOut.setStatus("Delivered");
 				
 				Hsession.update(productOut);					
-				ts2.commit();
+				ts.commit();
 
 				return getAllProduct();
 			}catch(Exception e){
