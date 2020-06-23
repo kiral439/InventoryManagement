@@ -26,6 +26,8 @@ public class ProductAction extends ActionSupport{
 	private Product productBean;	
 	private Product productOutBean;	
 	
+	private Product productInBean;
+	
 	public File getPhotoFile() {
 		return photoFile;
 	}
@@ -47,6 +49,13 @@ public class ProductAction extends ActionSupport{
 		this.productBean = productBean;
 	}
 	
+	
+	public Product getProductInBean() {
+		return productInBean;
+	}
+	public void setProductInBean(Product productInBean) {
+		this.productInBean = productInBean;
+	}
 	public String execute()throws Exception{
 		ProductDao productDao2=new ProductDaoImp();
 		List prod_list=productDao2.getAll();			
@@ -70,15 +79,18 @@ public class ProductAction extends ActionSupport{
 	
 	public String getImage() throws Exception{
 		productDao=new ProductDaoImp();
-		byte[] photo=productDao.getOneProduct(productBean.getId()).getProd_img();	
-		HttpServletResponse response=ServletActionContext.getResponse();
-		response.setContentType("image/jpeg");
-		ServletOutputStream os=response.getOutputStream();			
-		if(photo!=null&&photo.length>0){
-			for(int i=0;i<photo.length;i++){
-				os.write(photo[i]);
+		if(productBean.getId()!=null) {
+			byte[] photo=productDao.getOneProduct(productBean.getId()).getProd_img();	
+			HttpServletResponse response=ServletActionContext.getResponse();
+			response.setContentType("image/jpeg");
+			ServletOutputStream os=response.getOutputStream();			
+			if(photo!=null&&photo.length>0){
+				for(int i=0;i<photo.length;i++){
+					os.write(photo[i]);
+				}
 			}
 		}
+		
 		return NONE;									
 	}
 	
@@ -97,6 +109,33 @@ public class ProductAction extends ActionSupport{
 			return ERROR;
 		}
 	}
+	
+	public String checkProdId() throws Exception {
+		ProductDao productDao=new ProductDaoImp();
+		ProductDao productDao2=new ProductDaoImp();
+		List prod_list=productDao2.getAll();
+		Product prod = productDao.getOneProduct(productInBean.getProd_id());
+		Map request=(Map)ActionContext.getContext().get("request");
+		if(prod != null) {
+			request.put("prod_list", prod_list);	
+			request.put("currentProd", prod);
+			
+			CategoryDao categoryDao=new CategoryDaoImp();				
+			List categories=categoryDao.getAll();
+			request.put("categories", categories);
+			return SUCCESS;
+		}
+		else {
+			Product prod2 = new Product();
+			prod2.setProd_id(productInBean.getProd_id());
+			request.put("originalProdId", prod2);
+			CategoryDao categoryDao=new CategoryDaoImp();				
+			List categories=categoryDao.getAll();
+			request.put("categories", categories);
+			return SUCCESS;
+		}
+	}
+	
 	
 	/*public String addProduct() throws Exception{
 		boolean valid = false;
