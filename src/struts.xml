@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
-<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
-    "http://struts.apache.org/dtds/struts-2.0.dtd"> 
-           
+
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
 <struts>
 	<package name="default" extends="struts-default">
 		<action name="login" class="org.action.LoginAction">
@@ -10,54 +10,52 @@
 			<result name="error">loginError.jsp</result>
 			<result name="input">login.jsp</result>
 		</action>
-		
-		<action name="register" class="org.action.RegisterAction">
-    		<result name="success">success.jsp</result>
-    		<result name="error">error.jsp</result>
-    		<result name="input">register.jsp</result>
-		</action>
-		
+
 		<action name="logout" class="org.action.LogOutAction">
 			<result name="success">login.jsp</result>
 		</action>
-		
+
 		<action name="categoriesList" class="org.action.CategoryAction">
 			<result name="success">addNewPurchase.jsp</result>
 		</action>
-		
+
 		<action name="addProduct" class="org.action.ProductAction" method="addProduct">
 			<result name="success">success.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="getAllProduct" class="org.action.ProductAction">
 			<result name="success">productList.jsp</result>
 		</action>
 		<action name="getImage" class="org.action.ProductAction" method="getImage"></action>
-		
+
 		<action name="getAllProductIn" class="org.action.ProductInAction" method="getAllProduct">
 			<result name="success">productInList.jsp</result>
 		</action>
-		
+
 		<action name="getAllOnShippingProductIn" class="org.action.ProductInAction" method="getAllOnShippingProduct">
 			<result name="success">productInList.jsp</result>
 		</action>
-		
+
 		<action name="productInUpdate" class="org.action.ProductInAction" method="update">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="getAllProductOut" class="org.action.ProductOutAction">
 			<result name="success">productOutList.jsp</result>
 		</action>
-		
-		
+
+		<action name="getProductOutInfo" class="org.action.ProductOutAction" method="getProductOutInfo">
+			<result name="success">productOutList.jsp</result>
+		</action>
+
+
 		<action name="addNewPurchase" class="org.action.ProductInAction" method="addNewPurchase">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="productOutUpdate" class="org.action.ProductOutAction" method="update">
 			<result name="success">productOutList.jsp</result>
 			<result name="error">error.jsp</result>
@@ -66,42 +64,52 @@
 			<result name="success">productOutList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="addCategory" class="org.action.CategoryAction" method="addCategory">
 			<result name="success">addNewPurchase.jsp</result>
 			<result name="error">categoryCheckError.jsp</result>
 		</action>
-		
+
 		<action name="UpdateProductInInfo" class="org.action.ProductEditAction" method="updateIn">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="UpdateProductInfo" class="org.action.ProductEditAction" method="update">
 			<result name="success">productList.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
+		<action name="UpdateProductOutInfo" class="org.action.ProductEditAction" method="updateOut">
+			<result name="success">productOutList.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
 		<action name="ProductInEdit" class="org.action.ProductEditAction" >
 			<result name="success">editProductIn.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="ProductEdit" class="org.action.ProductEditAction" >
 			<result name="success">editProduct.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
+		<action name="ProductOutEdit" class="org.action.ProductEditAction" method="getProductOutInfo">
+			<result name="success">editProductOut.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
 		<action name="getAllProd_id" class="org.action.ProductAction" method="getAllProduct">
 			<result name="success">addNewProductSold.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="checkQuantity" class="org.action.ProductAction" method="checkQuantity">
 			<result name="success">addNewProductSold.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
-		
+
 		<action name="addNewProductSold" class="org.action.ProductOutAction" method="addNewProductSold">
 			<result name="success">productOutList.jsp</result>
 			<result name="error">error.jsp</result>
