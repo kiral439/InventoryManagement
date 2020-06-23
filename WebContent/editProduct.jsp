@@ -2,18 +2,16 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-	<title>Add Product</title>
+	<title>Edit Product</title>
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS/editProduct.css">
 </head>
-<body bgcolor="#D9DFAA">
+<body>
+<h1 class="addNewH3 text-uppercase">Edit Product:</h1>
 <s:set value="#request.prod_list" var="productBean"/>
 <s:set value="#request.prodIn_list" var="productInBean"/>
 	<s:form action="UpdateProductInfo" method="post" enctype="multipart/form-data">
 	
-	<table>
-		<tr>
-			<td colspan="2">Edit Product:</td>
-		</tr>
 		<tr>
 			<td>Product ID:</td>
 			<td>
@@ -46,11 +44,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
+<!-- 		<tr>
+			<td></td>
 			<td>
-				<a href="addCategory.jsp" class="btn btn-primary">Add Category</a>
+				<a href="addCategory.jsp" class="btn btn-primary addCategoryBtn">Add Category</a>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td>Product Image:</td>
 			<td>
@@ -58,6 +57,7 @@
 				<input type="file" name="photoFile"/>
 			</td>
 		</tr>
+		<table class="wwFormTable ">
 		<tr>
 			<td>Description:</td>
 			<td>
@@ -77,9 +77,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Save Changes"/></td>
+			<td></td>
+			<td><input type="submit" value="Save Changes" class="btn btn-primary addBtn"/></td>
 		</tr>
 	</table>
+	
 	</s:form>
 </body>
 </html>

@@ -387,21 +387,21 @@ public class ProductEditAction {
 			System.out.println("Quantity: "+ productOutBean.getQuantity());
 			System.out.println("Selling price: "+ productOutBean.getSelling_price());
 			System.out.println("Status: "+ productOutBean.getStatus());
+			
+			if((prod_list.getIn_stock()+prodOut_list.getQuantity()-productOutBean.getQuantity())<0){
+				return "error";
+			}
+			
 			Hsession.update(productOut);	
 			Hsession.update(product);
 			ts.commit();
 
-			valid = true;
+			return getAllProductOut();
 		}catch(Exception e){
 			e.printStackTrace();
-							
+			return "error";				
 		}
-		if(valid){
-			return getAllProductOut();
-		}
-		else{
-			return "error";
-		}
+		
 		
 	}
 	
