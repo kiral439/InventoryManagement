@@ -175,31 +175,6 @@ public class ProductEditAction {
 			
 			System.out.println("Buying price: "+ productInBean.getBuying_price());
 			
-			// status from the database 
-			// prodIn_list.getStatus()
-			// status from form
-			// productInBean.getStatus()
-			//Won't change means takes the data from database!
-			// 1. We doesn't change the status
-			/* 	   - Still Arrived
-			 * 			quantity : Won't change 
-			 * 			in stock : Won't change 
-			 * 		    pending stock : Won't change 
-			 * 	   - Still On shipping
-			 * 			quantity : Takes the value From form
-			 * 			in stock : Won't change
-			 * 		    pending stock : Change (pending stock in database-quantity before + quantity after)
-			 * 2. We change the status
-			 * 	   - From arrived to on shipping
-			 * 			quantity : Won't change 
-			 * 			in stock : in stock in database - quantity in database
-			 * 		    pending stock : pending stock in db + quantity in database
-			 * 	   -from on shipping to arrived
-			 *          quantity : Change(Takes value from form) 
-			 * 			in stock : in stock from database + quantity from form
-			 * 		    pending stock : pending stock from db - quantity from form 
-			 * */
-			
 			if(prodIn_list.getStatus().equals(productInBean.getStatus())){
 				if(productInBean.getStatus().equals("Arrived")) {
 					product.setIn_stock(prod_list.getIn_stock());
@@ -230,20 +205,7 @@ public class ProductEditAction {
 			
 			productIn.setBuying_price(productInBean.getBuying_price());
 			productIn.setStatus(productInBean.getStatus());
-			productIn.setDate(new Date(System.currentTimeMillis()));
-			
-//			if((productInBean.getStatus()).equals("Arrived")) {
-//				updateStockInfo();
-//			}
-			
-			System.out.println("prod_id: "+ productBean.getProd_id());
-			System.out.println("prod_name: "+ productBean.getProd_name());
-			System.out.println("Category: "+ productBean.getCategory());
-			System.out.println("Photo: "+ product.getProd_img());
-			System.out.println("In stock: "+ prod_list.getIn_stock());
-			System.out.println("Pending stock: "+ productInBean.getQuantity());
-			
-			System.out.println("DESC: "+ productBean.getDescription());
+			productIn.setDate(new Date(System.currentTimeMillis()));			
 			
 			Hsession2.update(product);					
 			ts2.commit();
@@ -251,7 +213,6 @@ public class ProductEditAction {
 			Hsession.update(productIn);					
 			ts.commit();
 			
-			//prodInDao.update(prod);
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -307,15 +268,6 @@ public class ProductEditAction {
 			product.setPending_stock(productBean.getPending_stock());
 			product.setDescription(productBean.getDescription());
 			
-			System.out.println("prod_id: "+ productBean.getProd_id());
-			System.out.println("prod_name: "+ productBean.getProd_name());
-			System.out.println("Category: "+ productBean.getCategory());
-			System.out.println("Photo: "+ product.getProd_img());
-			System.out.println("In stock: "+ prod_list.getIn_stock());
-			System.out.println("Pending stock: "+ productBean.getPending_stock());
-			
-			System.out.println("DESC: "+ productBean.getDescription());
-			
 			Hsession.update(product);					
 			ts.commit();
 			return getAllProduct();
@@ -340,10 +292,6 @@ public class ProductEditAction {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
-		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
 		
         ProductOut productOut = new ProductOut();
         Product product = new Product();
@@ -378,15 +326,6 @@ public class ProductEditAction {
 			productOut.setSelling_price(productOutBean.getSelling_price());
 			productOut.setStatus(productOutBean.getStatus());
 			productOut.setDate(new Date(System.currentTimeMillis()));
-			
-			System.out.println("prod_id: "+ productBean.getProd_id());
-			System.out.println("prod_name: "+ productBean.getProd_name());
-			System.out.println("Category: "+ productBean.getCategory());
-			System.out.println("Description: "+ productBean.getDescription());
-			System.out.println("Buyer: "+ productOutBean.getBuyer());
-			System.out.println("Quantity: "+ productOutBean.getQuantity());
-			System.out.println("Selling price: "+ productOutBean.getSelling_price());
-			System.out.println("Status: "+ productOutBean.getStatus());
 			
 			if((prod_list.getIn_stock()+prodOut_list.getQuantity()-productOutBean.getQuantity())<0){
 				return "error";

@@ -33,11 +33,6 @@
 						<td align="center"><s:property value="#prodIn.prod_id" /></td>
 						<td align="center"><s:property value="#prodIn.supplier" /></td>
 						<td align="center"><s:property value="#prodIn.quantity" /></td>
-						
-						<%-- <td align="center">
-						<s:form action="arrived.action?productIn.id=<s:property value="#prodIn.id"/>" method="post" theme="simple" class="anchored" target="_parent" >
-							<s:submit value="On shipping" class="btn btn-success"/>
-						</s:form> --%>
 						<td>
 						
 						<s:if test="%{#prodIn.status=='On shipping'}">
@@ -46,13 +41,9 @@
 						<s:else>
 						    <a href="productInUpdate.action?prodIn.prod_id=<s:property value="#prodIn.prod_id"/>&prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td>
 						</s:else>
-						
-						<%-- <a href="productInUpdate.action?prodIn.prod_id=<s:property value="#prodIn.prod_id"/>&prodIn.id=<s:property value="#prodIn.id"/>" class="btn btn-success"><s:property value="#prodIn.status"/></a></td> --%>
+
 						</td>
-						
-						<%-- <td align="center"><s:property value="#prodIn.status" /></td> --%>
 						<td align="center"><s:property value="#prodIn.buying_price" /></td>
-						<%-- <td align="center"><img src="getImage.action?product.id=<s:property value="#product.id"/>" width="150"></td> --%>
 						<td><a href="ProductInEdit.action?prodIn.id=<s:property value="#prodIn.id" />&prodIn.prod_id=<s:property value="#prodIn.prod_id" />" class="btn btn-primary">Edit</a></td>
 						<td align="center"><s:property value="#prodIn.date" /></td>
 					</tr>

@@ -22,13 +22,16 @@
 			color: red;
 			text-align: center;
 		}
+		.homeText{
+			color: #1B9AAA;
+		}
 	</style>
 </head>
 
 <body class="p-3">
+		<a href="right.jsp" target="right" class="homeText"><h5 class="homeText">HOME</h5></a>
 	<!--  <a href="StudentInfo.action" target="right">Products Inventory</a><p> // Change the action name convention -->
-	<details>
-		<summary>Product Inventory</summary>
+		<h4>Product Inventory</h4>
 		<p class="ml-4">
 			<a href="getAllProduct.action" target="right">Product List</a>
 		</p>
@@ -38,7 +41,6 @@
 		<p class="ml-4">
 			<a href="getAllProductOut.action" target="right">Product Sold</a>
 		</p>
-	</details>
 	
 	<s:form action="logout" method="post" theme="simple" class="anchored" target="_parent" >
 		<s:submit value="Log out" class="btn btn-danger"/>

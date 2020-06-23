@@ -12,8 +12,6 @@ public class ProductOut{
 	private Double selling_price;
 	private String status;
 	private Date date;
-//	private Set course_set = new HashSet();	
-	//Constructors
 	/** default constructor */
 	public ProductOut() {
 	}
@@ -29,7 +27,6 @@ public class ProductOut{
 		this.date = date;
 	}
 	
-	//Getter and Setter
 	public Integer getId() {
 		return id;
 	}

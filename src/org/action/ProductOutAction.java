@@ -116,8 +116,6 @@ public class ProductOutAction extends ActionSupport{
 
 		try{
 			productDao = new ProductDaoImp();
-			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
-			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
 			Product productInTheDatabase=productDao.getOneProduct(productOutBean.getProd_id());
 			if(productInTheDatabase!=null){
 				
