@@ -44,7 +44,7 @@ public class CategoryAction extends ActionSupport{
 		}
 	}
 	
-	public static String getCategories() throws Exception {
+	public String getCategories() throws Exception {
 		CategoryDao categoryDao=new CategoryDaoImp();				
 		List categories=categoryDao.getAll();
 		if(categories!=null){					
@@ -78,7 +78,7 @@ public class CategoryAction extends ActionSupport{
 			e.printStackTrace();		
 		}
 		if(valid){
-			return CategoryAction.getCategories();
+			return this.getCategories();
 		}
 		else{
 			return ERROR;

@@ -85,6 +85,22 @@
 			<result name="success">editProduct.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
+		
+		<action name="getAllProd_id" class="org.action.ProductAction" method="getAllProduct">
+			<result name="success">addNewProductSold.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="checkQuantity" class="org.action.ProductAction" method="checkQuantity">
+			<result name="success">addNewProductSold.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="addNewProductSold" class="org.action.ProductOutAction" method="addNewProductSold">
+			<result name="success">productOutList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
 		</action> -->
