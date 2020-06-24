@@ -59,9 +59,6 @@ public class CategoryAction extends ActionSupport{
 	
 	public String addCategory() throws Exception{
 		boolean valid = false;
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession=sessionFactory.openSession();		
-		Transaction ts = Hsession.beginTransaction();
 		categoryDao = new CategoryDaoImp();
 		Category category = new Category();
 		try{

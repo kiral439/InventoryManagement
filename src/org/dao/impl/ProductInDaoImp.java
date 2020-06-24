@@ -18,7 +18,8 @@ public class ProductInDaoImp implements ProductInDao{
 			query.setMaxResults(1);
 			ProductIn productIn=(ProductIn) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			Hsession.clear();
+			Hsession.close();				
 			return productIn;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -38,7 +39,8 @@ public class ProductInDaoImp implements ProductInDao{
 			query.setMaxResults(1);
 			ProductIn productIn=(ProductIn) query.uniqueResult();		
 			ts.commit();
-			//Hsession.clear();					
+			Hsession.clear();
+			Hsession.close();				
 			return productIn;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -54,6 +56,8 @@ public class ProductInDaoImp implements ProductInDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductIn ").list();	
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -69,6 +73,8 @@ public class ProductInDaoImp implements ProductInDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductIn where status='On shipping'").list();
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -84,6 +90,8 @@ public class ProductInDaoImp implements ProductInDao{
 			Transaction ts=Hsession.beginTransaction();
 			Hsession.update(productIn);					
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}

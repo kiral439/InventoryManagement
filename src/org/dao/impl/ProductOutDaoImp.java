@@ -23,7 +23,8 @@ public class ProductOutDaoImp implements ProductOutDao{
 			query.setMaxResults(1);
 			ProductOut productOut=(ProductOut) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			Hsession.clear();
+			Hsession.close();				
 			return productOut;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -43,7 +44,8 @@ public class ProductOutDaoImp implements ProductOutDao{
 			query.setMaxResults(1);
 			ProductOut productOut=(ProductOut) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			Hsession.clear();
+			Hsession.close();					
 			return productOut;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -59,6 +61,8 @@ public class ProductOutDaoImp implements ProductOutDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductOut").list();	
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -74,6 +78,8 @@ public class ProductOutDaoImp implements ProductOutDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductOut where status='On shipping'").list();		
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
