@@ -19,7 +19,8 @@ public class ProductDaoImp implements ProductDao{
 			query.setMaxResults(1);
 			Product course=(Product) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			Hsession.clear();
+			Hsession.close();					
 			return course;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -38,7 +39,8 @@ public class ProductDaoImp implements ProductDao{
 			query.setMaxResults(1);
 			Product course=(Product) query.uniqueResult();		
 			ts.commit();
-			Hsession.clear();					
+			Hsession.clear();	
+			Hsession.close();
 			return course;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -54,6 +56,8 @@ public class ProductDaoImp implements ProductDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from Product order by prod_id").list();	
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();			
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -69,6 +73,8 @@ public class ProductDaoImp implements ProductDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from Product order by prod_id").list();	
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -84,6 +90,8 @@ public class ProductDaoImp implements ProductDao{
 			Transaction ts=Hsession.beginTransaction();
 			Hsession.save(product);					
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
