@@ -2,26 +2,11 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-
+	<title>Inventory Management System</title>
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
-	
+	<link rel="stylesheet" href="CSS/left.css">
 	<style>
-		body {
-			background-color: #D9DBF1;
-		}	
-		
-		.indent a {
-			text-decoration: none;
-		}
-			
-		.anchored {
-			position: fixed;
-			left: 0;
-			bottom: 10;
-			width: 100%;
-			color: red;
-			text-align: center;
-		}
+
 	</style>
 </head>
 
@@ -29,13 +14,13 @@
 	<!--  <a href="StudentInfo.action" target="right">Products Inventory</a><p> // Change the action name convention -->
 	<details>
 		<summary>Product Inventory</summary>
-		<p class="ml-4">
+		<p class="ml-4 colorWhite">
 			<a href="getAllProduct.action" target="right">Product List</a>
 		</p>
-		<p class="ml-4">
+		<p class="ml-4 colorWhite">
 			<a href="getAllProductIn.action" target="right">Purchased Product</a>
 		</p>
-		<p class="ml-4">
+		<p class="ml-4 colorWhite">
 			<a href="getAllProductOut.action" target="right">Product Sold</a>
 		</p>
 	</details>
