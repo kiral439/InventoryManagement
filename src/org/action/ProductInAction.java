@@ -90,6 +90,12 @@ public class ProductInAction extends ActionSupport{
 				
 				Hsession.update(productIn);					
 				ts.commit();
+				
+				Hsession.clear();
+				Hsession.close();
+				
+				Hsession2.clear();
+				Hsession2.close();
 				valid = true;
 			}catch(Exception e){
 				e.printStackTrace();

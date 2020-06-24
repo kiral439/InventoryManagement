@@ -22,16 +22,23 @@ uri="/struts-tags"%>
       <a href="getAllProductOut.action" target="right">Product Sold</a>
     </p>
 
-    <s:form
-      action="logout"
-      method="post"
-      theme="simple"
-      class="anchored"
-      target="_parent"
-    >
-      <s:submit value="Log out" class="btn btn-danger" />
-    </s:form>
-  </body>
+<body class="p-3">
+		<a href="getAllProductSession.action" target="right" class="homeText"><h5 class="homeText">HOME</h5></a>
+		<h4>Product Inventory</h4>
+		<p class="ml-4">
+			<a href="getAllProduct.action" target="right">Product List</a>
+		</p>
+		<p class="ml-4">
+			<a href="getAllProductIn.action" target="right">Purchased Product</a>
+		</p>
+		<p class="ml-4">
+			<a href="getAllProductOut.action" target="right">Product Sold</a>
+		</p>
+	
+	<s:form action="logout" method="post" theme="simple" class="anchored" target="_parent" >
+		<s:submit value="Log out" class="btn btn-danger"/>
+	</s:form>
+	
 
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

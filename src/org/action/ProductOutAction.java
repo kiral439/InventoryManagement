@@ -71,6 +71,8 @@ public class ProductOutAction extends ActionSupport{
 				
 				Hsession.update(productOut);					
 				ts.commit();
+				Hsession.clear();
+				Hsession.close();
 
 				return getAllProduct();
 			}catch(Exception e){
@@ -149,6 +151,11 @@ public class ProductOutAction extends ActionSupport{
 			
 			Hsession.save(productOut);
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
+			
+			Hsession2.clear();
+			Hsession2.close();
 
 			valid = true;
 		}catch(Exception e){

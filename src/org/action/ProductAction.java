@@ -67,12 +67,20 @@ public class ProductAction extends ActionSupport{
 		List prod_list=productDao2.getAll();
 		if(prod_list!=null){
 			Map request=(Map)ActionContext.getContext().get("request");
-			request.put("prod_list", prod_list);			
+			request.put("prod_list", prod_list);
 			return SUCCESS;
 		}
 		else {
 			return ERROR;
 		}
+	}
+	
+	public String getAllProductSession() {
+		Map session=(Map)ActionContext.getContext().getSession();
+		ProductDao productDao2=new ProductDaoImp();
+		List products=productDao2.getAllForHomePage();
+		session.put("products", products);
+		return SUCCESS;
 	}
 	
 	public String getImage() throws Exception{
