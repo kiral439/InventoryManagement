@@ -172,9 +172,6 @@ public class ProductEditAction {
 				product.setProd_img(prod_list.getProd_img());
 			}
 			
-			
-			System.out.println("Buying price: "+ productInBean.getBuying_price());
-			
 			if(prodIn_list.getStatus().equals(productInBean.getStatus())){
 				if(productInBean.getStatus().equals("Arrived")) {
 					product.setIn_stock(prod_list.getIn_stock());
@@ -307,12 +304,6 @@ public class ProductEditAction {
 			product.setProd_name(prod_list.getProd_name());
 			product.setCategory(prod_list.getCategory());
 			product.setProd_img(prod_list.getProd_img());
-			
-			System.out.println("Product id: "+productBean.getProd_id());
-			System.out.println("ID: "+productOutBean.getId());
-			System.out.println("In stock (database): "+ prod_list.getIn_stock());
-			System.out.println("Quantity (database): "+ prodOut_list.getQuantity());
-			System.out.println("Quantity from form:"+productOutBean.getQuantity());
 			
 			product.setIn_stock(prod_list.getIn_stock()+prodOut_list.getQuantity()-productOutBean.getQuantity());
 			product.setPending_stock(prod_list.getPending_stock());

@@ -140,12 +140,8 @@ public class ProductOutAction extends ActionSupport{
 				
 			}
 			
-			System.out.println(productOutBean.getBuyer());
-			
 			productOut.setProd_id(productOutBean.getProd_id());
 			productOut.setBuyer(productOutBean.getBuyer());
-			
-			System.out.println(productOut.getBuyer());
 			productOut.setQuantity(productOutBean.getQuantity());
 			productOut.setSelling_price(productOutBean.getSelling_price());
 			productOut.setStatus(productOutBean.getStatus());

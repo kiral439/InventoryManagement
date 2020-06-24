@@ -30,7 +30,6 @@
 
 <body class="p-3">
 		<a href="right.jsp" target="right" class="homeText"><h5 class="homeText">HOME</h5></a>
-	<!--  <a href="StudentInfo.action" target="right">Products Inventory</a><p> // Change the action name convention -->
 		<h4>Product Inventory</h4>
 		<p class="ml-4">
 			<a href="getAllProduct.action" target="right">Product List</a>
