@@ -206,6 +206,12 @@ public class ProductEditAction {
 			Hsession.clear();
 			Hsession.close();
 			
+			Hsession.clear();
+			Hsession.close();
+			
+			Hsession2.clear();
+			Hsession2.close();
+			
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -263,7 +269,6 @@ public class ProductEditAction {
 			
 			Hsession.update(product);					
 			ts.commit();
-			
 			Hsession.clear();
 			Hsession.close();
 			return getAllProduct();
@@ -385,6 +390,9 @@ public class ProductEditAction {
 			Hsession.clear();
 			Hsession.close();
 			ts.commit();
+			
+			Hsession.clear();
+			Hsession.close();
 
 			valid = true;
 		}catch(Exception e){

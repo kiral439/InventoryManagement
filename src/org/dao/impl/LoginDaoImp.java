@@ -18,6 +18,8 @@ public class LoginDaoImp implements LoginDao {
 			query.setMaxResults(1);
 			Login login=(Login)query.uniqueResult();		
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			if(login!=null){					
 				return login;
 			}else{						

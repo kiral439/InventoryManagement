@@ -18,6 +18,8 @@ public class CategoryDaoImp implements CategoryDao{
 			query.setMaxResults(1);
 			Category category=(Category) query.uniqueResult();				
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return category;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -33,6 +35,8 @@ public class CategoryDaoImp implements CategoryDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from Category").list();		
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -55,6 +59,8 @@ public class CategoryDaoImp implements CategoryDao{
 				Transaction ts=Hsession.beginTransaction();
 				Hsession.save(category);					
 				ts.commit();
+				Hsession.clear();
+				Hsession.close();
 				System.out.println("Category has been added");
 				return "Success";
 			}catch(Exception e){
@@ -81,6 +87,8 @@ public class CategoryDaoImp implements CategoryDao{
 			query.setMaxResults(1);
 			Category cat=(Category) query.uniqueResult();
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			return cat;
 		}catch(Exception e){
 			e.printStackTrace();

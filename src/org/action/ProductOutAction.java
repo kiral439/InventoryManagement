@@ -71,6 +71,8 @@ public class ProductOutAction extends ActionSupport{
 				
 				Hsession.update(productOut);					
 				ts.commit();
+				Hsession.clear();
+				Hsession.close();
 
 				return getAllProduct();
 			}catch(Exception e){
