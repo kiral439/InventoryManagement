@@ -121,6 +121,11 @@
 			<result name="success">addNewProductSold.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
+		
+		<action name="checkExistingProductId" class="org.action.ProductAction" method="checkProdId">
+			<result name="success">addNewPurchase.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
 
 		<action name="addNewProductSold" class="org.action.ProductOutAction" method="addNewProductSold">
 			<result name="success">productOutList.jsp</result>
