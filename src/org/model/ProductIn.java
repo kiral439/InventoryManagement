@@ -4,7 +4,6 @@ import java.util.*;
  * Xsb entity. @author MyEclipse Persistence Tools
  */
 public class ProductIn{
-	//Fields
 	private Integer id;
 	private String prod_id;
 	private String supplier;
@@ -13,14 +12,11 @@ public class ProductIn{
 	private String status;
 
 	private Date date;
-//	private Set course_set = new HashSet();	
-	//Constructors
 	/** default constructor */
 	public ProductIn() {
 	}
 	/** full constructor */
 	public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status, Date date) {
-	//public ProductIn(String prod_id, String supplier, Integer quantity, Double buying_price, String status) {
 		super();
 		this.prod_id = prod_id;
 		this.supplier = supplier;
@@ -30,7 +26,6 @@ public class ProductIn{
 		this.date = date;
 	}
 	
-	//Getter and Setter
 	public Integer getId() {
 		return id;
 	}

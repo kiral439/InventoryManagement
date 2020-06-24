@@ -19,8 +19,6 @@ import com.opensymphony.xwork2.*;
 
 public class ProductAction extends ActionSupport{
 	
-	//private HttpServletRequest request;
-	
 	ProductDao productDao;
 	private File photoFile;
 	private Product productBean;	
@@ -136,42 +134,4 @@ public class ProductAction extends ActionSupport{
 		}
 	}
 	
-	
-	/*public String addProduct() throws Exception{
-		boolean valid = false;
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession=sessionFactory.openSession();		
-		Transaction ts = Hsession.beginTransaction();
-		productDao = new ProductDaoImp();
-		Product product = new Product();
-		try{
-			product.setProd_id(productBean.getProd_id());
-			product.setProd_name(productBean.getProd_name());
-			product.setCategory(productBean.getCategory());
-			//prod.setCategory("Furniture");
-			//prod.setImage("text");
-			if(this.getPhotoFile()!=null){
-				FileInputStream fis=new FileInputStream(this.getPhotoFile());	
-				byte[] buffer=new byte[fis.available()];	
-				fis.read(buffer);					
-				product.setProd_img(buffer);
-			}
-			product.setStock(productBean.getStock());
-			product.setDescription(productBean.getDescription());
-			
-//			Hsession.save(prod);
-//			ts.commit();
-			productDao.save(product);
-			valid = true;
-		}catch(Exception e){
-			e.printStackTrace();		
-		}
-		if(valid){
-			return SUCCESS;
-		}
-		else{
-			return ERROR;
-		}
-				
-	}*/
 }

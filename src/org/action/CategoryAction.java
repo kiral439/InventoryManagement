@@ -67,9 +67,6 @@ public class CategoryAction extends ActionSupport{
 		try{
 			category.setCode(categoryBean.getCode());
 			category.setName(categoryBean.getName());
-			
-//			categoryDao.save(category);
-			
 			if(categoryDao.save(category).equals("Success")) {
 				valid = true;
 			}

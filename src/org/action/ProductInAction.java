@@ -90,8 +90,6 @@ public class ProductInAction extends ActionSupport{
 				
 				Hsession.update(productIn);					
 				ts.commit();
-				
-				//productInDao.update(prod);
 				valid = true;
 			}catch(Exception e){
 				e.printStackTrace();
@@ -137,31 +135,10 @@ public class ProductInAction extends ActionSupport{
 		Session Hsession2=sessionFactory2.openSession();		
 		Transaction ts2 = Hsession2.beginTransaction();
 		
-//		productInDao = new ProductInDaoImp();
-//		productDao = new ProductDaoImp();
-		
 		ProductIn productIn = new ProductIn();
 		Product prod = new Product();
-		/*
-		 * Arrived
-		 *  Product exists in the database
-		 * 		- In_stock = In_stock+Quantity
-		 * 		- Pending_stock = Pending_stock
-		 *  Product doesn't exist in the database
-		 *  	- In_stock = Quantity
-		 * 		- Pending_stock = 0
-		 * On Shipping
-		 *  Product exists in the database
-		 * 		- In_stock = In_stock
-		 * 		- Pending_stock = Pending_stock + Quantity
-		 *  Product doesn't exist in the database
-		 *  	- In_stock = 0
-		 *  	- Pending_stock = Quantity
-		 * */
 		try{
 			productDao = new ProductDaoImp();
-			//Product product=productDao.getOneProduct(Integer.parseInt(productInBean.getProd_id()));
-			//Product product = (Product) Hsession2.get(Product.class, Integer.parseInt(productInBean.getProd_id()));
 			Product productInTheDatabase=productDao.getOneProduct(productInBean.getProd_id());
 			if(productInTheDatabase!=null){
 				
@@ -190,8 +167,6 @@ public class ProductInAction extends ActionSupport{
 				prod.setProd_id(productInBean.getProd_id());
 				prod.setProd_name(productBean.getProd_name());
 				prod.setCategory(productBean.getCategory());
-				//prod.setCategory("Furniture");
-				//prod.setImage("text");
 				if(this.getPhotoFile()!=null){
 					FileInputStream fis=new FileInputStream(this.getPhotoFile());	
 					byte[] buffer=new byte[fis.available()];	
@@ -238,19 +213,4 @@ public class ProductInAction extends ActionSupport{
 		
 		
 	}
-
-//	public String getImage() throws Exception{
-//		productInDao=new ProductInDaoImp();
-//		ProductIn currProd = productInDao.getOneProductIn(product.getId());
-//		byte[] photo=currProd.getProd_img();	
-//		HttpServletResponse response=ServletActionContext.getResponse();
-//		response.setContentType("image/jpeg");
-//		ServletOutputStream os=response.getOutputStream();			
-//		if(photo!=null&&photo.length>0){
-//			for(int i=0;i<photo.length;i++){
-//				os.write(photo[i]);
-//			}
-//		}
-//		return NONE;									
-//	}
 }
