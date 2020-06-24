@@ -25,6 +25,11 @@ td {
 	width: 80px;
 }
 
+
+input[type=text]{
+	width: 224px;
+}
+
 .addNewH3 {
 	text-align: center;
 	padding: 20px 0px;	
