@@ -32,7 +32,13 @@
 	<%-- <img src="getImage.action?productBean.id=<s:property value="#product.id"/>" class="card-img-top editImage"> --%>
   <div class="card-body">
     <h5 class="card-title"><s:property value="#product.prod_name" /></h5>
-    <p class="card-text"><s:property value="#product.description.substring(0,60)" />...</p>
+    <%-- <p class="card-text"><s:property value="#product.description" /></p> --%>
+    	<s:if test="%{#product.description.length()<60}">
+    		<p class="card-text"><s:property value="#product.description" /></p>
+    	</s:if>
+    	<s:else>
+    		<p class="card-text"><s:property value="#product.description.substring(0,60)" />...</p>
+    	</s:else>
     <a href="ProductEdit.action?prodIn.prod_id=<s:property value="#product.prod_id" />" class="btn btn-primary editBtn">Edit</a>
   </div>
 </div>
