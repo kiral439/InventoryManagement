@@ -149,7 +149,8 @@ public class ProductOutAction extends ActionSupport{
 			
 			Hsession.save(productOut);
 			ts.commit();
-
+			Hsession.clear();
+			Hsession.close();
 			valid = true;
 		}catch(Exception e){
 			e.printStackTrace();

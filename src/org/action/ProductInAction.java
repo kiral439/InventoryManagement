@@ -64,10 +64,6 @@ public class ProductInAction extends ActionSupport{
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
-		
 		ProductDao productDaoForId = new ProductDaoImp();
 		Product prodById = productDaoForId.getOneProduct(prodIn.getProd_id());
 		
@@ -75,7 +71,7 @@ public class ProductInAction extends ActionSupport{
 		ProductIn prodInById = productInDaoForId.getOneProductInByProd_id(prodIn.getProd_id(), prodIn.getId());
 		
         ProductIn productIn = (ProductIn) Hsession.load(ProductIn.class, prodInById.getId());
-        Product product = (Product) Hsession2.load(Product.class, prodById.getId());
+        Product product = (Product) Hsession.load(Product.class, prodById.getId());
 		
         if((productIn.getStatus()).equals("On shipping")) {
 			try{
@@ -85,11 +81,11 @@ public class ProductInAction extends ActionSupport{
 				product.setPending_stock(product.getPending_stock()-productIn.getQuantity());
 				productIn.setStatus("Arrived");
 				
-				Hsession2.update(product);					
-				ts2.commit();
-				
+				Hsession.update(product);					
 				Hsession.update(productIn);					
 				ts.commit();
+				Hsession.clear();
+				Hsession.close();
 				valid = true;
 			}catch(Exception e){
 				e.printStackTrace();
@@ -126,14 +122,9 @@ public class ProductInAction extends ActionSupport{
 	}
 	
 	public String addNewPurchase() throws Exception{
-		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
-		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
 		
 		ProductIn productIn = new ProductIn();
 		Product prod = new Product();
@@ -158,8 +149,7 @@ public class ProductInAction extends ActionSupport{
 					prod.setPending_stock(productInTheDatabase.getPending_stock()+productInBean.getQuantity());
 				}
 				
-				Hsession2.update(prod);
-				ts2.commit();
+				Hsession.update(prod);
 				
 			}
 			else{
@@ -184,8 +174,7 @@ public class ProductInAction extends ActionSupport{
 					prod.setPending_stock(productInBean.getQuantity());
 				}
 				
-				Hsession2.save(prod);
-				ts2.commit();
+				Hsession.save(prod);
 			}
 			
 			productIn.setProd_id(productInBean.getProd_id());
@@ -197,20 +186,14 @@ public class ProductInAction extends ActionSupport{
 			
 			Hsession.save(productIn);
 			ts.commit();
-
-			valid = true;
+			
+			Hsession.clear();
+			Hsession.close();
+			return getAllProduct();
 		}catch(Exception e){
 			e.printStackTrace();
-							
+			return ERROR;				
 		}
-		if(valid){
-			return getAllProduct();
-		}
-		else{
-			return ERROR;
-		}
-		
-		
-		
+
 	}
 }

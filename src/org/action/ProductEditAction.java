@@ -147,10 +147,6 @@ public class ProductEditAction {
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
-		
         ProductIn productIn = new ProductIn();
         Product product = new Product();
         
@@ -204,11 +200,11 @@ public class ProductEditAction {
 			productIn.setStatus(productInBean.getStatus());
 			productIn.setDate(new Date(System.currentTimeMillis()));			
 			
-			Hsession2.update(product);					
-			ts2.commit();
-			
+			Hsession.update(product);					
 			Hsession.update(productIn);					
 			ts.commit();
+			Hsession.clear();
+			Hsession.close();
 			
 			valid = true;
 		}catch(Exception e){
@@ -267,6 +263,9 @@ public class ProductEditAction {
 			
 			Hsession.update(product);					
 			ts.commit();
+			
+			Hsession.clear();
+			Hsession.close();
 			return getAllProduct();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -285,7 +284,6 @@ public class ProductEditAction {
 	}
 	
 	public String updateOut() throws Exception{
-		boolean valid = false;
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
@@ -325,7 +323,9 @@ public class ProductEditAction {
 			Hsession.update(productOut);	
 			Hsession.update(product);
 			ts.commit();
-
+			
+			Hsession.clear();
+			Hsession.close();
 			return getAllProductOut();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -349,10 +349,6 @@ public class ProductEditAction {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
-		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
 		
         ProductOut productOut = new ProductOut();
         Product product = new Product();
@@ -386,6 +382,8 @@ public class ProductEditAction {
 			Hsession.delete(productOut);
 				
 			Hsession.update(product);
+			Hsession.clear();
+			Hsession.close();
 			ts.commit();
 
 			valid = true;

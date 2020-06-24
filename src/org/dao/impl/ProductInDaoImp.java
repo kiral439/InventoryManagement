@@ -54,6 +54,8 @@ public class ProductInDaoImp implements ProductInDao{
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from ProductIn ").list();	
 			ts.commit();
+			Hsession.clear();	
+			Hsession.close();
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
