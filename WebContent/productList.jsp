@@ -28,7 +28,7 @@
 						<td align="center"><s:property value="#product.category" /></td>
 						<td align="center"><s:property value="#product.in_stock" /></td>
 						<td align="center"><s:property value="#product.pending_stock" /></td>
-						<td align="center"><s:property value="#product.description" /></td>
+						<td align="center" style="overflow-wrap: anywhere" ><s:property value="#product.description" /></td>
 						<td align="center"><img src="getImage.action?productBean.id=<s:property value="#product.id"/>" width="150"></td>
 						<td><a href="ProductEdit.action?prodIn.prod_id=<s:property value="#product.prod_id" />" class="btn btn-primary">Edit</a></td>
 					</tr>
