@@ -109,10 +109,6 @@ public class ProductOutAction extends ActionSupport{
 		Session Hsession=sessionFactory.openSession();		
 		Transaction ts = Hsession.beginTransaction();
 		
-		SessionFactory sessionFactory2 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session Hsession2=sessionFactory2.openSession();		
-		Transaction ts2 = Hsession2.beginTransaction();
-		
 		ProductOut productOut = new ProductOut();
 		Product prod = new Product();
 
@@ -137,9 +133,7 @@ public class ProductOutAction extends ActionSupport{
 				prod.setPending_stock(productInTheDatabase.getPending_stock());
 				prod.setDescription(productInTheDatabase.getDescription());
 				
-				Hsession2.update(prod);
-				ts2.commit();
-				
+				Hsession.update(prod);
 			}
 			
 			productOut.setProd_id(productOutBean.getProd_id());
