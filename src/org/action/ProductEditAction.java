@@ -381,8 +381,6 @@ public class ProductEditAction {
 			Hsession.delete(productOut);
 				
 			Hsession.update(product);
-			Hsession.clear();
-			Hsession.close();
 			ts.commit();
 			
 			Hsession.clear();
