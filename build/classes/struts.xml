@@ -58,6 +58,7 @@
 
 		<action name="productOutUpdate" class="org.action.ProductOutAction" method="update">
 			<result name="success">productOutList.jsp</result>
+			<!-- <result name="input">editProductOut.jsp</result> -->
 			<result name="error">error.jsp</result>
 			<!-- <result name = "success" type = "redirect">
 		      <param name = "location">
@@ -118,6 +119,11 @@
 
 		<action name="checkQuantity" class="org.action.ProductAction" method="checkQuantity">
 			<result name="success">addNewProductSold.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="checkExistingProductId" class="org.action.ProductAction" method="checkProdId">
+			<result name="success">addNewPurchase.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
 

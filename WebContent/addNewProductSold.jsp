@@ -45,7 +45,8 @@
 		<tr>
 			<td>Quantity:</td>
 			<td>
-				<textarea name="productOutBean.quantity"><s:property value="#current.in_stock" /></textarea>
+				<textarea name="productOutBean.quantity"></textarea>
+				Available stock: <s:property value="#current.in_stock" />
 			</td>
 		</tr>
 
