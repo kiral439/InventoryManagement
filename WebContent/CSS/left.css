@@ -1,6 +1,6 @@
 body {
-	background-color: #ECE4B7;
-	color: black;
+	background-color: #0A1045;
+	/* color: white; */
 }	
 	
 .anchored {
@@ -12,13 +12,13 @@ body {
 }
 
 a {
-	color: black;
+	color: white;
 }
 
 a:hover {
-	color: #621B00;
+	color: #FFFFFF;
 }
 
 h5{
-	color: rgba(0,0,0,0.7);
+	color: rgba(255,255,255,0.7);
 }

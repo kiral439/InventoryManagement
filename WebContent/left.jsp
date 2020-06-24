@@ -7,7 +7,7 @@ uri="/struts-tags"%>
     <link rel="stylesheet" href="CSS/left.css" />
   </head>
 
-  <body class="p-3">
+<!--   <body class="p-3">
     <a href="right.jsp" target="right" class="homeText"
       ><h4 class="my-3">HOME</h4>
      </a>
@@ -20,11 +20,12 @@ uri="/struts-tags"%>
     </p>
     <p class="ml-4">
       <a href="getAllProductOut.action" target="right">Product Sold</a>
-    </p>
+    </p> -->
 
 <body class="p-3">
-		<a href="getAllProductSession.action" target="right" class="homeText"><h5 class="homeText">HOME</h5></a>
-		<h4>Product Inventory</h4>
+		<a href="getAllProductSession.action" target="right" class="homeText">
+		<h4 class="homeText mt-5">HOME</h4></a>
+		<h5>Product Inventory</h5>
 		<p class="ml-4">
 			<a href="getAllProduct.action" target="right">Product List</a>
 		</p>

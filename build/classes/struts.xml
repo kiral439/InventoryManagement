@@ -93,7 +93,7 @@
 
 		<action name="UpdateProductOutInfo" class="org.action.ProductEditAction" method="updateOut">
 			<result name="success">productOutList.jsp</result>
-			<result name="error">error.jsp</result>
+			<result name="error">qtyCheckErrorForEdit.jsp</result>
 		</action>
 
 		<action name="ProductInEdit" class="org.action.ProductEditAction" >
@@ -133,7 +133,7 @@
 
 		<action name="addNewProductSold" class="org.action.ProductOutAction" method="addNewProductSold">
 			<result name="success">productOutList.jsp</result>
-			<result name="error">error.jsp</result>
+			<result name="error">qtyCheckError.jsp</result>
 			<result name="input">error.jsp</result>
 		</action>
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
