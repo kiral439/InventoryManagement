@@ -37,7 +37,12 @@
   <div class="card-body">
     <h5 class="card-title"><s:property value="#product.prod_name" /></h5>
     <%-- <p class="card-text"><s:property value="#product.description" /></p> --%>
-		<p class="card-text"><s:property value="#product.description.substring(0,60)" />...</p>
+    	<s:if test="%{#product.description.length()<60}">
+    		<p class="card-text"><s:property value="#product.description" /></p>
+    	</s:if>
+    	<s:else>
+    		<p class="card-text"><s:property value="#product.description.substring(0,60)" />...</p>
+    	</s:else>
     <a href="ProductEdit.action?prodIn.prod_id=<s:property value="#product.prod_id" />" class="btn btn-primary">Edit</a>
   </div>
 </div>
