@@ -16,9 +16,8 @@
 			its name changed or is temporarily unavailable<br>
 			</p>
 			<span class="homepage-box">
-			<a href="main.jsp" target="parent">
-			RETURN</span>		
-			</a>
+				<a href="main.jsp" target="parent">RETURN</a>
+			</span>		
 		</div>
 	</div>
 </body>

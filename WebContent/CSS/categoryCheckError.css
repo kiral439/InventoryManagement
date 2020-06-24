@@ -1,0 +1,45 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #FFBA08;
+}
+
+
+.container {
+	height: 100vh;
+	position: relative;
+}
+
+.box {
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: box;
+	text-align: center;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 100px;
+}
+
+.para-box{
+	margin-bottom: 30px;
+}
+
+.homepage-box {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.homepage-box a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}

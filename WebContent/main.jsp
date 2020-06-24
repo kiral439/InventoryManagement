@@ -4,15 +4,7 @@
 <head>
 	<title>Inventory Management System</title>
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
-	
-	<style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		background-color: #F7CB15;
-	}
-	</style>
+	<link rel="stylesheet" href="CSS/right.css">
 	
 </head>
 <frameset rows="100%,*" border="0">

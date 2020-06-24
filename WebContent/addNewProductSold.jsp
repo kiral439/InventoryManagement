@@ -9,7 +9,7 @@
 <script>
 	
 </script>
-<body bgcolor="#D9DFAA">
+<body>
 	<s:set value="#request.currentProd" var="current" />
 	<h1 class="addNewH3 text-uppercase">New Record:</h1>
 	<s:form action="addNewProductSold" method="post" enctype="multipart/form-data">
