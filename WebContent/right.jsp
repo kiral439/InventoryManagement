@@ -22,7 +22,7 @@
 
 <s:iterator id="product" value="#session.products" var="product">
 <div class="card">
-
+	
 	<!-- getting the image url from the database -->
 	<div id="image-css" style="background-image: url('getImage.action?productBean.id=<s:property value="#product.id"/>');" >
 		

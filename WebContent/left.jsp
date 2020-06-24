@@ -9,16 +9,16 @@ uri="/struts-tags"%>
 
   <body class="p-3">
     <a href="right.jsp" target="right" class="homeText"
-      ><h5 class="homeText">HOME</h5></a
-    >
-    <h4>Product Inventory</h4>
-    <p class="ml-4 colorWhite">
+      ><h4 class="my-3">HOME</h4>
+     </a>
+    <h5>Product Inventory</h5>
+    <p class="ml-4">
       <a href="getAllProduct.action" target="right">Product List</a>
     </p>
-    <p class="ml-4 colorWhite">
+    <p class="ml-4">
       <a href="getAllProductIn.action" target="right">Purchased Product</a>
     </p>
-    <p class="ml-4 colorWhite">
+    <p class="ml-4">
       <a href="getAllProductOut.action" target="right">Product Sold</a>
     </p>
 

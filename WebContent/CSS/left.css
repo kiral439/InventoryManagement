@@ -1,6 +1,6 @@
 body {
-	background-color: #621B00;
-	color: white;
+	background-color: #ECE4B7;
+	color: black;
 }	
 	
 .anchored {
@@ -11,7 +11,14 @@ body {
 	text-align: center;
 }
 
-.colorWhite a{
-	color:white;
-	text-decoration:none;
+a {
+	color: black;
+}
+
+a:hover {
+	color: #621B00;
+}
+
+h5{
+	color: rgba(0,0,0,0.7);
 }
