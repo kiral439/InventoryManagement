@@ -68,24 +68,7 @@ public class ProductDaoImp implements ProductDao{
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
 			List list=Hsession.createQuery("from Product order by prod_id").list();	
-//			List list=Hsession.createQuery("substring(description,1,10) as description from Product order by prod_id").list();	
-			
-			
-			
 			ts.commit();
-			
-			Iterator iterator = list.iterator();
-			int i = 0;
-		    while(iterator.hasNext()) {
-		    	Product pro = (Product) iterator.next();
-		    	//Product product = (Product) iterator.getClass();
-		    	if(pro.getDescription().length() > 60) {
-		    		pro.setDescription(pro.getDescription().substring(0, 60)+"...");
-		    	}
-		    	list.set(i, pro);
-		    	i++;
-		    }
-			
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();

@@ -10,6 +10,5 @@ public interface ProductInDao {
 	public List getAll();
 	public List getOnShipping();
 	
-//	public void update(ProductIn prodIn);
 	public void update(ProductIn productIn);
 }

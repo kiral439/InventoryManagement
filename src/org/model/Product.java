@@ -14,8 +14,6 @@ public class Product{
 	private Integer pending_stock;
 	private String description;
 
-//	private Set course_set = new HashSet();	
-	//Constructors
 	/** default constructor */
 	public Product() {
 	}
