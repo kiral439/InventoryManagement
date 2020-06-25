@@ -6,6 +6,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.struts2.ServletActionContext;
+
 import org.dao.impl.CategoryDaoImp;
 import org.dao.impl.ProductDaoImp;
 import org.dao.impl.ProductInDaoImp;
@@ -22,7 +26,7 @@ import org.model.Product;
 import org.model.ProductIn;
 import org.model.ProductOut;
 
-import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.*;
 
 public class ProductEditAction {
 	private ProductDao productDao;
