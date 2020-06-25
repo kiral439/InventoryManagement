@@ -58,6 +58,7 @@
 		<action name="addNewPurchase" class="org.action.ProductInAction" method="addNewPurchase">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>
+			<result name="input">inputError.jsp</result>
 		</action>
 
 		<action name="productOutUpdate" class="org.action.ProductOutAction" method="update">
@@ -84,6 +85,7 @@
 		<action name="UpdateProductInInfo" class="org.action.ProductEditAction" method="updateIn">
 			<result name="success">productInList.jsp</result>
 			<result name="error">error.jsp</result>
+			<result name="input">inputError.jsp</result>
 		</action>
 
 		<action name="UpdateProductInfo" class="org.action.ProductEditAction" method="update">
@@ -94,6 +96,7 @@
 		<action name="UpdateProductOutInfo" class="org.action.ProductEditAction" method="updateOut">
 			<result name="success">productOutList.jsp</result>
 			<result name="error">qtyCheckErrorForEdit.jsp</result>
+			<result name="input">inputError.jsp</result>
 		</action>
 
 		<action name="ProductInEdit" class="org.action.ProductEditAction" >
@@ -134,7 +137,7 @@
 		<action name="addNewProductSold" class="org.action.ProductOutAction" method="addNewProductSold">
 			<result name="success">productOutList.jsp</result>
 			<result name="error">qtyCheckError.jsp</result>
-			<result name="input">error.jsp</result>
+			<result name="input">inputError.jsp</result>
 		</action>
 		<!-- <action name="arrived" class="org.action.ProductInAction" method="changeStatus">
 			<result name="success">productInList.jsp</result>
