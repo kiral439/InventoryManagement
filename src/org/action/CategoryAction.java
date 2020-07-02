@@ -34,6 +34,7 @@ public class CategoryAction extends ActionSupport{
 	public String execute() throws Exception {
 		CategoryDao categoryDao=new CategoryDaoImp();				
 		List categories=categoryDao.getAll();
+		
 		if(categories!=null){					
 			Map request=(Map)ActionContext.getContext().get("request");
 			request.put("categories", categories);

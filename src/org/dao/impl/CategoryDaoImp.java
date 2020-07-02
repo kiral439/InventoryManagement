@@ -33,10 +33,13 @@ public class CategoryDaoImp implements CategoryDao{
 	        SessionFactory sessionFactory= cfg.buildSessionFactory();
 	        Session Hsession=sessionFactory.openSession();
 			Transaction ts=Hsession.beginTransaction();
+			
 			List list=Hsession.createQuery("from Category").list();		
+			
 			ts.commit();
 			Hsession.clear();
 			Hsession.close();
+			
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
