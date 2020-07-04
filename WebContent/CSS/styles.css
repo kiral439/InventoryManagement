@@ -20,10 +20,18 @@
  */
 
 .wwFormTable {}
-.label {font-style:italic; }
+.label {
+	font-style:italic; 
+	padding: 0px 15px;
+}
 .errorLabel {font-style:italic; color:red; }
 .errorMessage {font-weight:bold; color:red; }
 .checkboxLabel {}
 .checkboxErrorLabel {color:red; }
 .required {color:red;}
-.tdLabel {text-align:left; vertical-align:top; } 
+.tdLabel {
+	text-align:
+	left; 
+	vertical-align:top; 
+	padding-bottom: 10px;
+} 

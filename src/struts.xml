@@ -11,6 +11,12 @@
 			<result name="input">login.jsp</result>
 		</action>
 		
+		<action name="register" class="org.action.RegisterAction">
+			<result name="success">login.jsp</result>
+			<result name="error">loginError.jsp</result>
+			<result name="input">register.jsp</result>
+		</action>
+		
 		<action name="getAllProductSession" class="org.action.ProductAction" method="getAllProductSession">
 			<result name="success">right.jsp</result>
 		</action>
